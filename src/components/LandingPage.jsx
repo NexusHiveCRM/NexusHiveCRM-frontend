@@ -1,10 +1,58 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   const [showBanner, setShowBanner] = useState(true);
+  const [showCookieConsent, setShowCookieConsent] = useState(true);
+
+  useEffect(() => {
+    // Check if user has already accepted cookies
+    const hasAcceptedCookies = localStorage.getItem('cookieConsent');
+    if (hasAcceptedCookies) {
+      setShowCookieConsent(false);
+    }
+  }, []);
+
+  const handleAcceptCookies = () => {
+    localStorage.setItem('cookieConsent', 'true');
+    setShowCookieConsent(false);
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      {/* Cookie Consent Popup */}
+      {showCookieConsent && (
+        <div className="fixed left-0 right-0 bottom-0 w-full z-50">
+          <div className="mx-auto w-[85%] bg-gradient-to-r from-[#d1c4e9] to-[#90caf9] rounded-2xl shadow-xl border border-[#e0e0e0] px-6 py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-4 mb-4">
+            <div className="flex-1 min-w-0">
+              <div className="font-bold text-base text-[#3B2175] mb-0.5">Help us improve your experience</div>
+              <div className="text-xs text-[#23232B] max-w-2xl leading-snug">
+                We use cookies and similar technologies to deliver, maintain, and improve our services, and for security purposes. We also use these technologies to understand how users interact with our services (including the effectiveness of our ad campaigns). Learn more in our{' '}
+                <Link to="/cookie-policy" className="underline text-[#3B2175] hover:text-[#6C4A7C]">Cookie Policy</Link>.
+              </div>
+            </div>
+            <div className="flex gap-3 items-center justify-center mt-2 md:mt-0 flex-shrink-0">
+              <button
+                onClick={() => setShowCookieConsent(false)}
+                className="px-5 py-2 rounded-full bg-white text-[#7C3AED] font-semibold shadow-md border border-[#e0e0e0] hover:bg-[#f3e8ff] transition-all text-sm"
+              >
+                Reject non-essential
+              </button>
+              <button
+                onClick={handleAcceptCookies}
+                className="px-5 py-2 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#7C6CFA] text-white font-semibold shadow-md border-0 hover:opacity-90 transition-all text-sm"
+              >
+                Accept all
+              </button>
+            </div>
+          </div>
+          <div className="w-full text-center text-xs text-[#3B2175] opacity-80 pb-2">
+            By messaging NexusHive, you agree to our <a href="#" className="underline">Terms</a> and have read our <a href="#" className="underline">Privacy Policy</a>.
+          </div>
+        </div>
+      )}
+
       {/* Announcement Bar */}
       {showBanner && (
         <div className="w-full bg-[#3B5B7C] text-white text-center px-4 py-2 flex items-center justify-center relative text-sm">
@@ -348,12 +396,12 @@ function CustomVideoPlayer() {
   };
 
   return (
-    <div className="mt-6 bg-white rounded-2xl shadow-xl p-2 md:p-4 w-full max-w-3xl mx-auto relative flex flex-col items-center" style={{minHeight:'340px'}}>
+    <div className="mt-6 bg-white rounded-2xl shadow-xl p-2 md:p-4 w-full max-w-5xl mx-auto relative flex flex-col items-center" style={{minHeight:'520px'}}>
       <video
         ref={videoRef}
         src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-LandingPage-AI-Video.mp4"
         poster="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-Logo.png"
-        className="w-full h-[320px] object-contain rounded-xl bg-[#F6F7FA]"
+        className="w-full h-[500px] object-contain rounded-xl bg-[#F6F7FA]"
         style={{outline: 'none'}}
         onClick={handlePlayPause}
       />
