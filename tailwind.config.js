@@ -71,6 +71,10 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        'app-gradient': 'linear-gradient(to bottom right, #ede7f6, #e3f0ff)',
+        'app-gradient-dark': 'linear-gradient(to bottom right, #181824, #23232b)',
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

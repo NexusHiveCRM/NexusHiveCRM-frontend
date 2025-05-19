@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
   const [showBanner, setShowBanner] = useState(true);
   const [showCookieConsent, setShowCookieConsent] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if user has already accepted cookies
@@ -97,8 +98,13 @@ export default function LandingPage() {
             </div>
             <a href="#" className="text-black font-medium">Enterprise</a>
             <a href="#" className="text-black font-medium">Pricing</a>
-            <a href="#" className="text-black font-medium">Sign In</a>
-            <Button className="bg-[#E3F0FF] text-[#3B5B7C] font-semibold px-6 py-2 rounded-full shadow-none hover:bg-[#d0e6ff] transition-colors" style={{boxShadow: 'none'}}>Book your Demo</Button>
+            <Button
+              className="bg-[#E3F0FF] text-[#3B5B7C] font-semibold px-6 py-2 rounded-full shadow-none hover:bg-[#d0e6ff] transition-colors"
+              style={{boxShadow: 'none'}}
+              onClick={() => navigate('/login')}
+            >
+              Login
+            </Button>
             <Button variant="ghost" className="border border-[#E3F0FF] text-[#3B5B7C] font-semibold px-6 py-2 rounded-full shadow-none hover:bg-[#f5faff] transition-colors">Contact Sales</Button>
           </nav>
         </div>
