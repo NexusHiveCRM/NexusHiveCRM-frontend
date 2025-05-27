@@ -14,7 +14,7 @@ const features = [
 export default function SuperAdminDashboard() {
   const navigate = useNavigate();
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex min-h-screen bg-[#F6F7FA]">
       <Sidebar features={features} />
       {/* Main Content */}
       <main className="flex-1 p-10 flex flex-col gap-8">

@@ -29,6 +29,15 @@ import ComplianceQuality from "./features/marketing-head/pages/ComplianceQuality
 import AccountManagement from "./features/marketing-head/pages/AccountManagement";
 import Tickets from "./features/marketing-head/pages/Tickets";
 import AdmissionHeadLayout from "./components/AdmissionHeadLayout";
+import AdminHeadDashboard from "./components/AdminHeadDashboard";
+import ITHeadDashboard from "./components/ITHeadDashboard";
+import HoDDashboard from "./components/HoDDashboard";
+import SeniorProfessorDashboard from "./components/SeniorProfessorDashboard";
+import StudentDashboard from "./components/StudentDashboard";
+import ParentDashboard from "./components/ParentDashboard";
+import ExamHeadDashboard from "./components/ExamHeadDashboard";
+import LibraryHeadDashboard from "./components/LibraryHeadDashboard";
+import TransportHeadDashboard from "./components/TransportHeadDashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -83,6 +92,15 @@ export default function App() {
         <Route path="/rbac/hr-manager" element={<HRManagerDashboard />} />
         <Route path="/rbac/director" element={<DirectorDashboard />} />
         <Route path="/rbac/dean" element={<DeanDashboard />} />
+        <Route path="/rbac/admin-head" element={<AdminHeadDashboard />} />
+        <Route path="/rbac/it-head" element={<ITHeadDashboard />} />
+        <Route path="/rbac/hod" element={<HoDDashboard />} />
+        <Route path="/rbac/senior-professor" element={<SeniorProfessorDashboard />} />
+        <Route path="/rbac/student" element={<StudentDashboard />} />
+        <Route path="/rbac/parent" element={<ParentDashboard />} />
+        <Route path="/rbac/exam-head" element={<ExamHeadDashboard />} />
+        <Route path="/rbac/library-head" element={<LibraryHeadDashboard />} />
+        <Route path="/rbac/transport-head" element={<TransportHeadDashboard />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>
     </Router>

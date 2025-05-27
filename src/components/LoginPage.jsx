@@ -13,6 +13,15 @@ const dashboardRoute = (user) => {
   if (user.team === "HR & PayRoll Team" && user.role === "Manager") return "/rbac/hr-manager";
   if (user.team === "Director and Deans" && user.role === "Director") return "/rbac/director";
   if (user.team === "Director and Deans" && user.role === "Dean") return "/rbac/dean";
+  if (user.team === "Admin Team" && user.role === "Head") return "/rbac/admin-head";
+  if (user.team === "IT & Support Team" && user.role === "Head") return "/rbac/it-head";
+  if (user.team === "HoD" && user.role === "HoD") return "/rbac/hod";
+  if (user.team === "Teacher/Professor" && user.role === "Senior Professor") return "/rbac/senior-professor";
+  if (user.team === "Students" && user.role === "Students") return "/rbac/student";
+  if (user.team === "Parents" && user.role === "Parents") return "/rbac/parent";
+  if (user.team === "Exam Team" && user.role === "Head") return "/rbac/exam-head";
+  if (user.team === "Library Team" && user.role === "Head") return "/rbac/library-head";
+  if (user.team === "Transport Team" && user.role === "Head") return "/rbac/transport-head";
   // Add more as you build more dashboards
   // Default fallback
   return "/unauthorized";
@@ -43,7 +52,16 @@ export default function LoginPage() {
       <div className="flex w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-lg border border-white/20">
         {/* Left Side - Logo & Tagline */}
         <div className="hidden md:flex flex-col items-center justify-center w-1/2 bg-white/10 p-10 rounded-l-3xl">
-          <img src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-Logo.png" alt="NexusHiveCRM Logo" className="w-28 h-28 mb-6" />
+          <img
+            src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-Logo.png"
+            alt="NexusHiveCRM Logo"
+            className="w-28 h-28 mb-6 block dark:hidden"
+          />
+          <img
+            src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-darktheme-logo.png"
+            alt="NexusHiveCRM Logo Dark"
+            className="w-28 h-28 mb-6 hidden dark:block"
+          />
           <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">NexusHiveCRM</h2>
           <p className="text-white/80 text-center text-lg font-medium drop-shadow">Empowering Universities with Modern Management Solutions</p>
         </div>

@@ -94,7 +94,7 @@ const features = [
 
 export default function MarketingHeadLayout() {
   return (
-    <div className="flex h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="flex h-screen bg-[#F6F7FA] dark:from-gray-900 dark:to-gray-800">
       <Sidebar features={features} userLabel="Marketing Head" />
       <main className="flex-1 overflow-y-auto">
         <div className="p-6 md:p-8 lg:p-10 flex flex-col gap-6">
