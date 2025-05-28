@@ -18,12 +18,15 @@ import AdmissionSpocDashboard from "./components/AdmissionSpocDashboard";
 import HRHeadDashboard from "./components/HRHeadDashboard";
 import HRManagerDashboard from "./components/HRManagerDashboard";
 import DirectorDashboard from "./components/DirectorDashboard";
+import AnalyticsReports from "./components/AnalyticsReports";
+import Departments from "./components/Departments";
+import ApprovalCenter from "./components/ApprovalCenter";
 import DeanDashboard from "./components/DeanDashboard";
 import Unauthorized from "./components/Unauthorized";
 import LeadsManagement from "./features/marketing-head/pages/LeadsManagement";
 import ResourceManagement from "./features/marketing-head/pages/ResourceManagement";
 import ReportingAnalytics from "./features/marketing-head/pages/ReportingAnalytics";
-import CommunicationHub from "./features/marketing-head/pages/CommunicationHub";
+import CommunicationHub from "./components/CommunicationHub";
 import TrainingDevelopment from "./features/marketing-head/pages/TrainingDevelopment";
 import ComplianceQuality from "./features/marketing-head/pages/ComplianceQuality";
 import AccountManagement from "./features/marketing-head/pages/AccountManagement";
@@ -38,6 +41,13 @@ import ParentDashboard from "./components/ParentDashboard";
 import ExamHeadDashboard from "./components/ExamHeadDashboard";
 import LibraryHeadDashboard from "./components/LibraryHeadDashboard";
 import TransportHeadDashboard from "./components/TransportHeadDashboard";
+import StrategicPlanning from "./components/StrategicPlanning";
+import AuditCompliance from "./components/AuditCompliance";
+import MeetingsCalendar from "./components/MeetingsCalendar";
+import UserManagement from "./components/UserManagement";
+import DirectorSettings from "./components/DirectorSettings";
+import DirectorWorkspace from "./components/DirectorWorkspace";
+import DirectorSupport from "./components/DirectorSupport";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -91,6 +101,17 @@ export default function App() {
         <Route path="/rbac/hr-head" element={<HRHeadDashboard />} />
         <Route path="/rbac/hr-manager" element={<HRManagerDashboard />} />
         <Route path="/rbac/director" element={<DirectorDashboard />} />
+        <Route path="/rbac/director/analytics" element={<AnalyticsReports />} />
+        <Route path="/rbac/director/departments" element={<Departments />} />
+        <Route path="/rbac/director/approvals" element={<ApprovalCenter />} />
+        <Route path="/rbac/director/strategic-planning" element={<StrategicPlanning />} />
+        <Route path="/rbac/director/communication" element={<CommunicationHub />} />
+        <Route path="/rbac/director/audit" element={<AuditCompliance />} />
+        <Route path="/rbac/director/calendar" element={<MeetingsCalendar />} />
+        <Route path="/rbac/director/users" element={<UserManagement />} />
+        <Route path="/rbac/director/settings" element={<DirectorSettings />} />
+        <Route path="/rbac/director/workspace" element={<DirectorWorkspace />} />
+        <Route path="/rbac/director/support" element={<DirectorSupport />} />
         <Route path="/rbac/dean" element={<DeanDashboard />} />
         <Route path="/rbac/admin-head" element={<AdminHeadDashboard />} />
         <Route path="/rbac/it-head" element={<ITHeadDashboard />} />
