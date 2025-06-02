@@ -1,47 +1,194 @@
-import React from "react";
-import Sidebar from "./Sidebar";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  PieChart, Pie, Cell, BarChart, Bar, Legend
+} from "recharts";
 
-const features = [
-  { label: "Dashboard", icon: "🏠", route: "/rbac/marketing-head" },
-  { label: "Leads", icon: "📋", route: "/rbac/marketing-head/leads" },
-  { label: "Campaigns", icon: "📢", route: "/rbac/marketing-head/campaigns" },
-  { label: "Reports", icon: "📊", route: "/rbac/marketing-head/reports" },
-  { label: "Settings", icon: "⚙️", route: "/rbac/marketing-head/settings" },
+// Demo data for KPI cards
+const kpis = [
+  { label: "Total Leads", value: 1240, icon: "🎯", color: "bg-blue-100 text-blue-700" },
+  { label: "Conversion Rate", value: "32%", icon: "📈", color: "bg-green-100 text-green-700" },
+  { label: "Active Campaigns", value: 8, icon: "📢", color: "bg-purple-100 text-purple-700" },
+  { label: "Team Members", value: 15, icon: "👥", color: "bg-yellow-100 text-yellow-700" },
+  { label: "ROI", value: "285%", icon: "💰", color: "bg-pink-100 text-pink-700" },
 ];
 
+// Demo data for charts
+const leadTrend = [
+  { month: "Jan", Leads: 200, Conversions: 60 },
+  { month: "Feb", Leads: 250, Conversions: 75 },
+  { month: "Mar", Leads: 300, Conversions: 90 },
+  { month: "Apr", Leads: 350, Conversions: 105 },
+  { month: "May", Leads: 400, Conversions: 120 },
+  { month: "Jun", Leads: 420, Conversions: 130 },
+];
+
+const campaignPerformance = [
+  { name: "Social Media", value: 35 },
+  { name: "Email", value: 25 },
+  { name: "Events", value: 20 },
+  { name: "Direct", value: 15 },
+  { name: "Other", value: 5 },
+];
+
+const COLORS = ["#6366f1", "#22c55e", "#f59e42", "#eab308", "#a3a3a3"];
+
 export default function MarketingHeadDashboard() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+
+  const handleCardClick = (content) => {
+    setModalContent(content);
+    setShowModal(true);
+  };
+
+  const Modal = ({ content, onClose }) => {
+    if (!content) return null;
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+        <div className="absolute inset-0" onClick={onClose} />
+        <div className="relative z-10 bg-white dark:bg-gray-800 rounded-xl p-6 max-w-2xl w-full mx-4">
+          <button
+            onClick={onClose}
+            className="absolute top-2 right-4 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-3xl font-bold"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+          {content}
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-[#ede7f6] to-[#e3f0ff]">
-      <Sidebar features={features} />
-      <main className="flex-1 p-10 flex flex-col gap-8">
-        <h1 className="text-3xl font-bold text-[#4f3cc9] mb-4">Welcome, Marketing Head!</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl shadow p-6 flex flex-col items-start">
-            <span className="text-2xl mb-2">📋</span>
-            <div className="font-semibold text-lg mb-1">Leads</div>
-            <div className="text-gray-500 mb-4">View and manage all marketing leads.</div>
-            <button className="text-[#4f3cc9] font-semibold hover:underline">Go to Leads</button>
-          </div>
-          <div className="bg-white rounded-2xl shadow p-6 flex flex-col items-start">
-            <span className="text-2xl mb-2">📢</span>
-            <div className="font-semibold text-lg mb-1">Campaigns</div>
-            <div className="text-gray-500 mb-4">Manage marketing campaigns and activities.</div>
-            <button className="text-[#4f3cc9] font-semibold hover:underline">Go to Campaigns</button>
-          </div>
-          <div className="bg-white rounded-2xl shadow p-6 flex flex-col items-start">
-            <span className="text-2xl mb-2">📊</span>
-            <div className="font-semibold text-lg mb-1">Reports</div>
-            <div className="text-gray-500 mb-4">Analyze marketing performance and results.</div>
-            <button className="text-[#4f3cc9] font-semibold hover:underline">Go to Reports</button>
-          </div>
-          <div className="bg-white rounded-2xl shadow p-6 flex flex-col items-start">
-            <span className="text-2xl mb-2">⚙️</span>
-            <div className="font-semibold text-lg mb-1">Settings</div>
-            <div className="text-gray-500 mb-4">Configure marketing preferences.</div>
-            <button className="text-[#4f3cc9] font-semibold hover:underline">Settings</button>
+    <div className="flex flex-col gap-8">
+      {/* Header Section */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Marketing Dashboard</h1>
+          <p className="text-sm text-gray-600 dark:text-gray-300">Welcome back, {user?.displayName || "Marketing Head"}</p>
+        </div>
+        <div className="flex gap-3">
+          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            New Campaign
+          </button>
+          <button className="px-4 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600">
+            Export Report
+          </button>
+        </div>
+      </div>
+
+      {/* KPI Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {kpis.map((kpi, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className={`${kpi.color} p-4 rounded-xl shadow-sm`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-2xl">{kpi.icon}</span>
+              <span className="text-2xl font-bold">{kpi.value}</span>
+            </div>
+            <p className="text-sm mt-2">{kpi.label}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Charts Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Lead Trend Chart */}
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+          <h2 className="text-lg font-semibold mb-4">Lead Generation Trend</h2>
+          <div className="h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={leadTrend}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="Leads" stroke="#6366f1" />
+                <Line type="monotone" dataKey="Conversions" stroke="#22c55e" />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
-      </main>
+
+        {/* Campaign Performance Chart */}
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+          <h2 className="text-lg font-semibold mb-4">Campaign Performance</h2>
+          <div className="h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={campaignPerformance}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                >
+                  {campaignPerformance.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </div>
+
+      {/* Recent Activity and Tasks */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+          <h2 className="text-lg font-semibold mb-4">Recent Activity</h2>
+          <div className="space-y-4">
+            {[
+              { action: "New lead added", time: "2 hours ago", user: "John Doe" },
+              { action: "Campaign launched", time: "5 hours ago", user: "Jane Smith" },
+              { action: "Report generated", time: "1 day ago", user: "Mike Johnson" },
+            ].map((activity, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <div>
+                  <p className="text-sm font-medium">{activity.action}</p>
+                  <p className="text-xs text-gray-500">{activity.time} by {activity.user}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+          <h2 className="text-lg font-semibold mb-4">Upcoming Tasks</h2>
+          <div className="space-y-4">
+            {[
+              { task: "Review Q2 Campaign Strategy", due: "Tomorrow" },
+              { task: "Team Performance Review", due: "In 2 days" },
+              { task: "Budget Planning Meeting", due: "In 3 days" },
+            ].map((task, index) => (
+              <div key={index} className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <input type="checkbox" className="rounded text-blue-600" />
+                  <span className="text-sm">{task.task}</span>
+                </div>
+                <span className="text-xs text-gray-500">{task.due}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {showModal && <Modal content={modalContent} onClose={() => setShowModal(false)} />}
     </div>
   );
 } 

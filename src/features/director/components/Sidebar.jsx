@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Sidebar({ features, userLabel }) {
+export default function Sidebar({ features, userLabel, expanded, setExpanded }) {
   const location = useLocation();
   const navigate = useNavigate();
   // Read initial theme from localStorage or system preference
@@ -14,7 +14,6 @@ export default function Sidebar({ features, userLabel }) {
     }
     return false;
   };
-  const [expanded, setExpanded] = useState(false);
   const [darkTheme, setDarkTheme] = useState(getInitialTheme);
 
   // Apply theme on mount and when darkTheme changes

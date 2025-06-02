@@ -9,26 +9,49 @@ import RBACTemplates from "./components/RBACTemplates";
 import RBACLogs from "./components/RBACLogs";
 import RBACSettings from "./components/RBACSettings";
 import MarketingHeadLayout from "./features/marketing-head/pages/MarketingHeadLayout";
-import Dashboard from "./features/marketing-head/pages/Dashboard";
-import TeamManagement from "./features/marketing-head/pages/TeamManagement";
-import CampaignManagement from "./features/marketing-head/pages/CampaignManagement";
+import MarketingHeadDashboard from "./components/MarketingHeadDashboard";
+import TeamManagement from './features/marketing-head/components/TeamManagement';
+import CampaignManagement from './features/marketing-head/components/CampaignManagement';
 import MarketingManagerDashboard from "./components/MarketingManagerDashboard";
 import AdmissionHeadDashboard from "./components/AdmissionHeadDashboard";
 import AdmissionSpocDashboard from "./components/AdmissionSpocDashboard";
 import HRHeadDashboard from "./components/HRHeadDashboard";
 import HRManagerDashboard from "./components/HRManagerDashboard";
 import DirectorDashboard from "./components/DirectorDashboard";
+import AnalyticsReports from './features/director/components/AnalyticsReports';
+import Departments from './features/director/components/Departments';
+import ApprovalCenter from './features/director/components/ApprovalCenter';
 import DeanDashboard from "./components/DeanDashboard";
 import Unauthorized from "./components/Unauthorized";
-import LeadsManagement from "./features/marketing-head/pages/LeadsManagement";
-import ResourceManagement from "./features/marketing-head/pages/ResourceManagement";
-import ReportingAnalytics from "./features/marketing-head/pages/ReportingAnalytics";
-import CommunicationHub from "./features/marketing-head/pages/CommunicationHub";
-import TrainingDevelopment from "./features/marketing-head/pages/TrainingDevelopment";
-import ComplianceQuality from "./features/marketing-head/pages/ComplianceQuality";
-import AccountManagement from "./features/marketing-head/pages/AccountManagement";
-import Tickets from "./features/marketing-head/pages/Tickets";
+import LeadsManagement from './features/marketing-head/components/LeadsManagement';
+import ResourceManagement from './features/marketing-head/components/ResourceManagement';
+import ReportingAnalytics from './features/marketing-head/components/ReportingAnalytics';
+import CommunicationHub from './features/director/components/CommunicationHub';
+import MarketingHeadCommunicationHub from './features/marketing-head/components/CommunicationHub';
+import TrainingDevelopment from './features/marketing-head/components/TrainingDevelopment';
+import ComplianceQuality from './features/marketing-head/components/ComplianceQuality';
+import AccountManagement from './features/marketing-head/components/AccountManagement';
+import Tickets from "./features/marketing-head/components/Tickets";
 import AdmissionHeadLayout from "./components/AdmissionHeadLayout";
+import AdminHeadDashboard from "./components/AdminHeadDashboard";
+import ITHeadDashboard from "./components/ITHeadDashboard";
+import HoDDashboard from "./components/HoDDashboard";
+import SeniorProfessorDashboard from "./components/SeniorProfessorDashboard";
+import StudentDashboard from "./components/StudentDashboard";
+import ParentDashboard from "./components/ParentDashboard";
+import ExamHeadDashboard from "./components/ExamHeadDashboard";
+import LibraryHeadDashboard from "./components/LibraryHeadDashboard";
+import TransportHeadDashboard from "./components/TransportHeadDashboard";
+import StrategicPlanning from './features/director/components/StrategicPlanning';
+import RiskManagement from './features/director/components/RiskManagement';
+import AuditCompliance from './features/director/components/AuditCompliance';
+import MeetingsCalendar from './features/director/components/MeetingsCalendar';
+import UserManagement from './features/director/components/UserManagement';
+import DirectorSettings from './features/director/components/DirectorSettings';
+import Workspace from './features/director/components/Workspace';
+import MarketingHeadWorkspace from './features/marketing-head/components/Workspace';
+import Support from './features/director/components/Support';
+import MarketingHeadSupport from './features/marketing-head/components/Support';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -47,17 +70,16 @@ export default function App() {
         
         {/* Marketing Head Routes */}
         <Route path="/rbac/marketing-head" element={<MarketingHeadLayout />}>
-          <Route index element={<Dashboard />} />
+          <Route index element={<MarketingHeadDashboard />} />
           <Route path="team" element={<TeamManagement />} />
-          <Route path="campaigns" element={<CampaignManagement />} />
           <Route path="leads" element={<LeadsManagement />} />
+          <Route path="campaigns" element={<CampaignManagement />} />
           <Route path="resources" element={<ResourceManagement />} />
           <Route path="analytics" element={<ReportingAnalytics />} />
-          <Route path="communication" element={<CommunicationHub />} />
+          <Route path="communication" element={<MarketingHeadCommunicationHub />} />
           <Route path="training" element={<TrainingDevelopment />} />
-          <Route path="compliance" element={<ComplianceQuality />} />
-          <Route path="account" element={<AccountManagement />} />
-          <Route path="tickets" element={<Tickets />} />
+          <Route path="workspace" element={<MarketingHeadWorkspace />} />
+          <Route path="support" element={<MarketingHeadSupport />} />
         </Route>
 
         <Route path="/rbac/marketing-manager" element={<MarketingManagerDashboard />} />
@@ -82,7 +104,28 @@ export default function App() {
         <Route path="/rbac/hr-head" element={<HRHeadDashboard />} />
         <Route path="/rbac/hr-manager" element={<HRManagerDashboard />} />
         <Route path="/rbac/director" element={<DirectorDashboard />} />
+        <Route path="/rbac/director/analytics" element={<AnalyticsReports />} />
+        <Route path="/rbac/director/departments" element={<Departments />} />
+        <Route path="/rbac/director/approvals" element={<ApprovalCenter />} />
+        <Route path="/rbac/director/strategic-planning" element={<StrategicPlanning />} />
+        <Route path="/rbac/director/communication" element={<CommunicationHub />} />
+        <Route path="/rbac/director/audit" element={<AuditCompliance />} />
+        <Route path="/rbac/director/calendar" element={<MeetingsCalendar />} />
+        <Route path="/rbac/director/users" element={<UserManagement />} />
+        <Route path="/rbac/director/settings" element={<DirectorSettings />} />
+        <Route path="/rbac/director/workspace" element={<Workspace />} />
+        <Route path="/rbac/director/support" element={<Support />} />
+        <Route path="/rbac/marketing-head/support" element={<MarketingHeadSupport />} />
         <Route path="/rbac/dean" element={<DeanDashboard />} />
+        <Route path="/rbac/admin-head" element={<AdminHeadDashboard />} />
+        <Route path="/rbac/it-head" element={<ITHeadDashboard />} />
+        <Route path="/rbac/hod" element={<HoDDashboard />} />
+        <Route path="/rbac/senior-professor" element={<SeniorProfessorDashboard />} />
+        <Route path="/rbac/student" element={<StudentDashboard />} />
+        <Route path="/rbac/parent" element={<ParentDashboard />} />
+        <Route path="/rbac/exam-head" element={<ExamHeadDashboard />} />
+        <Route path="/rbac/library-head" element={<LibraryHeadDashboard />} />
+        <Route path="/rbac/transport-head" element={<TransportHeadDashboard />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>
     </Router>
