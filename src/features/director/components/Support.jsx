@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Sidebar from "../features/director/components/Sidebar";
-import { directorFeatures } from "../features/director/components/directorFeatures";
+import Sidebar from "./Sidebar";
+import { directorFeatures } from './directorFeatures';
 
 const faqs = [
   { q: "How do I reset my password?", a: "Go to Settings > Security and click 'Reset Password'." },
@@ -14,13 +14,14 @@ const helpTopics = [
   { title: "Compliance", desc: "Guidelines for NAAC, NBA, UGC, and AICTE compliance." },
 ];
 
-export default function DirectorSupport() {
+export default function Support() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
   return (
     <div className="flex min-h-screen bg-[#F6F7FA] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
       <div className="sticky top-0 h-screen z-30">
-        <Sidebar features={directorFeatures} userLabel={user?.displayName || user?.role || "Director"} />
+        <Sidebar features={directorFeatures} userLabel={user?.displayName || user?.role || "Director"} expanded={expanded} setExpanded={setExpanded} />
       </div>
       <main className="flex-1 p-4 md:p-6 flex flex-col gap-8 overflow-x-auto">
         <div>

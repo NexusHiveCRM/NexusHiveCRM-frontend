@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Sidebar from "../features/director/components/Sidebar";
-import { directorFeatures } from "../features/director/components/directorFeatures";
+import Sidebar from "./Sidebar";
+import { directorFeatures } from './directorFeatures';
 
 const settingsCategories = [
   {
@@ -51,7 +51,7 @@ const settingsCategories = [
   },
 ];
 
-export default function DirectorSettings() {
+export default function Settings() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
   const [activeCategory, setActiveCategory] = useState(settingsCategories[0].label);
 
