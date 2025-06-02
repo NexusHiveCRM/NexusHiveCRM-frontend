@@ -52,6 +52,7 @@ import Workspace from './features/director/components/Workspace';
 import MarketingHeadWorkspace from './features/marketing-head/components/Workspace';
 import Support from './features/director/components/Support';
 import MarketingHeadSupport from './features/marketing-head/components/Support';
+import Dashboard from "./features/admission-head/components/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -84,7 +85,7 @@ export default function App() {
 
         <Route path="/rbac/marketing-manager" element={<MarketingManagerDashboard />} />
         <Route path="/rbac/admission-head" element={<AdmissionHeadLayout />}>
-          <Route index element={<AdmissionHeadDashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path="leads" element={<PlaceholderPage title='Leads / Applicants' />} />
           <Route path="applications" element={<PlaceholderPage title='Applications' />} />
           <Route path="schedule" element={<PlaceholderPage title='Schedule / Appointments' />} />
