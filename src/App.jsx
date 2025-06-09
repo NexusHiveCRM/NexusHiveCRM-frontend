@@ -1,4 +1,5 @@
 // Trigger redeploy: trivial comment added
+import React from "react";
 import LandingPage from "./components/LandingPage";
 import CookiePolicy from "./components/CookiePolicy";
 import LoginPage from "./components/LoginPage";
@@ -23,14 +24,14 @@ import Departments from './features/director/components/Departments';
 import ApprovalCenter from './features/director/components/ApprovalCenter';
 import DeanDashboard from "./components/DeanDashboard";
 import Unauthorized from "./components/Unauthorized";
-import LeadsManagement from './features/marketing-head/components/LeadsManagement';
+import LeadsManagement from './features/admission-head/pages/LeadsManagement';
 import ResourceManagement from './features/marketing-head/components/ResourceManagement';
 import ReportingAnalytics from './features/marketing-head/components/ReportingAnalytics';
 import CommunicationHub from './features/director/components/CommunicationHub';
 import MarketingHeadCommunicationHub from './features/marketing-head/components/CommunicationHub';
 import TrainingDevelopment from './features/marketing-head/components/TrainingDevelopment';
 import ComplianceQuality from './features/marketing-head/components/ComplianceQuality';
-import AccountManagement from './features/marketing-head/components/AccountManagement';
+import AccountManagement from './features/admission-head/pages/AccountManagement';
 import Tickets from "./features/marketing-head/components/Tickets";
 import AdmissionHeadLayout from "./components/AdmissionHeadLayout";
 import AdminHeadDashboard from "./components/AdminHeadDashboard";
@@ -50,8 +51,20 @@ import UserManagement from './features/director/components/UserManagement';
 import DirectorSettings from './features/director/components/DirectorSettings';
 import Workspace from './features/director/components/Workspace';
 import MarketingHeadWorkspace from './features/marketing-head/components/Workspace';
-import Support from './features/director/components/Support';
+import Support from './features/admission-head/components/Support';
 import MarketingHeadSupport from './features/marketing-head/components/Support';
+import Dashboard from "./features/admission-head/components/Dashboard";
+import Applications from './features/admission-head/pages/Applications';
+import Schedule from './features/admission-head/pages/Schedule';
+import Communication from './features/admission-head/pages/Communication';
+import Payments from './features/admission-head/pages/Payments';
+import Documents from './features/admission-head/pages/Documents';
+import SearchFilters from './features/admission-head/pages/SearchFilters';
+import ToolsUtilities from './features/admission-head/pages/ToolsUtilities';
+import LeadTransfer from './features/admission-head/pages/LeadTransfer';
+import CourseManagementPage from './features/admission-head/pages/CourseManagement';
+import TrainingDevelopmentPage from './features/admission-head/pages/TrainingDevelopment';
+import ComplianceQualityPage from './features/admission-head/pages/ComplianceQuality';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -84,21 +97,23 @@ export default function App() {
 
         <Route path="/rbac/marketing-manager" element={<MarketingManagerDashboard />} />
         <Route path="/rbac/admission-head" element={<AdmissionHeadLayout />}>
-          <Route index element={<AdmissionHeadDashboard />} />
-          <Route path="leads" element={<PlaceholderPage title='Leads / Applicants' />} />
-          <Route path="applications" element={<PlaceholderPage title='Applications' />} />
-          <Route path="schedule" element={<PlaceholderPage title='Schedule / Appointments' />} />
-          <Route path="communication" element={<PlaceholderPage title='Communication / Logs' />} />
-          <Route path="payments" element={<PlaceholderPage title='Payments' />} />
-          <Route path="documents" element={<PlaceholderPage title='Documents' />} />
-          <Route path="search" element={<PlaceholderPage title='Search / Filters' />} />
-          <Route path="tools" element={<PlaceholderPage title='Tools / Utilities' />} />
-          <Route path="lead-transfer" element={<PlaceholderPage title='Lead Transfer' />} />
-          <Route path="courses" element={<PlaceholderPage title='Course Management' />} />
-          <Route path="training" element={<PlaceholderPage title='Training & Development' />} />
-          <Route path="compliance" element={<PlaceholderPage title='Compliance & Quality' />} />
-          <Route path="account" element={<PlaceholderPage title='Account Management' />} />
+          <Route index element={<Dashboard />} />
+          <Route path="leads" element={<LeadsManagement />} />
+          <Route path="applications" element={<Applications />} />
+          <Route path="schedule" element={<Schedule />} />
+          <Route path="communication" element={<Communication />} />
+          <Route path="payments" element={<Payments />} />
+          <Route path="documents" element={<Documents />} />
+          <Route path="search" element={<SearchFilters />} />
+          <Route path="tools" element={<ToolsUtilities />} />
+          <Route path="lead-transfer" element={<LeadTransfer />} />
+          <Route path="courses" element={<CourseManagementPage />} />
+          <Route path="training" element={<TrainingDevelopmentPage />} />
+          <Route path="compliance" element={<ComplianceQualityPage />} />
+          <Route path="workspace" element={<Workspace />} />
           <Route path="tickets" element={<PlaceholderPage title='Tickets' />} />
+          <Route path="account" element={<AccountManagement />} />
+          <Route path="help" element={<Support />} />
         </Route>
         <Route path="/rbac/admission-spoc" element={<AdmissionSpocDashboard />} />
         <Route path="/rbac/hr-head" element={<HRHeadDashboard />} />
