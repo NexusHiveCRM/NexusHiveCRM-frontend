@@ -13,6 +13,5 @@ export const admissionHeadFeatures = [
   { label: "Training & Development", icon: "🎓", route: "/rbac/admission-head/training", description: "Team training, knowledge management" },
   { label: "Compliance & Quality", icon: "✅", route: "/rbac/admission-head/compliance", description: "Quality assurance, risk management" },
   { label: "Account Management", icon: "👤", route: "/rbac/admission-head/account", description: "Profile, HR, referral, tasks, events, attendance, recruitment, helpdesk" },
-  { label: "Support Tickets", icon: "🎫", route: "/rbac/admission-head/tickets", description: "My tickets, raise a ticket" },
-  { label: "Help / Documentation", icon: "📖", route: "/rbac/admission-head/help", description: "Help, Documentation" }
+  { label: "Help & Supports", icon: "🆘", route: "/rbac/admission-head/help", description: "Help, support, and documentation" }
 ]; 
