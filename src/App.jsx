@@ -16,18 +16,19 @@ import CampaignManagement from './features/marketing-head/components/CampaignMan
 import MarketingManagerDashboard from "./components/MarketingManagerDashboard";
 import AdmissionHeadDashboard from "./components/AdmissionHeadDashboard";
 import AdmissionSpocDashboard from "./components/AdmissionSpocDashboard";
-import HRHeadDashboard from "./components/HRHeadDashboard";
+import HRHeadLayout from "./features/hr-head/pages/HRHeadLayout";
+import HRHeadDashboard from "./features/hr-head/pages/Dashboard";
 import HRManagerDashboard from "./components/HRManagerDashboard";
 import DirectorDashboard from "./components/DirectorDashboard";
 import AnalyticsReports from './features/director/components/AnalyticsReports';
 import Departments from './features/director/components/Departments';
-import ApprovalCenter from './features/director/components/ApprovalCenter';
+import ApprovalCenter from './features/hr-head/pages/ApprovalCenter';
 import DeanDashboard from "./components/DeanDashboard";
 import Unauthorized from "./components/Unauthorized";
 import LeadsManagement from './features/admission-head/pages/LeadsManagement';
 import ResourceManagement from './features/marketing-head/components/ResourceManagement';
 import ReportingAnalytics from './features/marketing-head/components/ReportingAnalytics';
-import CommunicationHub from './features/director/components/CommunicationHub';
+import CommunicationHub from './features/hr-head/pages/CommunicationHub';
 import MarketingHeadCommunicationHub from './features/marketing-head/components/CommunicationHub';
 import TrainingDevelopment from './features/marketing-head/components/TrainingDevelopment';
 import ComplianceQuality from './features/marketing-head/components/ComplianceQuality';
@@ -49,7 +50,7 @@ import AuditCompliance from './features/director/components/AuditCompliance';
 import MeetingsCalendar from './features/director/components/MeetingsCalendar';
 import UserManagement from './features/director/components/UserManagement';
 import DirectorSettings from './features/director/components/DirectorSettings';
-import Workspace from './features/director/components/Workspace';
+import Workspace from './features/hr-head/pages/Workspace';
 import MarketingHeadWorkspace from './features/marketing-head/components/Workspace';
 import Support from './features/admission-head/components/Support';
 import MarketingHeadSupport from './features/marketing-head/components/Support';
@@ -65,6 +66,12 @@ import LeadTransfer from './features/admission-head/pages/LeadTransfer';
 import CourseManagementPage from './features/admission-head/pages/CourseManagement';
 import TrainingDevelopmentPage from './features/admission-head/pages/TrainingDevelopment';
 import ComplianceQualityPage from './features/admission-head/pages/ComplianceQuality';
+import PayrollOverview from "./features/hr-head/pages/PayrollOverview";
+import BudgetManagement from "./features/hr-head/pages/BudgetManagement";
+import ReportsAnalytics from "./features/hr-head/pages/ReportsAnalytics";
+import AuditLogs from "./features/hr-head/pages/AuditLogs";
+import Settings from "./features/hr-head/pages/Settings";
+import SupportTickets from "./features/hr-head/pages/SupportTickets";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -116,7 +123,20 @@ export default function App() {
           <Route path="help" element={<Support />} />
         </Route>
         <Route path="/rbac/admission-spoc" element={<AdmissionSpocDashboard />} />
-        <Route path="/rbac/hr-head" element={<HRHeadDashboard />} />
+        <Route path="/rbac/hr-head" element={<HRHeadLayout />}>
+          <Route index element={<HRHeadDashboard />} />
+          <Route path="payroll" element={<PayrollOverview />} />
+          <Route path="budget" element={<BudgetManagement />} />
+          <Route path="reports" element={<ReportsAnalytics />} />
+          <Route path="approvals" element={<ApprovalCenter />} />
+          <Route path="audit" element={<AuditLogs />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="communication" element={<CommunicationHub />} />
+          <Route path="training" element={<TrainingDevelopment />} />
+          <Route path="compliance" element={<ComplianceQuality />} />
+          <Route path="workspace" element={<Workspace />} />
+          <Route path="support" element={<SupportTickets />} />
+        </Route>
         <Route path="/rbac/hr-manager" element={<HRManagerDashboard />} />
         <Route path="/rbac/director" element={<DirectorDashboard />} />
         <Route path="/rbac/director/analytics" element={<AnalyticsReports />} />
