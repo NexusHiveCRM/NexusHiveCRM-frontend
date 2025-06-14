@@ -25,7 +25,7 @@ const goals = [
 
 // Demo data for Gantt chart (strategic roadmap)
 const roadmap = [
-  { name: "NAAC Prep", start: "2024", end: "2025" },
+  { name: "NCAAA Prep", start: "2024", end: "2025" },
   { name: "New BSc AI Program", start: "2025", end: "2026" },
   { name: "Campus Expansion", start: "2026", end: "2028" },
   { name: "Green Campus Initiative", start: "2024", end: "2027" },

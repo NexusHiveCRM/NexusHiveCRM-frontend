@@ -125,12 +125,16 @@ export default function LandingPage() {
         {/* Testimonial bubble */}
         <div className="absolute right-10 top-0 z-10 flex items-center gap-2">
           <div className="relative">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Bill McDermott" className="w-10 h-10 rounded-full border-2 border-white shadow-md inline-block" />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFA500] flex items-center justify-center shadow-md border-2 border-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white">
+                <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+              </svg>
+            </div>
             <span className="absolute -top-3 -left-3 text-2xl">💬</span>
           </div>
           <div className="bg-white rounded-full px-6 py-4 shadow-lg text-sm text-gray-700 font-medium max-w-xs">
-            <span className="italic">If you simplify everything, you can do anything!</span><br/>
-            <span className="text-xs text-gray-500">- Bill McDermott, former CEO of SAP</span>
+            <span className="italic">We are building an economic experience based on quality and excellence.</span><br/>
+            <span className="text-xs text-gray-500">— King Salman bin Abdulaziz Al Saud</span>
           </div>
         </div>
         {/* Large ellipse background */}
@@ -457,18 +461,18 @@ function formatTime(sec) {
 
 // App grid data and icons
 const appGridData = [
-  { label: "Documents", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/documents.png" },
+  { label: "Enterprise Files", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/documents.png" },
   { label: "Accounting", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/accounting.png" },
   { label: "Sales", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/sales.png" },
-  { label: "Discussion", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/discussion.png" },
-  { label: "Content Hub", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/contentHub.png" },
+  { label: "Team Collaboration", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/discussion.png" },
+  { label: "Media Library", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/contentHub.png" },
   { label: "Reports", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/reports.png" },
   { label: "HR", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/hr.png" },
-  { label: "Esign", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/esign.gif" },
+  { label: "E-Signature", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/esign.gif" },
   { label: "Help Desk", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/helpDesk.png" },
-  { label: "Field Service", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/fieldService.png" },
+  { label: "On-Site Service", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/fieldService.png" },
   { label: "Planning", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/planning.png" },
-  { label: "Social Marketing", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/socialMarketing.png" },
+  { label: "Digital Campaigns", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/socialMarketing.png" },
   { label: "CPQ", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/cpq.png" },
   { label: "Email Marketing", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/emailMarketing.png" },
   { label: "Subscriptions", icon: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHiveProductLogo/subscriptions.png" },

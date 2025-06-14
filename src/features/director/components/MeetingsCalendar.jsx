@@ -12,7 +12,7 @@ const calendarEvents = [
   { date: "2024-03-15", label: "Board Meeting" },
   { date: "2024-03-17", label: "Research Committee" },
   { date: "2024-03-20", label: "Student Council" },
-  { date: "2024-03-22", label: "NAAC Audit" },
+  { date: "2024-03-22", label: "NCAAA Audit" },
 ];
 
 export default function MeetingsCalendar() {

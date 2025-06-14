@@ -7,7 +7,7 @@ import {
 
 // Demo data for KPI cards
 const kpis = [
-  { label: "Total Leads", value: 1240, icon: "🎯", color: "bg-blue-100 text-blue-700" },
+  { label: "Total Qualified Leads", value: 1240, icon: "🎯", color: "bg-blue-100 text-blue-700" },
   { label: "Conversion Rate", value: "32%", icon: "📈", color: "bg-green-100 text-green-700" },
   { label: "Active Campaigns", value: 8, icon: "📢", color: "bg-purple-100 text-purple-700" },
   { label: "Team Members", value: 15, icon: "👥", color: "bg-yellow-100 text-yellow-700" },
@@ -28,7 +28,7 @@ const campaignPerformance = [
   { name: "Social Media", value: 35 },
   { name: "Email", value: 25 },
   { name: "Events", value: 20 },
-  { name: "Direct", value: 15 },
+  { name: "Direct Outreach", value: 15 },
   { name: "Other", value: 5 },
 ];
 
@@ -68,12 +68,13 @@ export default function MarketingHeadDashboard() {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Marketing Dashboard</h1>
-          <p className="text-sm text-gray-600 dark:text-gray-300">Welcome back, {user?.displayName || "Marketing Head"}</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Overview</h1>
+          <p className="text-sm text-gray-600 dark:text-gray-300">Welcome back, { "Head of Marketing Operations"}</p> 
+          {/* user?.displayName || */}
         </div>
         <div className="flex gap-3">
           <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            New Campaign
+            New Campaign Launch
           </button>
           <button className="px-4 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600">
             Export Report
@@ -104,7 +105,7 @@ export default function MarketingHeadDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Lead Trend Chart */}
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold mb-4">Lead Generation Trend</h2>
+          <h2 className="text-lg font-semibold mb-4">Lead Generation Actionable</h2>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={leadTrend}>
@@ -122,7 +123,7 @@ export default function MarketingHeadDashboard() {
 
         {/* Campaign Performance Chart */}
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold mb-4">Campaign Performance</h2>
+          <h2 className="text-lg font-semibold mb-4">Marketing Channel Performance</h2>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -150,12 +151,12 @@ export default function MarketingHeadDashboard() {
       {/* Recent Activity and Tasks */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold mb-4">Recent Activity</h2>
+          <h2 className="text-lg font-semibold mb-4">Workflow Log</h2>
           <div className="space-y-4">
             {[
-              { action: "New lead added", time: "2 hours ago", user: "John Doe" },
-              { action: "Campaign launched", time: "5 hours ago", user: "Jane Smith" },
-              { action: "Report generated", time: "1 day ago", user: "Mike Johnson" },
+              { action: "New lead added", time: "2 hours ago", user: "Sara Khalid" },
+              { action: "Marketing Initiative Deployed", time: "5 hours ago", user: "Jane Smith" },
+              { action: "Performance Report Created", time: "1 day ago", user: "Mike Johnson" },
             ].map((activity, index) => (
               <div key={index} className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
@@ -169,12 +170,12 @@ export default function MarketingHeadDashboard() {
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold mb-4">Upcoming Tasks</h2>
+          <h2 className="text-lg font-semibold mb-4">Upcoming Key Follow-ups</h2>
           <div className="space-y-4">
             {[
-              { task: "Review Q2 Campaign Strategy", due: "Tomorrow" },
-              { task: "Team Performance Review", due: "In 2 days" },
-              { task: "Budget Planning Meeting", due: "In 3 days" },
+              { task: "Evaluate Mid-Year Marketing Direction", due: "June 15, 2025" },
+              { task: "Team Performance Review", due: "June 16, 2025" },
+              { task: "Budget Planning Meeting", due: "June 17, 2025" },
             ].map((task, index) => (
               <div key={index} className="flex items-center justify-between">
                 <div className="flex items-center gap-3">

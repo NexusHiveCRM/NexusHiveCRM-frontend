@@ -162,9 +162,9 @@ export default function Departments() {
           <div>
             <h4 className="text-sm font-medium mb-2 text-gray-600 dark:text-gray-300">Pass/Fail Rate</h4>
             <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={departments} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+              <BarChart data={departments} margin={{ top: 10, right: 30, left: 30, bottom: 50 }}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="name" interval={0} angle={-10} dy={20} />
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="passRate" fill="#6366f1" radius={[4, 4, 0, 0]} />
@@ -173,14 +173,14 @@ export default function Departments() {
           </div>
           <div>
             <h4 className="text-sm font-medium mb-2 text-gray-600 dark:text-gray-300">Student Satisfaction</h4>
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer width="100%" height={240}>
               <RadarChart data={departments.map(dept => ({
                 name: dept.name,
                 GPA: dept.gpa,
                 Satisfaction: dept.satisfactionScore,
                 Completion: dept.completionRate,
                 Dropout: 100 - dept.dropoutRate
-              }))}>
+              }))} outerRadius={100} margin={{ left: 30, right: 30 }}>
                 <PolarGrid />
                 <PolarAngleAxis dataKey="name" />
                 <PolarRadiusAxis />
@@ -192,9 +192,9 @@ export default function Departments() {
           <div>
             <h4 className="text-sm font-medium mb-2 text-gray-600 dark:text-gray-300">Completion vs Dropout</h4>
             <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={departments} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+              <BarChart data={departments} margin={{ top: 10, right: 30, left: 30, bottom: 50 }}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="name" interval={0} angle={-10} dy={20} />
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="completionRate" fill="#22c55e" radius={[4, 4, 0, 0]} />

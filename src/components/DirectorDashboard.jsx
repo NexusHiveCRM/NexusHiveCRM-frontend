@@ -177,7 +177,7 @@ const attritionTrend = [
 // Alerts & Notifications demo data
 const alerts = [
   { icon: '🚨', text: 'Pending Budget Approvals: 3', color: 'text-red-500' },
-  { icon: '⚠️', text: 'Compliance Alert: NAAC Report Due', color: 'text-yellow-500' },
+  { icon: '⚠️', text: 'Compliance Alert: NCAAA Report Due', color: 'text-yellow-500' },
   { icon: '⏳', text: 'Upcoming Exam Deadline: 15th July', color: 'text-blue-500' },
   { icon: '💬', text: 'New Feedback from Students', color: 'text-green-500' },
 ];

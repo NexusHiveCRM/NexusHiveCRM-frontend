@@ -9,7 +9,7 @@ const settingsCategories = [
     options: [
       { label: "Name", value: "Nexus University" },
       { label: "Type", value: "Private" },
-      { label: "Accreditation", value: "NAAC A+" },
+      { label: "Accreditation", value: "NCAAA A+" },
       { label: "Academic Year", value: "2024-25" },
     ],
   },
