@@ -58,11 +58,11 @@ const recentMessages = [
   }
 ];
 
-// Demo data for each section
+// Demo data for lead communications (historical, before June 14, 2025)
 const leadComms = [
-  { id: 1, name: "USA", channel: "Email", lastMsg: "Interested in MBA program", date: "2024-04-15", engagement: 0.85 },
-  { id: 2, name: "USA", channel: "WhatsApp", lastMsg: "Requested brochure", date: "2024-04-14", engagement: 0.72 },
-  { id: 3, name: "USA", channel: "SMS", lastMsg: "Sent application link", date: "2024-04-13", engagement: 0.60 },
+  { id: 1, name: "Saudi Arabia", channel: "Email", lastMsg: "Interested in MBA program", date: "2025-06-10", engagement: 0.85 },
+  { id: 2, name: "Saudi Arabia", channel: "WhatsApp", lastMsg: "Requested brochure", date: "2025-06-09", engagement: 0.72 },
+  { id: 3, name: "Saudi Arabia", channel: "SMS", lastMsg: "Sent application link", date: "2025-06-08", engagement: 0.60 },
 ];
 
 const teamChats = [
@@ -71,32 +71,37 @@ const teamChats = [
   { id: 3, room: "Events", lastMsg: "Venue confirmed", unread: 1 },
 ];
 
+// Demo data for campaign messages (mix of future and past)
 const campaignMsgs = [
-  { id: 1, type: "Email", name: "Spring Blast", status: "Scheduled", segment: "All Leads", sendTime: "2024-04-20 10:00" },
-  { id: 2, type: "WhatsApp", name: "Event Reminder", status: "Sent", segment: "Event Attendees", sendTime: "2024-04-18 09:00" },
+  { id: 1, type: "Email", name: "Spring Blast", status: "Scheduled", segment: "All Leads", sendTime: "2025-06-16 10:00" },
+  { id: 2, type: "WhatsApp", name: "Event Reminder", status: "Sent", segment: "Event Attendees", sendTime: "2025-06-12 09:00" },
   { id: 3, type: "SMS", name: "App Deadline", status: "Draft", segment: "Applicants", sendTime: "-" },
 ];
 
+// Demo data for vendor communications (historical)
 const vendorComms = [
-  { id: 1, name: "USA", type: "Ad Agency", lastMsg: "Sent invoice", date: "2024-04-10", performance: "High" },
-  { id: 2, name: "USA", type: "Printer", lastMsg: "Shared creative", date: "2024-04-09", performance: "Medium" },
+  { id: 1, name: "Saudi Arabia", type: "Ad Agency", lastMsg: "Sent invoice", date: "2025-06-07", performance: "High" },
+  { id: 2, name: "Saudi Arabia", type: "Printer", lastMsg: "Shared creative", date: "2025-06-06", performance: "Medium" },
 ];
 
+// Demo data for communication calendar (future events)
 const commCalendar = [
-  { id: 1, event: "MBA Email Blast", type: "Email", date: "2024-04-20", time: "10:00" },
-  { id: 2, event: "Open Day Reminder", type: "WhatsApp", date: "2024-04-22", time: "09:00" },
+  { id: 1, event: "MBA Email Blast", type: "Email", date: "2025-06-16", time: "10:00" },
+  { id: 2, event: "Open Day Reminder", type: "WhatsApp", date: "2025-06-18", time: "09:00" },
 ];
 
+// Demo data for notifications (historical)
 const notifications = [
-  { id: 1, type: "Lead", msg: "Lead USA viewed brochure 3 times", date: "2024-04-15", urgent: false },
-  { id: 2, type: "Campaign", msg: "Spring Blast sent successfully", date: "2024-04-14", urgent: false },
-  { id: 3, type: "Internal", msg: "Reply pending from design team", date: "2024-04-13", urgent: true },
+  { id: 1, type: "Lead", msg: "Lead Saudi Arabia viewed brochure 3 times", date: "2025-06-10", urgent: false },
+  { id: 2, type: "Campaign", msg: "Spring Blast sent successfully", date: "2025-06-09", urgent: false },
+  { id: 3, type: "Internal", msg: "Reply pending from design team", date: "2025-06-08", urgent: true },
 ];
 
+// Demo data for communication logs (historical)
 const commLogs = [
-  { id: 1, name: "USA", channel: "Email", outcome: "Opened", date: "2024-04-15" },
-  { id: 2, name: "USA", channel: "WhatsApp", outcome: "Clicked", date: "2024-04-14" },
-  { id: 3, name: "USA", channel: "SMS", outcome: "Delivered", date: "2024-04-13" },
+  { id: 1, name: "Saudi Arabia", channel: "Email", outcome: "Opened", date: "2025-06-10" },
+  { id: 2, name: "Saudi Arabia", channel: "WhatsApp", outcome: "Clicked", date: "2025-06-09" },
+  { id: 3, name: "Saudi Arabia", channel: "SMS", outcome: "Delivered", date: "2025-06-08" },
 ];
 
 export default function CommunicationHub() {
@@ -366,11 +371,11 @@ export default function CommunicationHub() {
         <div className="flex flex-col md:flex-row gap-4">
           <div className="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg flex-1">
             <div className="font-medium mb-1">AI Vendor Performance Summary</div>
-            <div className="text-sm text-green-700 dark:text-green-300">USA: $5,000 spent, 120 leads, 30 conversions.</div>
+            <div className="text-sm text-green-700 dark:text-green-300">Saudi Arabia: $5,000 spent, 120 leads, 30 conversions.</div>
           </div>
           <div className="p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg flex-1">
             <div className="font-medium mb-1">AI Follow-up Nudge</div>
-            <div className="text-sm text-yellow-700 dark:text-yellow-300">No follow-up sent to USA in 7 days.</div>
+            <div className="text-sm text-yellow-700 dark:text-yellow-300">No follow-up sent to Saudi Arabia in 7 days.</div>
           </div>
         </div>
       </section>
@@ -456,7 +461,7 @@ export default function CommunicationHub() {
           </div>
           <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex-1">
             <div className="font-medium mb-1">AI Prioritization</div>
-            <div className="text-sm text-blue-700 dark:text-blue-300">Lead USA ranked high value, prioritize follow-up.</div>
+            <div className="text-sm text-blue-700 dark:text-blue-300">Lead Saudi Arabia ranked high value, prioritize follow-up.</div>
           </div>
         </div>
       </section>
@@ -494,7 +499,7 @@ export default function CommunicationHub() {
         <div className="flex flex-col md:flex-row gap-4">
           <div className="p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg flex-1">
             <div className="font-medium mb-1">AI Drop-Off Detector</div>
-            <div className="text-sm text-yellow-700 dark:text-yellow-300">Lead USA stopped engaging after last WhatsApp message.</div>
+            <div className="text-sm text-yellow-700 dark:text-yellow-300">Lead Saudi Arabia stopped engaging after last WhatsApp message.</div>
           </div>
           <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex-1">
             <div className="font-medium mb-1">AI Message Quality Analyzer</div>
@@ -524,7 +529,7 @@ export default function CommunicationHub() {
           </div>
           <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
             <h3 className="font-medium mb-2">Summarize Thread</h3>
-            <div className="text-sm text-gray-700 dark:text-gray-300">"Lead USA requested info, received brochure, scheduled call."</div>
+            <div className="text-sm text-gray-700 dark:text-gray-300">"Lead Saudi Arabia requested info, received brochure, scheduled call."</div>
           </div>
         </div>
       </section>

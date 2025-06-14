@@ -11,7 +11,7 @@ const faqs = [
 const helpTopics = [
   { title: "User Management", desc: "Add, remove, or update user roles and permissions." },
   { title: "Data Security", desc: "Best practices for securing institutional data." },
-  { title: "Compliance", desc: "Guidelines for NAAC, NBA, UGC, and AICTE compliance." },
+  { title: "Compliance", desc: "Guidelines for NCAAA, ETEC, MoE, and SCFHS compliance." },
 ];
 
 export default function Support() {

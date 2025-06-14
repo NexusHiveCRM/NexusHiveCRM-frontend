@@ -25,7 +25,7 @@ const goals = [
 
 // Demo data for Gantt chart (strategic roadmap)
 const roadmap = [
-  { name: "NAAC Prep", start: "2024", end: "2025" },
+  { name: "NCAAA Prep", start: "2024", end: "2025" },
   { name: "New BSc AI Program", start: "2025", end: "2026" },
   { name: "Campus Expansion", start: "2026", end: "2028" },
   { name: "Green Campus Initiative", start: "2024", end: "2027" },
@@ -143,7 +143,7 @@ export default function StrategicPlanning() {
             <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow flex flex-col gap-2">
               <h3 className="font-semibold mb-2">AI-Powered Insights</h3>
               <div className="bg-blue-50 dark:bg-blue-900 text-blue-900 dark:text-blue-200 rounded-lg p-3 text-sm mb-2">📈 Projected 25% enrollment rise in CSE dept. by 2026 – consider lab & staff expansion.</div>
-              <div className="bg-yellow-50 dark:bg-yellow-900 text-yellow-900 dark:text-yellow-200 rounded-lg p-3 text-sm mb-2">🧾 NAAC due in 18 months – initiate curriculum audit next quarter.</div>
+              <div className="bg-yellow-50 dark:bg-yellow-900 text-yellow-900 dark:text-yellow-200 rounded-lg p-3 text-sm mb-2">🧾 NCAAA due in 18 months – initiate curriculum audit next quarter.</div>
               <div className="bg-red-50 dark:bg-red-900 text-red-900 dark:text-red-200 rounded-lg p-3 text-sm">💼 Research output in EEE down by 20% YoY – consider internal funding push.</div>
             </div>
           </div>
@@ -255,7 +255,7 @@ export default function StrategicPlanning() {
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
               <h3 className="font-semibold mb-2">Grant Strategy Board</h3>
-              <div className="text-xs">UGC: $200K (2025)</div>
+              <div className="text-xs">ETEC: $200K (2025)</div>
               <div className="text-xs">AICTE: $150K (2026)</div>
               <div className="text-xs">CSR: $100K (2027)</div>
             </div>

@@ -25,7 +25,7 @@ import Departments from './features/director/components/Departments';
 import ApprovalCenter from './features/hr-head/pages/ApprovalCenter';
 import DeanDashboard from "./components/DeanDashboard";
 import Unauthorized from "./components/Unauthorized";
-import LeadsManagement from './features/admission-head/pages/LeadsManagement';
+import LeadsManagement from './features/marketing-head/components/LeadsManagement';
 import ResourceManagement from './features/marketing-head/components/ResourceManagement';
 import ReportingAnalytics from './features/marketing-head/components/ReportingAnalytics';
 import CommunicationHub from './features/hr-head/pages/CommunicationHub';

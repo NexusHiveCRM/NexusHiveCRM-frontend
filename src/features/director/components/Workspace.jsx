@@ -52,7 +52,7 @@ export default function Workspace() {
               <ul className="space-y-2 text-gray-900 dark:text-gray-200">
                 <li>Semester-end Quality Self-Assessment <button className="ml-2 text-xs bg-blue-700 text-white px-2 py-1 rounded">Start</button></li>
                 <li>Course Content Coverage Analysis <button className="ml-2 text-xs bg-blue-700 text-white px-2 py-1 rounded">View</button></li>
-                <li>NAAC/NBA Compliance Uploads <button className="ml-2 text-xs bg-blue-700 text-white px-2 py-1 rounded">Upload</button></li>
+                <li>NCAAA/SCFHS Compliance Uploads <button className="ml-2 text-xs bg-blue-700 text-white px-2 py-1 rounded">Upload</button></li>
               </ul>
             </div>
             {/* Risk Management Card */}

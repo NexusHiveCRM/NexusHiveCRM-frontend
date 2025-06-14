@@ -9,10 +9,10 @@ const auditLogs = [
   { id: 3, date: "2024-03-08", action: "Policy Update", user: "Director", status: "Failed", details: "Insufficient permissions" },
 ];
 const complianceStatus = [
-  { area: "NAAC", status: "Compliant", lastAudit: "2023-12-01" },
+  { area: "NCAAA", status: "Compliant", lastAudit: "2023-12-01" },
   { area: "NBA", status: "Pending", lastAudit: "2022-11-15" },
   { area: "AICTE", status: "Compliant", lastAudit: "2023-01-20" },
-  { area: "UGC", status: "Compliant", lastAudit: "2022-09-10" },
+  { area: "ETEC", status: "Compliant", lastAudit: "2022-09-10" },
 ];
 const riskAnalytics = [
   { risk: "Data Breach", level: "Low", mitigation: "2FA, Encryption" },

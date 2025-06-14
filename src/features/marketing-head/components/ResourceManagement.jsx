@@ -3,16 +3,16 @@ import { FiUsers, FiCalendar, FiDollarSign, FiTool, FiArchive, FiBriefcase, FiBa
 
 // Demo data for each module
 const teamMembers = [
-  { id: 1, name: "USA", role: "Field Marketer", assigned: "Campus Fair", geo: "Delhi", workload: 90 },
-  { id: 2, name: "USA", role: "Digital Marketer", assigned: "Social Media Campaign", geo: "Remote", workload: 60 },
-  { id: 3, name: "USA", role: "Designer", assigned: "Brochure Design", geo: "Mumbai", workload: 40 },
-  { id: 4, name: "USA", role: "Content Creator", assigned: "Blog Series", geo: "Remote", workload: 30 },
-  { id: 5, name: "USA", role: "Intern", assigned: "Data Entry", geo: "Delhi", workload: 20 },
+  { id: 1, name: "Saudi Arabia", role: "Field Marketer", assigned: "Campus Fair", geo: "Riyadh", workload: 90 },
+  { id: 2, name: "Saudi Arabia", role: "Digital Marketer", assigned: "Social Media Campaign", geo: "Remote", workload: 60 },
+  { id: 3, name: "Saudi Arabia", role: "Designer", assigned: "Brochure Design", geo: "Jeddah", workload: 40 },
+  { id: 4, name: "Saudi Arabia", role: "Content Creator", assigned: "Blog Series", geo: "Remote", workload: 30 },
+  { id: 5, name: "Saudi Arabia", role: "Intern", assigned: "Data Entry", geo: "Dammam", workload: 20 },
 ];
 
 const campaignPlanner = [
-  { id: 1, campaign: "MBA Admissions", start: "2024-05-01", end: "2024-06-15", status: "On Track", tasks: 12, completed: 8 },
-  { id: 2, campaign: "Engineering Outreach", start: "2024-05-10", end: "2024-06-30", status: "Delayed", tasks: 10, completed: 5 },
+  { id: 1, campaign: "MBA Admissions", start: "2025-06-15", end: "2025-07-15", status: "On Track", tasks: 12, completed: 8 },
+  { id: 2, campaign: "Engineering Outreach", start: "2025-06-20", end: "2025-07-30", status: "Delayed", tasks: 10, completed: 5 },
 ];
 
 const budgetData = [
@@ -22,21 +22,21 @@ const budgetData = [
 ];
 
 const tools = [
-  { id: 1, name: "Mailchimp", type: "Email Tool", users: 5, renewal: "2024-07-01", usage: 80 },
-  { id: 2, name: "HubSpot", type: "CRM Plugin", users: 8, renewal: "2024-08-15", usage: 60 },
-  { id: 3, name: "Canva", type: "Design Tool", users: 3, renewal: "2024-06-10", usage: 30 },
+  { id: 1, name: "Mailchimp", type: "Email Tool", users: 5, renewal: "2025-07-01", usage: 80 },
+  { id: 2, name: "HubSpot", type: "CRM Plugin", users: 8, renewal: "2025-08-15", usage: 60 },
+  { id: 3, name: "Canva", type: "Design Tool", users: 3, renewal: "2025-06-20", usage: 30 },
 ];
 
 const assets = [
-  { id: 1, name: "MBA Brochure.pdf", type: "Brochure", version: "v2.1", downloads: 120, lastUsed: "2024-04-15" },
-  { id: 2, name: "Logo.png", type: "Logo", version: "v1.0", downloads: 200, lastUsed: "2024-04-10" },
-  { id: 3, name: "Campus Tour.mp4", type: "Video", version: "v1.3", downloads: 80, lastUsed: "2024-04-12" },
+  { id: 1, name: "MBA Brochure.pdf", type: "Brochure", version: "v2.1", downloads: 120, lastUsed: "2025-06-10" },
+  { id: 2, name: "Logo.png", type: "Logo", version: "v1.0", downloads: 200, lastUsed: "2025-06-09" },
+  { id: 3, name: "Campus Tour.mp4", type: "Video", version: "v1.3", downloads: 80, lastUsed: "2025-06-08" },
 ];
 
 const vendors = [
-  { id: 1, name: "USA", type: "Ad Agency", rating: 4.5, contracts: 3, lastInvoice: "2024-04-01" },
-  { id: 2, name: "USA", type: "Printer", rating: 4.0, contracts: 2, lastInvoice: "2024-03-20" },
-  { id: 3, name: "USA", type: "Event Vendor", rating: 4.8, contracts: 5, lastInvoice: "2024-04-10" },
+  { id: 1, name: "Saudi Arabia", type: "Ad Agency", rating: 4.5, contracts: 3, lastInvoice: "2025-06-07" },
+  { id: 2, name: "Saudi Arabia", type: "Printer", rating: 4.0, contracts: 2, lastInvoice: "2025-06-06" },
+  { id: 3, name: "Saudi Arabia", type: "Event Vendor", rating: 4.8, contracts: 5, lastInvoice: "2025-06-05" },
 ];
 
 const utilization = {
@@ -48,9 +48,9 @@ const utilization = {
 };
 
 const approvals = [
-  { id: 1, type: "Budget", item: "MBA Admissions", status: "Pending", approver: "USA" },
-  { id: 2, type: "Content", item: "Campus Tour Video", status: "Approved", approver: "USA" },
-  { id: 3, type: "Vendor Payment", item: "USA", status: "Pending", approver: "USA" },
+  { id: 1, type: "Budget", item: "MBA Admissions", status: "Pending", approver: "Saudi Arabia" },
+  { id: 2, type: "Content", item: "Campus Tour Video", status: "Approved", approver: "Saudi Arabia" },
+  { id: 3, type: "Vendor Payment", item: "Saudi Arabia", status: "Pending", approver: "Saudi Arabia" },
 ];
 
 // Academic compliance demo data (example Saudi Arabian names)
