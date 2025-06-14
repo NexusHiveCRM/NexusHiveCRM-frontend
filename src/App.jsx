@@ -35,7 +35,8 @@ import ComplianceQuality from './features/marketing-head/components/ComplianceQu
 import AccountManagement from './features/admission-head/pages/AccountManagement';
 import Tickets from "./features/marketing-head/components/Tickets";
 import AdmissionHeadLayout from "./components/AdmissionHeadLayout";
-import AdminHeadDashboard from "./components/AdminHeadDashboard";
+import AdminHeadLayout from "./features/admin-head/pages/AdminHeadLayout";
+import AdminHeadDashboard from "./features/admin-head/pages/AdminHeadDashboard";
 import ITHeadDashboard from "./components/ITHeadDashboard";
 import HoDDashboard from "./components/HoDDashboard";
 import SeniorProfessorDashboard from "./components/SeniorProfessorDashboard";
@@ -152,7 +153,10 @@ export default function App() {
         <Route path="/rbac/director/support" element={<Support />} />
         <Route path="/rbac/marketing-head/support" element={<MarketingHeadSupport />} />
         <Route path="/rbac/dean" element={<DeanDashboard />} />
-        <Route path="/rbac/admin-head" element={<AdminHeadDashboard />} />
+        <Route path="/rbac/admin-head" element={<AdminHeadLayout />}>
+          <Route index element={<AdminHeadDashboard />} />
+          {/* Add more nested routes here as you build them */}
+        </Route>
         <Route path="/rbac/it-head" element={<ITHeadDashboard />} />
         <Route path="/rbac/hod" element={<HoDDashboard />} />
         <Route path="/rbac/senior-professor" element={<SeniorProfessorDashboard />} />
