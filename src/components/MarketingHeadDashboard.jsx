@@ -151,7 +151,7 @@ export default function MarketingHeadDashboard() {
       {/* Recent Activity and Tasks */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold mb-4">Workflow Log</h2>
+          <h2 className="text-lg font-semibold mb-4">Activity Log</h2>
           <div className="space-y-4">
             {[
               { action: "New lead added", time: "2 hours ago", user: "Sara Khalid" },

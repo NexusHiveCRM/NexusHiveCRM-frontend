@@ -22,7 +22,7 @@ import HRManagerDashboard from "./components/HRManagerDashboard";
 import DirectorDashboard from "./components/DirectorDashboard";
 import AnalyticsReports from './features/director/components/AnalyticsReports';
 import Departments from './features/director/components/Departments';
-import ApprovalCenter from './features/hr-head/pages/ApprovalCenter';
+import ApprovalCenter from './features/director/components/ApprovalCenter';
 import DeanDashboard from "./components/DeanDashboard";
 import Unauthorized from "./components/Unauthorized";
 import LeadsManagement from './features/marketing-head/components/LeadsManagement';
@@ -73,6 +73,22 @@ import ReportsAnalytics from "./features/hr-head/pages/ReportsAnalytics";
 import AuditLogs from "./features/hr-head/pages/AuditLogs";
 import Settings from "./features/hr-head/pages/Settings";
 import SupportTickets from "./features/hr-head/pages/SupportTickets";
+import AdminUserRoleManagement from "./features/admin-head/pages/AdminUserRoleManagement";
+import AdminDepartmentsHierarchy from "./features/admin-head/pages/AdminDepartmentsHierarchy";
+import AdminAcademicSetup from "./features/admin-head/pages/AdminAcademicSetup";
+import AdminCommunication from "./features/admin-head/pages/AdminCommunication";
+import AdminSettingsConfiguration from "./features/admin-head/pages/AdminSettingsConfiguration";
+import AdminIntegrations from "./features/admin-head/pages/AdminIntegrations";
+import AdminLogsAudit from "./features/admin-head/pages/AdminLogsAudit";
+import AdminBackupSecurity from "./features/admin-head/pages/AdminBackupSecurity";
+import AdminReportsAnalytics from "./features/admin-head/pages/AdminReportsAnalytics";
+import AdminSettings from "./features/admin-head/pages/AdminSettings";
+import AdminHelpSupport from "./features/admin-head/pages/AdminHelpSupport";
+import AdminCommunicationHub from "./features/admin-head/pages/AdminCommunicationHub";
+import AdminTrainingDevelopment from "./features/admin-head/pages/AdminTrainingDevelopment";
+import AdminComplianceQuality from "./features/admin-head/pages/AdminComplianceQuality";
+import AdminWorkspace from "./features/admin-head/pages/AdminWorkspace";
+import AdminSupportTickets from "./features/admin-head/pages/AdminSupportTickets";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -155,7 +171,22 @@ export default function App() {
         <Route path="/rbac/dean" element={<DeanDashboard />} />
         <Route path="/rbac/admin-head" element={<AdminHeadLayout />}>
           <Route index element={<AdminHeadDashboard />} />
-          {/* Add more nested routes here as you build them */}
+          <Route path="user-role-management" element={<AdminUserRoleManagement />} />
+          <Route path="departments-hierarchy" element={<AdminDepartmentsHierarchy />} />
+          <Route path="academic-setup" element={<AdminAcademicSetup />} />
+          <Route path="communication" element={<AdminCommunication />} />
+          <Route path="settings-configuration" element={<AdminSettingsConfiguration />} />
+          <Route path="integrations" element={<AdminIntegrations />} />
+          <Route path="logs-audit" element={<AdminLogsAudit />} />
+          <Route path="backup-security" element={<AdminBackupSecurity />} />
+          <Route path="reports-analytics" element={<AdminReportsAnalytics />} />
+          <Route path="settings" element={<AdminSettings />} />
+          <Route path="help-support" element={<AdminHelpSupport />} />
+          <Route path="communication-hub" element={<AdminCommunicationHub />} />
+          <Route path="training-development" element={<AdminTrainingDevelopment />} />
+          <Route path="compliance-quality" element={<AdminComplianceQuality />} />
+          <Route path="workspace" element={<AdminWorkspace />} />
+          <Route path="support-tickets" element={<AdminSupportTickets />} />
         </Route>
         <Route path="/rbac/it-head" element={<ITHeadDashboard />} />
         <Route path="/rbac/hod" element={<HoDDashboard />} />

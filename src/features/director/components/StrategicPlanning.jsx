@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Sidebar from "../../../components/Sidebar";
 import { directorFeatures } from '../../../components/directorFeatures';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 // Demo data for filters
 const departments = ["All Departments", "Computer Science", "EEE", "Mechanical", "Business", "Biotech"];
@@ -31,20 +32,57 @@ const roadmap = [
   { name: "Green Campus Initiative", start: "2024", end: "2027" },
 ];
 
-// Demo data for trend analysis
-const trends = [
-  { label: "Enrollment", values: [1200, 1300, 1400, 1550, 1700] },
-  { label: "Placements", values: [800, 900, 950, 1100, 1200] },
-  { label: "Research Funding ($K)", values: [200, 250, 300, 350, 400] },
+// Enhanced Academic Planning Tools data
+const curriculumMatrix = [
+  { course: "BSc AI", status: "Proposal", lead: "Dr. Chen", start: "2024-06", end: "2025-05" },
+  { course: "MBA FinTech", status: "Review", lead: "Dr. Rao", start: "2023-09", end: "2024-08" },
+  { course: "BTech EEE", status: "Ongoing", lead: "Dr. Singh", start: "2022-07", end: "2025-06" },
+  { course: "MSc Data Sci", status: "Proposal", lead: "Dr. Patel", start: "2024-01", end: "2025-12" },
+  { course: "BBA Marketing", status: "Accredited", lead: "Dr. Mehra", start: "2021-08", end: "2024-07" },
+];
+const programEvaluation = [
+  { program: "BSc CS", next: "2025", last: "2020" },
+  { program: "MBA", next: "2026", last: "2021" },
+  { program: "BTech EEE", next: "2027", last: "2022" },
+  { program: "MSc Data Sci", next: "2028", last: "New" },
+  { program: "BBA Marketing", next: "2024", last: "2019" },
 ];
 
-// Demo data for SWOT
+// Enhanced SWOT
 const swot = {
-  Strengths: ["Strong faculty base", "Modern labs"],
-  Weaknesses: ["Limited hostel capacity"],
-  Opportunities: ["AI/ML program demand", "Industry tie-ups"],
-  Threats: ["Rising competition", "Changing regulations"],
+  Strengths: [
+    "Strong faculty base",
+    "Modern labs",
+    "High research output",
+    "International partnerships"
+  ],
+  Weaknesses: [
+    "Limited hostel capacity",
+    "Outdated library resources",
+    "Low alumni engagement"
+  ],
+  Opportunities: [
+    "AI/ML program demand",
+    "Industry tie-ups",
+    "Government grants",
+    "Online course expansion"
+  ],
+  Threats: [
+    "Rising competition",
+    "Changing regulations",
+    "Declining enrollment in some programs",
+    "Economic downturn"
+  ],
 };
+
+// Enhanced Trend Analysis
+const trends = [
+  { label: "Enrollment", values: [1200, 1300, 1400, 1550, 1700], years: ["2020","2021","2022","2023","2024"] },
+  { label: "Placements", values: [800, 900, 950, 1100, 1200], years: ["2020","2021","2022","2023","2024"] },
+  { label: "Research Funding ($K)", values: [200, 250, 300, 350, 400], years: ["2020","2021","2022","2023","2024"] },
+  { label: "Faculty Publications", values: [50, 60, 70, 85, 90], years: ["2020","2021","2022","2023","2024"] },
+  { label: "International Collaborations", values: [2, 3, 4, 6, 8], years: ["2020","2021","2022","2023","2024"] },
+];
 
 export default function StrategicPlanning() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
@@ -139,22 +177,28 @@ export default function StrategicPlanning() {
               <table className="w-full text-xs">
                 <thead>
                   <tr className="text-left">
-                    <th>Course</th><th>Status</th><th>Lead</th>
+                    <th>Course</th><th>Status</th><th>Lead</th><th>Start Date</th><th>End Date</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>BSc AI</td><td>Proposal</td><td>Dr. Chen</td></tr>
-                  <tr><td>MBA FinTech</td><td>Review</td><td>Dr. Rao</td></tr>
-                  <tr><td>BTech EEE</td><td>Ongoing</td><td>Dr. Singh</td></tr>
+                  {curriculumMatrix.map((row, i) => (
+                    <tr key={i}>
+                      <td>{row.course}</td>
+                      <td>{row.status}</td>
+                      <td>{row.lead}</td>
+                      <td>{row.start}</td>
+                      <td>{row.end}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
               <h3 className="font-semibold mb-2">Program Evaluation Cycle</h3>
               <ul className="text-xs list-disc ml-4">
-                <li>BSc CS: Review in 2025</li>
-                <li>MBA: Review in 2026</li>
-                <li>BTech EEE: Review in 2027</li>
+                {programEvaluation.map((prog, i) => (
+                  <li key={i}>{prog.program}: Review in {prog.next} (Last: {prog.last})</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -184,25 +228,26 @@ export default function StrategicPlanning() {
         <section>
           <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Trend Analysis</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {trends.map((trend, i) => (
-              <div key={i} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
-                <h3 className="font-semibold mb-2">{trend.label}</h3>
-                <div className="flex items-end gap-1 h-24">
-                  {trend.values.map((value, j) => (
-                    <div key={j} className="flex-1">
-                      <div
-                        className="bg-blue-500 rounded-t"
-                        style={{
-                          height: `${(value / Math.max(...trend.values)) * 100}%`,
-                          minHeight: "4px"
-                        }}
-                      />
-                      <div className="text-xs text-center mt-1">{j + 1}</div>
-                    </div>
-                  ))}
+            {trends.map((trend, i) => {
+              const data = trend.values.map((value, idx) => ({
+                year: trend.years[idx],
+                value,
+              }));
+              return (
+                <div key={i} className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
+                  <h3 className="font-semibold mb-2">{trend.label}</h3>
+                  <ResponsiveContainer width="100%" height={200}>
+                    <BarChart data={data}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="year" />
+                      <YAxis />
+                      <Tooltip />
+                      <Bar dataKey="value" fill="#3b82f6" />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       </main>

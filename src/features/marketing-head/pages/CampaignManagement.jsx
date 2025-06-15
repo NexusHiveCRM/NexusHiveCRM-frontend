@@ -6,9 +6,39 @@ import { Select } from '../../../components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../../components/ui/tabs';
 import { BarChart, LineChart } from '../../../components/ui/charts';
 import { Badge } from '../../../components/ui/badge';
+import { Select as FilterSelect } from '../../../components/ui/select';
 
 export default function CampaignManagement() {
   const [activeTab, setActiveTab] = useState('planning');
+  const [campaignFilter, setCampaignFilter] = useState('All');
+
+  const campaigns = [
+    {
+      name: 'Summer Enrollment Drive',
+      status: 'Active',
+      progress: 65,
+      startDate: '2024-03-01',
+      endDate: '2024-05-31',
+    },
+    {
+      name: 'International Student Outreach',
+      status: 'Active',
+      progress: 45,
+      startDate: '2024-02-15',
+      endDate: '2024-04-15',
+    },
+    {
+      name: 'Alumni Engagement',
+      status: 'Planning',
+      progress: 20,
+      startDate: '2024-04-01',
+      endDate: '2024-06-30',
+    },
+  ];
+
+  const filteredCampaigns = campaignFilter === 'All'
+    ? campaigns
+    : campaigns.filter(c => c.status === campaignFilter);
 
   return (
     <div className="space-y-6">
@@ -30,33 +60,22 @@ export default function CampaignManagement() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Active Campaigns</CardTitle>
+                <div className="flex justify-between items-center">
+                  <CardTitle>Active Campaigns</CardTitle>
+                  <FilterSelect
+                    value={campaignFilter}
+                    onChange={e => setCampaignFilter(e.target.value)}
+                    className="w-40"
+                  >
+                    <option value="All">All Campaigns</option>
+                    <option value="Active">Active</option>
+                    <option value="Planning">Planning</option>
+                  </FilterSelect>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {[
-                    {
-                      name: 'Summer Enrollment Drive',
-                      status: 'Active',
-                      progress: 65,
-                      startDate: '2024-03-01',
-                      endDate: '2024-05-31',
-                    },
-                    {
-                      name: 'International Student Outreach',
-                      status: 'Active',
-                      progress: 45,
-                      startDate: '2024-02-15',
-                      endDate: '2024-04-15',
-                    },
-                    {
-                      name: 'Alumni Engagement',
-                      status: 'Planning',
-                      progress: 20,
-                      startDate: '2024-04-01',
-                      endDate: '2024-06-30',
-                    },
-                  ].map((campaign, index) => (
+                  {filteredCampaigns.map((campaign, index) => (
                     <div key={index} className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                       <div className="flex justify-between items-start mb-2">
                         <div>
@@ -78,6 +97,9 @@ export default function CampaignManagement() {
                       <p className="text-sm text-gray-500 mt-1">{campaign.progress}% Complete</p>
                     </div>
                   ))}
+                  {filteredCampaigns.length === 0 && (
+                    <div className="text-center text-gray-400 py-8">No campaigns found for this filter.</div>
+                  )}
                 </div>
               </CardContent>
             </Card>

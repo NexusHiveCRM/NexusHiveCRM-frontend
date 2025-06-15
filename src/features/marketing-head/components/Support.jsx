@@ -144,6 +144,7 @@ export default function Support() {
   const [tickets, setTickets] = useState(DEMO_TICKETS);
   const [comment, setComment] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [showNewTicketModal, setShowNewTicketModal] = useState(false);
 
   const handleTicketClick = (ticket) => {
     setSelectedTicket(ticket);
@@ -283,7 +284,7 @@ export default function Support() {
           <p className="text-sm text-gray-600 dark:text-gray-300">Raise issues, track resolutions, and communicate with support teams across departments.</p>
         </div>
         <div className="flex gap-3">
-          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700" onClick={() => setShowNewTicketModal(true)}>
             New Ticket
           </button>
           <button className="px-4 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600">
@@ -456,6 +457,57 @@ export default function Support() {
                 <textarea className="w-full rounded border px-3 py-2" value={feedback} onChange={e => setFeedback(e.target.value)} rows={2} placeholder="How was your support experience?" />
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {showNewTicketModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+          <div className="absolute inset-0" onClick={() => setShowNewTicketModal(false)} />
+          <div className="relative z-10 bg-white dark:bg-gray-800 rounded-xl p-6 max-w-lg w-full mx-4">
+            <button onClick={() => setShowNewTicketModal(false)} className="absolute top-2 right-4 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-3xl font-bold" aria-label="Close">&times;</button>
+            <h2 className="text-xl font-bold mb-4">Create New Ticket</h2>
+            <form onSubmit={e => { handleSubmit(e); setShowNewTicketModal(false); }} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Category</label>
+                <select className="w-full rounded border px-3 py-2" value={category} onChange={e => { setCategory(e.target.value); setSubcategory(""); }} required>
+                  <option value="">Select Category</option>
+                  {CATEGORY_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
+                </select>
+              </div>
+              {category && (
+                <div>
+                  <label className="block text-sm font-medium mb-1">Subcategory</label>
+                  <select className="w-full rounded border px-3 py-2" value={subcategory} onChange={e => setSubcategory(e.target.value)} required>
+                    <option value="">Select Subcategory</option>
+                    {SUBCATEGORY_MAP[category].map(sub => <option key={sub} value={sub}>{sub}</option>)}
+                  </select>
+                </div>
+              )}
+              <div>
+                <label className="block text-sm font-medium mb-1">Location</label>
+                <input className="w-full rounded border px-3 py-2" value={location} onChange={e => setLocation(e.target.value)} required />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Priority</label>
+                <select className="w-full rounded border px-3 py-2" value={priority} onChange={e => setPriority(e.target.value)} required>
+                  <option value="">Select Priority</option>
+                  {PRIORITY_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Description</label>
+                <textarea className="w-full rounded border px-3 py-2" value={description} onChange={e => setDescription(e.target.value)} rows={3} required />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Attachment (optional)</label>
+                <input type="file" className="w-full" onChange={e => setAttachment(e.target.files[0])} />
+              </div>
+              <div className="flex justify-end gap-2 mt-4">
+                <button type="button" className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600" onClick={() => setShowNewTicketModal(false)}>Cancel</button>
+                <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Submit Ticket</button>
+              </div>
+            </form>
           </div>
         </div>
       )}

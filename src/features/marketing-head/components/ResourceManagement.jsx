@@ -22,9 +22,9 @@ const budgetData = [
 ];
 
 const tools = [
-  { id: 1, name: "Mailchimp", type: "Email Tool", users: 5, renewal: "2025-07-01", usage: 80 },
-  { id: 2, name: "HubSpot", type: "CRM Plugin", users: 8, renewal: "2025-08-15", usage: 60 },
-  { id: 3, name: "Canva", type: "Design Tool", users: 3, renewal: "2025-06-20", usage: 30 },
+  { id: 1, name: "Mailchimp", type: "Email Tool", users: 5, renewal: "2025-07-01", usage: 80, yearlySubscription: "$1,200" },
+  { id: 2, name: "HubSpot", type: "CRM Plugin", users: 8, renewal: "2025-08-15", usage: 60, yearlySubscription: "$2,400" },
+  { id: 3, name: "Canva", type: "Design Tool", users: 3, renewal: "2025-06-20", usage: 30, yearlySubscription: "$600" },
 ];
 
 const assets = [
@@ -118,11 +118,11 @@ export default function ResourceManagement() {
         </div>
       </section>
 
-      {/* 2. Time Management */}
+      {/* 2. Event Monitoring */}
       <section className="bg-white dark:bg-gray-800/80 rounded-xl shadow p-6">
         <div className="flex items-center gap-2 mb-4">
           <FiCalendar className="text-purple-500" />
-          <h2 className="text-lg font-semibold">Time Management</h2>
+          <h2 className="text-lg font-semibold">Event Monitoring</h2>
           <span className="ml-2 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded animate-pulse">AI Delay Risk</span>
           <span className="ml-2 text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded animate-pulse">Time Optimization</span>
         </div>
@@ -212,6 +212,7 @@ export default function ResourceManagement() {
                 <th className="pb-3 font-medium">Type</th>
                 <th className="pb-3 font-medium">Users</th>
                 <th className="pb-3 font-medium">Renewal</th>
+                <th className="pb-3 font-medium">Yearly Subscription</th>
                 <th className="pb-3 font-medium">Usage</th>
                 <th className="pb-3 font-medium">AI Alert</th>
               </tr>
@@ -223,6 +224,7 @@ export default function ResourceManagement() {
                   <td className="py-3">{t.type}</td>
                   <td className="py-3">{t.users}</td>
                   <td className="py-3">{t.renewal}</td>
+                  <td className="py-3">{t.yearlySubscription}</td>
                   <td className="py-3">
                     <div className="flex items-center gap-2">
                       <div className="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-2">

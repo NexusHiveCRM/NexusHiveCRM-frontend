@@ -13,7 +13,7 @@ const trainingPrograms = [
     completion: 80,
     instructor: "John Doe",
     startDate: "2024-04-01",
-    endDate: "2024-05-31",
+    endDate: "応24-05-31",
     modules: [
       "Introduction to Digital Marketing",
       "Social Media Marketing",
@@ -21,6 +21,7 @@ const trainingPrograms = [
       "Email Marketing",
       "Analytics & Reporting",
     ],
+    thumbnail: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/CoursesThumnails/course1.jpeg"
   },
   {
     id: 2,
@@ -38,6 +39,7 @@ const trainingPrograms = [
       "Lead Nurturing",
       "Conversion Optimization",
     ],
+    thumbnail: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/CoursesThumnails/course2.jpeg"
   },
   {
     id: 3,
@@ -55,6 +57,7 @@ const trainingPrograms = [
       "Channel Strategy",
       "Performance Analysis",
     ],
+    thumbnail: "https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/CoursesThumnails/course3.jpeg"
   },
 ];
 
@@ -223,21 +226,17 @@ export default function TrainingDevelopment() {
           NexusHiveAI is here to enhance your learning experience with personalized course recommendations and insights. Check out our recommended courses below!
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <img src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/course1.png" alt="Course 1" className="w-full h-40 object-cover rounded-lg mb-2" />
-            <h3 className="font-medium mb-1">Digital Marketing Mastery</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Learn advanced strategies for digital marketing success.</p>
-          </div>
-          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <img src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/course2.png" alt="Course 2" className="w-full h-40 object-cover rounded-lg mb-2" />
-            <h3 className="font-medium mb-1">Data Analytics for Marketers</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Master data-driven decision-making in marketing.</p>
-          </div>
-          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <img src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/course3.png" alt="Course 3" className="w-full h-40 object-cover rounded-lg mb-2" />
-            <h3 className="font-medium mb-1">Leadership in Marketing</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Develop leadership skills for marketing teams.</p>
-          </div>
+          {trainingPrograms.map((program, idx) => (
+            <div key={program.id} className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <img src={program.thumbnail} alt={program.name} className="w-full h-40 object-cover rounded-lg mb-2" />
+              <h3 className="font-medium mb-1">{program.name}</h3>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                {idx === 0 && 'Learn advanced strategies for digital marketing success.'}
+                {idx === 1 && 'Master data-driven decision-making in marketing.'}
+                {idx === 2 && 'Develop leadership skills for marketing teams.'}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -309,12 +308,41 @@ export default function TrainingDevelopment() {
           <span className="ml-2 text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded animate-pulse">Smart Rescheduling</span>
           <span className="ml-2 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded animate-pulse">Reminders & Nudges</span>
         </div>
-        <div className="h-48 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-700 dark:text-blue-300 font-bold mb-4">[Training Calendar Placeholder]</div>
-        <ul className="space-y-2">
-          {trainingSessions.map(s => (
-            <li key={s.id}>{s.title} - {s.date} ({s.status})</li>
-          ))}
-        </ul>
+        <div className="h-56 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex flex-col items-center justify-start text-blue-700 dark:text-blue-300 font-bold mb-4 p-4">
+          <div className="text-lg font-semibold mb-2 text-center">April 2025</div>
+          <div className="grid grid-cols-7 gap-1 text-xs text-center w-full mb-2">
+            <div className="font-bold">Sun</div>
+            <div className="font-bold">Mon</div>
+            <div className="font-bold">Tue</div>
+            <div className="font-bold">Wed</div>
+            <div className="font-bold">Thu</div>
+            <div className="font-bold">Fri</div>
+            <div className="font-bold">Sat</div>
+            {/* April 2025 starts on Tuesday, so 2 empty cells for Sunday and Monday */}
+            <div></div>
+            <div></div>
+            {/* Days 1-30 */}
+            {Array.from({ length: 30 }, (_, i) => {
+              const day = i + 1;
+              const today = new Date();
+              const isToday = today.getFullYear() === 2025 && today.getMonth() === 3 && today.getDate() === day;
+              return (
+                <div
+                  key={day}
+                  className={`rounded-full w-7 h-7 flex items-center justify-center mx-auto ${isToday ? 'bg-blue-600 text-white font-bold shadow' : 'hover:bg-blue-200'} transition`}
+                >
+                  {day}
+                </div>
+              );
+            })}
+          </div>
+          <div className="flex justify-center gap-4 mt-2 text-xs w-full">
+            <span className="inline-flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-blue-600 inline-block"></span> Today</span>
+            <span className="inline-flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-green-400 inline-block"></span> Upcoming</span>
+            <span className="inline-flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span> Pending</span>
+            <span className="inline-flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-gray-400 inline-block"></span> Completed</span>
+          </div>
+        </div>
         <div className="flex flex-col md:flex-row gap-4 mt-4">
           <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg flex-1">
             <div className="font-medium mb-1">AI Smart Rescheduling</div>
@@ -613,21 +641,17 @@ export default function TrainingDevelopment() {
           <h2 className="text-lg font-semibold">NexusHiveAI Recommended Courses</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <img src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/course1.png" alt="Course 1" className="w-full h-40 object-cover rounded-lg mb-2" />
-            <h3 className="font-medium mb-1">Digital Marketing Mastery</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Learn advanced strategies for digital marketing success.</p>
-          </div>
-          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <img src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/course2.png" alt="Course 2" className="w-full h-40 object-cover rounded-lg mb-2" />
-            <h3 className="font-medium mb-1">Data Analytics for Marketers</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Master data-driven decision-making in marketing.</p>
-          </div>
-          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <img src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/course3.png" alt="Course 3" className="w-full h-40 object-cover rounded-lg mb-2" />
-            <h3 className="font-medium mb-1">Leadership in Marketing</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Develop leadership skills for marketing teams.</p>
-          </div>
+          {trainingPrograms.map((program, idx) => (
+            <div key={program.id} className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <img src={program.thumbnail} alt={program.name} className="w-full h-40 object-cover rounded-lg mb-2" />
+              <h3 className="font-medium mb-1">{program.name}</h3>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                {idx === 0 && 'Learn advanced strategies for digital marketing success.'}
+                {idx === 1 && 'Master data-driven decision-making in marketing.'}
+                {idx === 2 && 'Develop leadership skills for marketing teams.'}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
