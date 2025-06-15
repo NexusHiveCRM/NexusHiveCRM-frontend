@@ -92,11 +92,65 @@ export default function CampaignManagement() {
   const [selectedCampaign, setSelectedCampaign] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [filter, setFilter] = useState("All");
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [campaignsList, setCampaignsList] = useState(campaigns);
+  const [createForm, setCreateForm] = useState({
+    name: '',
+    type: '',
+    status: 'Planning',
+    budget: '',
+    expectedROI: '',
+    hardBenefits: '',
+    softBenefits: '',
+    startDate: '',
+    endDate: '',
+  });
 
   const handleCampaignClick = (campaign) => {
     setSelectedCampaign(campaign);
     setShowModal(true);
   };
+
+  const handleCreateChange = (e) => {
+    const { name, value } = e.target;
+    setCreateForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCreateSubmit = (e) => {
+    e.preventDefault();
+    setCampaignsList(prev => [
+      ...prev,
+      {
+        id: Date.now(),
+        name: createForm.name,
+        type: createForm.type,
+        status: createForm.status,
+        budget: Number(createForm.budget),
+        spent: 0,
+        leads: 0,
+        conversions: 0,
+        channels: [],
+        team: [],
+        startDate: createForm.startDate,
+        endDate: createForm.endDate,
+        expectedROI: createForm.expectedROI,
+        hardBenefits: createForm.hardBenefits,
+        softBenefits: createForm.softBenefits,
+      }
+    ]);
+    setShowCreateModal(false);
+    setCreateForm({
+      name: '', type: '', status: 'Planning', budget: '', expectedROI: '', hardBenefits: '', softBenefits: '', startDate: '', endDate: ''
+    });
+  };
+
+  const filteredCampaigns = campaignsList.filter((campaign) => {
+    if (filter === "All") return true;
+    if (filter === "Active") return campaign.status === "Active";
+    if (filter === "Planning") return campaign.status === "Planning";
+    if (filter === "Completed") return campaign.status === "Completed";
+    return false;
+  });
 
   const Modal = ({ campaign, onClose }) => {
     if (!campaign) return null;
@@ -205,7 +259,7 @@ export default function CampaignManagement() {
           <p className="text-sm text-gray-600 dark:text-gray-300">Track and manage your marketing campaigns</p>
         </div>
         <div className="flex gap-3">
-          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700" onClick={() => setShowCreateModal(true)}>
             Create Campaign
           </button>
           <button className="px-4 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600">
@@ -296,7 +350,7 @@ export default function CampaignManagement() {
                 </tr>
               </thead>
               <tbody>
-                {campaigns.map((campaign) => (
+                {filteredCampaigns.map((campaign) => (
                   <tr key={campaign.id} className="border-b dark:border-gray-700">
                     <td className="py-4">
                       <div>
@@ -339,6 +393,65 @@ export default function CampaignManagement() {
       </div>
 
       {showModal && <Modal campaign={selectedCampaign} onClose={() => setShowModal(false)} />}
+
+      {/* Create Campaign Modal */}
+      {showCreateModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowCreateModal(false)} />
+          <div className="relative z-10 bg-white dark:bg-gray-800 rounded-xl p-8 max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto shadow-2xl animate-fade-in">
+            <button onClick={() => setShowCreateModal(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+            <h2 className="text-2xl font-bold mb-4 text-blue-700">Create New Campaign</h2>
+            <form onSubmit={handleCreateSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Campaign Name</label>
+                <input name="name" value={createForm.name} onChange={handleCreateChange} required className="w-full px-3 py-2 border rounded" placeholder="e.g. Summer Enrollment Drive" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Type</label>
+                <input name="type" value={createForm.type} onChange={handleCreateChange} required className="w-full px-3 py-2 border rounded" placeholder="e.g. Digital, Social, Multi-channel" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Status</label>
+                <select name="status" value={createForm.status} onChange={handleCreateChange} className="w-full px-3 py-2 border rounded">
+                  <option value="Planning">Planning</option>
+                  <option value="Active">Active</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <label className="block text-sm font-medium mb-1">Start Date</label>
+                  <input type="date" name="startDate" value={createForm.startDate} onChange={handleCreateChange} className="w-full px-3 py-2 border rounded" />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-sm font-medium mb-1">End Date</label>
+                  <input type="date" name="endDate" value={createForm.endDate} onChange={handleCreateChange} className="w-full px-3 py-2 border rounded" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Budget ($)</label>
+                <input type="number" name="budget" value={createForm.budget} onChange={handleCreateChange} required className="w-full px-3 py-2 border rounded" placeholder="e.g. 50000" min="0" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Expected Results / ROI</label>
+                <input name="expectedROI" value={createForm.expectedROI} onChange={handleCreateChange} className="w-full px-3 py-2 border rounded" placeholder="e.g. 5x ROI, 1000 leads, 200 conversions" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Hard Benefits <span className='text-xs text-gray-400'>(Tangible, measurable)</span></label>
+                <textarea name="hardBenefits" value={createForm.hardBenefits} onChange={handleCreateChange} className="w-full px-3 py-2 border rounded" rows={2} placeholder="e.g. Increased revenue, more enrollments, cost savings" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Soft Benefits <span className='text-xs text-gray-400'>(Intangible, qualitative)</span></label>
+                <textarea name="softBenefits" value={createForm.softBenefits} onChange={handleCreateChange} className="w-full px-3 py-2 border rounded" rows={2} placeholder="e.g. Brand awareness, team morale, market reputation" />
+              </div>
+              <div className="flex justify-end gap-3 pt-4 border-t">
+                <button type="button" onClick={() => setShowCreateModal(false)} className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Cancel</button>
+                <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Create Campaign</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 } 

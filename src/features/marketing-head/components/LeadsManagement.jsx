@@ -34,6 +34,11 @@ const leads = [
   { id: 25, name: "Yara Al-Saif", email: "yara.saif@example.com", phone: "+966 50 567 8903", source: "Referral", status: "Interview Schedule", assignedTo: "Mike Johnson", lastContact: "2024-03-17", notes: "Scheduled interview for IT" },
   { id: 26, name: "Bader Al-Farhan", email: "bader.farhan@example.com", phone: "+966 50 678 9014", source: "Events", status: "Approved", assignedTo: "Emily Davis", lastContact: "2024-03-16", notes: "Approved for engineering" },
   { id: 27, name: "Huda Al-Mutlaq", email: "huda.mutlaq@example.com", phone: "+966 50 789 0125", source: "Website", status: "Accounts", assignedTo: "Omar Al-Farouq", lastContact: "2024-03-15", notes: "Account created for MBA" },
+  { id: 28, name: "Inactive Lead", email: "inactive.lead@example.com", phone: "+966 50 999 9999", source: "Website", status: "Inactive", assignedTo: "John Doe", lastContact: "2024-04-02", notes: "This lead is inactive." },
+  { id: 29, name: "Ahmed Al-Mutairi", email: "ahmed.mutairi@example.com", phone: "+966 50 888 8888", source: "Referral", status: "Inactive", assignedTo: "Fatima Al-Rashid", lastContact: "2024-03-10", notes: "No response after initial contact." },
+  { id: 30, name: "Sara Al-Qahtani", email: "sara.qahtani@example.com", phone: "+966 50 777 7777", source: "Social Media", status: "Inactive", assignedTo: "Jane Smith", lastContact: "2024-03-05", notes: "Lead marked inactive by counselor." },
+  { id: 31, name: "Mohammed Al-Fahad", email: "mohammed.fahad@example.com", phone: "+966 50 666 6666", source: "Events", status: "Inactive", assignedTo: "Mike Johnson", lastContact: "2024-02-28", notes: "Unreachable after event." },
+  { id: 32, name: "Laila Al-Sabah", email: "laila.sabah@example.com", phone: "+966 50 555 5555", source: "Website", status: "Inactive", assignedTo: "Emily Davis", lastContact: "2024-02-20", notes: "Requested to be removed from list." },
 ];
 
 // Demo data for lead sources
@@ -173,7 +178,170 @@ const LEAD_STATUSES = [
   { value: 'Interview Schedule', label: 'Interview Schedule', color: 'bg-purple-100 text-purple-700' },
   { value: 'Approved', label: 'Approved', color: 'bg-green-100 text-green-700' },
   { value: 'Accounts', label: 'Accounts', color: 'bg-indigo-100 text-indigo-700' },
+  { value: 'Inactive', label: 'Inactive', color: 'bg-gray-200 text-gray-700' },
 ];
+
+// Move CommunicationModal outside the main component
+export function CommunicationModal({
+  onClose,
+  selectedLead,
+  communicationType,
+  communicationForm,
+  handleCommunicationFormChange,
+  handleSendCommunication,
+  setCommunicationForm
+}) {
+  if (!selectedLead || !communicationType) return null;
+
+  const emailTemplates = [
+    { id: 1, name: 'Initial Follow-up', subject: 'Welcome to Our Program', content: 'Thank you for your interest...' },
+    { id: 2, name: 'Program Information', subject: 'Program Details', content: 'Here are the details about our program...' },
+    { id: 3, name: 'Scholarship Info', subject: 'Scholarship Opportunities', content: 'We have exciting scholarship opportunities...' },
+  ];
+
+  const smsTemplates = [
+    { id: 1, name: 'Quick Follow-up', content: 'Hi {name}, thank you for your interest. Would you like to schedule a call?' },
+    { id: 2, name: 'Event Reminder', content: 'Reminder: Our information session is tomorrow at 2 PM. RSVP: {link}' },
+    { id: 3, name: 'Application Check', content: 'Hi {name}, just checking if you need any help with your application?' },
+  ];
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative z-10 bg-white dark:bg-gray-800 rounded-xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+          <FiX size={24} />
+        </button>
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold mb-2">
+            {communicationType === 'email' ? 'Send Email' : 'Send SMS'} to {selectedLead.name}
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            {selectedLead.email} {selectedLead.phone && `• ${selectedLead.phone}`}
+          </p>
+        </div>
+        <form onSubmit={handleSendCommunication} className="space-y-4">
+          {communicationType === 'email' && (
+            <div>
+              <label className="block text-sm font-medium mb-1">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                value={communicationForm.subject}
+                onChange={handleCommunicationFormChange}
+                className="w-full px-3 py-2 border rounded dark:bg-gray-700 dark:border-gray-600"
+                required
+              />
+            </div>
+          )}
+          <div>
+            <label className="block text-sm font-medium mb-1">Message</label>
+            <textarea
+              name="message"
+              value={communicationForm.message}
+              onChange={handleCommunicationFormChange}
+              rows={6}
+              className="w-full px-3 py-2 border rounded dark:bg-gray-700 dark:border-gray-600 resize-y"
+              required
+              placeholder={communicationType === 'email' ? 'Write your email message here...' : 'Write your SMS message here...'}
+              style={{ minHeight: '150px' }}
+              spellCheck="true"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+            />
+          </div>
+          {communicationType === 'email' && (
+            <>
+              <div>
+                <label className="block text-sm font-medium mb-1">Templates</label>
+                <select
+                  name="template"
+                  value={communicationForm.template}
+                  onChange={(e) => {
+                    const template = emailTemplates.find(t => t.id === parseInt(e.target.value));
+                    if (template) {
+                      setCommunicationForm(prev => ({
+                        ...prev,
+                        subject: template.subject,
+                        message: template.content,
+                        template: e.target.value
+                      }));
+                    }
+                  }}
+                  className="w-full px-3 py-2 border rounded dark:bg-gray-700 dark:border-gray-600"
+                >
+                  <option value="">Select a template</option>
+                  {emailTemplates.map(template => (
+                    <option key={template.id} value={template.id}>{template.name}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Attachments</label>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    className="px-3 py-2 border rounded flex items-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  >
+                    <FiPaperclip />
+                    Add Attachment
+                  </button>
+                  {communicationForm.attachments.length > 0 && (
+                    <span className="text-sm text-gray-500">
+                      {communicationForm.attachments.length} file(s) attached
+                    </span>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+          {communicationType === 'sms' && (
+            <div>
+              <label className="block text-sm font-medium mb-1">SMS Templates</label>
+              <select
+                name="template"
+                value={communicationForm.template}
+                onChange={(e) => {
+                  const template = smsTemplates.find(t => t.id === parseInt(e.target.value));
+                  if (template) {
+                    setCommunicationForm(prev => ({
+                      ...prev,
+                      message: template.content.replace('{name}', selectedLead.name),
+                      template: e.target.value
+                    }));
+                  }
+                }}
+                className="w-full px-3 py-2 border rounded dark:bg-gray-700 dark:border-gray-600"
+              >
+                <option value="">Select a template</option>
+                {smsTemplates.map(template => (
+                  <option key={template.id} value={template.id}>{template.name}</option>
+                ))}
+              </select>
+            </div>
+          )}
+          <div className="flex justify-end gap-3 pt-4 border-t dark:border-gray-700">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 flex items-center gap-2"
+            >
+              <FiSend />
+              Send {communicationType === 'email' ? 'Email' : 'SMS'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
 
 export default function LeadsManagement() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
@@ -195,11 +363,13 @@ export default function LeadsManagement() {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const leadsPerPage = 8;
-  const totalLeads = leadsList.length;
+  // Filtered and paginated leads (must be above useEffect)
+  const filteredLeads = leadsList.filter(lead => filter === 'All' || lead.status === filter);
+  const totalLeads = filteredLeads.length;
   const totalPages = Math.ceil(totalLeads / leadsPerPage);
   const startIdx = (currentPage - 1) * leadsPerPage;
   const endIdx = Math.min(startIdx + leadsPerPage, totalLeads);
-  const paginatedLeads = leadsList.slice(startIdx, endIdx);
+  const paginatedLeads = filteredLeads.slice(startIdx, endIdx);
   const [showCommunicationModal, setShowCommunicationModal] = useState(false);
   const [communicationType, setCommunicationType] = useState(null); // 'email' or 'sms'
   const [communicationForm, setCommunicationForm] = useState({
@@ -551,162 +721,6 @@ export default function LeadsManagement() {
     handleCloseCommunication();
   };
 
-  // Add CommunicationModal component
-  const CommunicationModal = ({ onClose }) => {
-    if (!selectedLead || !communicationType) return null;
-
-    const emailTemplates = [
-      { id: 1, name: 'Initial Follow-up', subject: 'Welcome to Our Program', content: 'Thank you for your interest...' },
-      { id: 2, name: 'Program Information', subject: 'Program Details', content: 'Here are the details about our program...' },
-      { id: 3, name: 'Scholarship Info', subject: 'Scholarship Opportunities', content: 'We have exciting scholarship opportunities...' },
-    ];
-
-    const smsTemplates = [
-      { id: 1, name: 'Quick Follow-up', content: 'Hi {name}, thank you for your interest. Would you like to schedule a call?' },
-      { id: 2, name: 'Event Reminder', content: 'Reminder: Our information session is tomorrow at 2 PM. RSVP: {link}' },
-      { id: 3, name: 'Application Check', content: 'Hi {name}, just checking if you need any help with your application?' },
-    ];
-
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-        <div className="relative z-10 bg-white dark:bg-gray-800 rounded-xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-          <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-            <FiX size={24} />
-          </button>
-
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-2">
-              {communicationType === 'email' ? 'Send Email' : 'Send SMS'} to {selectedLead.name}
-            </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              {selectedLead.email} {selectedLead.phone && `• ${selectedLead.phone}`}
-            </p>
-          </div>
-
-          <form onSubmit={handleSendCommunication} className="space-y-4">
-            {communicationType === 'email' && (
-              <div>
-                <label className="block text-sm font-medium mb-1">Subject</label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={communicationForm.subject}
-                  onChange={handleCommunicationFormChange}
-                  className="w-full px-3 py-2 border rounded dark:bg-gray-700 dark:border-gray-600"
-                  required
-                />
-              </div>
-            )}
-
-            <div>
-              <label className="block text-sm font-medium mb-1">Message</label>
-              <textarea
-                name="message"
-                value={communicationForm.message}
-                onChange={handleCommunicationFormChange}
-                rows={6}
-                className="w-full px-3 py-2 border rounded dark:bg-gray-700 dark:border-gray-600"
-                required
-                placeholder={communicationType === 'email' ? 'Write your email message here...' : 'Write your SMS message here...'}
-              />
-            </div>
-
-            {communicationType === 'email' && (
-              <>
-                <div>
-                  <label className="block text-sm font-medium mb-1">Templates</label>
-                  <select
-                    name="template"
-                    value={communicationForm.template}
-                    onChange={(e) => {
-                      const template = emailTemplates.find(t => t.id === parseInt(e.target.value));
-                      if (template) {
-                        setCommunicationForm(prev => ({
-                          ...prev,
-                          subject: template.subject,
-                          message: template.content,
-                          template: e.target.value
-                        }));
-                      }
-                    }}
-                    className="w-full px-3 py-2 border rounded dark:bg-gray-700 dark:border-gray-600"
-                  >
-                    <option value="">Select a template</option>
-                    {emailTemplates.map(template => (
-                      <option key={template.id} value={template.id}>{template.name}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Attachments</label>
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      className="px-3 py-2 border rounded flex items-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-700"
-                    >
-                      <FiPaperclip />
-                      Add Attachment
-                    </button>
-                    {communicationForm.attachments.length > 0 && (
-                      <span className="text-sm text-gray-500">
-                        {communicationForm.attachments.length} file(s) attached
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </>
-            )}
-
-            {communicationType === 'sms' && (
-              <div>
-                <label className="block text-sm font-medium mb-1">SMS Templates</label>
-                <select
-                  name="template"
-                  value={communicationForm.template}
-                  onChange={(e) => {
-                    const template = smsTemplates.find(t => t.id === parseInt(e.target.value));
-                    if (template) {
-                      setCommunicationForm(prev => ({
-                        ...prev,
-                        message: template.content.replace('{name}', selectedLead.name),
-                        template: e.target.value
-                      }));
-                    }
-                  }}
-                  className="w-full px-3 py-2 border rounded dark:bg-gray-700 dark:border-gray-600"
-                >
-                  <option value="">Select a template</option>
-                  {smsTemplates.map(template => (
-                    <option key={template.id} value={template.id}>{template.name}</option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-            <div className="flex justify-end gap-3 pt-4 border-t dark:border-gray-700">
-              <button
-                type="button"
-                onClick={onClose}
-                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 flex items-center gap-2"
-              >
-                <FiSend />
-                Send {communicationType === 'email' ? 'Email' : 'SMS'}
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    );
-  };
-
   // Update the existing email/SMS button handlers
   const handleSendEmail = (lead) => {
     handleOpenCommunication('email', lead);
@@ -887,7 +901,6 @@ export default function LeadsManagement() {
         </div>
         <div className="flex gap-3">
           <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2" onClick={handleOpenImportModal}><FiUpload /> Import Leads</button>
-          <button className="px-4 py-2 text-sm bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 flex items-center gap-2" onClick={handleOpenImportModal}><FiUpload /> Bulk Lead Upload</button>
           <button className="px-4 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600" onClick={() => setShowExportModal(true)}>Export Leads</button>
         </div>
       </div>
@@ -975,9 +988,7 @@ export default function LeadsManagement() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-700 text-sm">
-              {paginatedLeads
-                .filter(lead => filter === 'All' || lead.status === filter)
-                .map((lead) => (
+              {paginatedLeads.map((lead) => (
                 <tr key={lead.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                   <td className="px-3 py-2">
                     <input
@@ -1441,7 +1452,7 @@ export default function LeadsManagement() {
       <section className="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
         <div className="flex items-center gap-2 mb-4">
           <FiZap className="text-yellow-500 animate-pulse" />
-          <h2 className="text-lg font-semibold">AI Copilot Panel</h2>
+          <h2 className="text-lg font-semibold">AI optimized decision panel</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
@@ -1483,7 +1494,17 @@ export default function LeadsManagement() {
 
       {showModal && <LeadDetailsModal lead={selectedLead} onClose={handleCloseModal} />}
       {activeModal === 'analytics' && <AnalyticsModal onClose={handleCloseModal} />}
-      {showCommunicationModal && <CommunicationModal onClose={handleCloseCommunication} />}
+      {showCommunicationModal && (
+        <CommunicationModal
+          onClose={handleCloseCommunication}
+          selectedLead={selectedLead}
+          communicationType={communicationType}
+          communicationForm={communicationForm}
+          handleCommunicationFormChange={handleCommunicationFormChange}
+          handleSendCommunication={handleSendCommunication}
+          setCommunicationForm={setCommunicationForm}
+        />
+      )}
       {showExportModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowExportModal(false)} />

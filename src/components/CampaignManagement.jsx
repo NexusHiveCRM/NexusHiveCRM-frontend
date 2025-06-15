@@ -196,6 +196,12 @@ export default function CampaignManagement() {
     );
   };
 
+  // Filter campaigns for the table (case-insensitive, trimmed)
+  const filteredCampaigns = filter === "All"
+    ? campaigns
+    : campaigns.filter(c => c.status.trim().toLowerCase() === filter.trim().toLowerCase());
+  console.log('Filter:', filter, 'Filtered:', filteredCampaigns);
+
   return (
     <div className="flex flex-col gap-8">
       {/* Header Section */}
@@ -296,7 +302,7 @@ export default function CampaignManagement() {
                 </tr>
               </thead>
               <tbody>
-                {campaigns.map((campaign) => (
+                {filteredCampaigns.map((campaign) => (
                   <tr key={campaign.id} className="border-b dark:border-gray-700">
                     <td className="py-4">
                       <div>

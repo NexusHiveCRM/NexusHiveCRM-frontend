@@ -44,12 +44,12 @@ export default function Sidebar({ features, userLabel, expanded, setExpanded }) 
       {/* Fixed Logo at Top */}
       <div className="flex items-center justify-center py-6 px-2">
         <img
-          src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-Logo.png"
+          src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/college1/collage1.png"
           alt="Logo"
           className={`transition-all duration-300 ${expanded ? 'w-12 h-12' : 'w-10 h-10'} block dark:hidden`}
         />
         <img
-          src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-darktheme-logo.png"
+          src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/college1/collage1.png"
           alt="Logo Dark"
           className={`transition-all duration-300 ${expanded ? 'w-12 h-12' : 'w-10 h-10'} hidden dark:block`}
         />

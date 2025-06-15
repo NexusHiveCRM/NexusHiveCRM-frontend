@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FiBarChart2, FiTrendingUp, FiTrendingDown, FiDollarSign, FiPieChart, FiUsers, FiMail, FiClock, FiZap, FiSearch, FiDownload, FiPlus, FiChevronRight, FiFileText, FiStar, FiMapPin, FiActivity, FiSettings } from 'react-icons/fi';
 
 // Demo data for each module
@@ -55,6 +55,13 @@ const dashboardKPIs = [
   { label: "ROI Trend", value: "+12%", icon: <FiTrendingUp className="text-green-600" /> },
   { label: "Drop-offs", value: 18, icon: <FiTrendingDown className="text-red-500" /> },
 ];
+
+// Demo data for charts
+const leadSummaryData = [120, 140, 110, 160, 180, 150, 170];
+const roiTrendData = [1.2, 1.4, 1.1, 1.6, 1.8, 1.5, 1.7];
+const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const maxLeads = 200;
+const minROI = 1.0, maxROI = 2.0;
 
 export default function ReportingAnalytics() {
   return (
@@ -370,8 +377,10 @@ export default function ReportingAnalytics() {
         </div>
         {/* Chart Placeholders */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="h-48 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-700 dark:text-blue-300 font-bold">[Lead Summary Chart]</div>
-          <div className="h-48 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center text-green-700 dark:text-green-300 font-bold">[ROI Trend Chart]</div>
+          {/* Lead Summary Chart */}
+          <LeadSummaryChart />
+          {/* ROI Trend Chart */}
+          <ROITrendChart />
         </div>
       </section>
 
@@ -428,6 +437,127 @@ export default function ReportingAnalytics() {
           <div className="text-sm text-purple-700 dark:text-purple-300">This week, your LinkedIn campaign brought in 20% more leads at 10% lower cost. Facebook campaign ROI dropped by 5% due to higher CPC.</div>
         </div>
       </section>
+    </div>
+  );
+}
+
+// --- Lead Summary Chart ---
+function LeadSummaryChart() {
+  const [animatedHeights, setAnimatedHeights] = useState(Array(leadSummaryData.length).fill(0));
+  useEffect(() => {
+    setTimeout(() => setAnimatedHeights(leadSummaryData.map(val => val)), 100);
+  }, []);
+  return (
+    <div className="bg-blue-100 dark:bg-blue-900/30 rounded-lg flex flex-col items-center justify-between p-4 min-h-[240px] w-full">
+      <div className="w-full text-left mb-2">
+        <span className="font-semibold text-blue-700">Lead Summary Chart</span>
+      </div>
+      <svg width="100%" height="160" viewBox="0 0 340 160" preserveAspectRatio="none" style={{ width: '100%', maxWidth: '100%' }}>
+        <defs>
+          <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#93c5fd" />
+            <stop offset="100%" stopColor="#2563eb" />
+          </linearGradient>
+          <filter id="barShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#2563eb" floodOpacity="0.10" />
+          </filter>
+        </defs>
+        {/* Grid lines */}
+        {[0, 0.25, 0.5, 0.75, 1].map((p, i) => (
+          <line key={i} x1="40" x2="320" y1={30 + 110 * p} y2={30 + 110 * p} stroke="#dbeafe" strokeWidth="1" />
+        ))}
+        {/* Y-axis labels */}
+        {[0, 50, 100, 150, 200].map((v, i) => (
+          <text key={i} x="28" y={140 - (v / maxLeads) * 110} fontSize="11" fill="#2563eb" textAnchor="end">{v}</text>
+        ))}
+        {/* Bars */}
+        {leadSummaryData.map((val, i) => (
+          <g key={i}>
+            <rect
+              x={50 + i*40}
+              y={140 - (animatedHeights[i] / maxLeads) * 110}
+              width="28"
+              height={(animatedHeights[i] / maxLeads) * 110}
+              fill="url(#barGradient)"
+              rx="10"
+              filter="url(#barShadow)"
+              style={{ transition: 'all 0.8s cubic-bezier(.4,2,.3,1)' }}
+              onMouseOver={e => e.target.setAttribute('fill', '#3b82f6')}
+              onMouseOut={e => e.target.setAttribute('fill', 'url(#barGradient)')}
+            />
+            {/* Value label with white bg */}
+            <rect x={50 + i*40 + 4} y={128 - (animatedHeights[i] / maxLeads) * 110} width="20" height="18" rx="6" fill="#fff" opacity="0.85" />
+            <text x={50 + i*40 + 14} y={142 - (animatedHeights[i] / maxLeads) * 110} fontSize="12" textAnchor="middle" fill="#2563eb" fontWeight="bold">{val}</text>
+          </g>
+        ))}
+        {/* Day labels */}
+        {days.map((d, i) => (
+          <text key={d} x={64 + i*40} y={155} fontSize="12" textAnchor="middle" fill="#1e293b">{d}</text>
+        ))}
+      </svg>
+      <div className="text-xs text-gray-500 w-full text-left mt-2">Leads over the last 7 days</div>
+    </div>
+  );
+}
+
+// --- ROI Trend Chart ---
+function ROITrendChart() {
+  // Animation for line/points
+  const [animatedVals, setAnimatedVals] = useState(Array(roiTrendData.length).fill(1.0));
+  useEffect(() => {
+    setTimeout(() => setAnimatedVals(roiTrendData), 100);
+  }, []);
+  // Generate smooth curve path
+  function getSmoothPath(data) {
+    const points = data.map((val, i) => [50 + i*40, 140 - ((val-minROI)/(maxROI-minROI))*110]);
+    let d = `M${points[0][0]},${points[0][1]}`;
+    for (let i = 1; i < points.length; i++) {
+      const [x1, y1] = points[i-1];
+      const [x2, y2] = points[i];
+      const mx = (x1 + x2) / 2;
+      d += ` Q${mx},${y1} ${x2},${y2}`;
+    }
+    return d;
+  }
+  return (
+    <div className="bg-green-100 dark:bg-green-900/30 rounded-lg flex flex-col items-center justify-between p-4 min-h-[240px] w-full">
+      <div className="w-full text-left mb-2">
+        <span className="font-semibold text-green-700">ROI Trend Chart</span>
+      </div>
+      <svg width="100%" height="160" viewBox="0 0 340 160" preserveAspectRatio="none" style={{ width: '100%', maxWidth: '100%' }}>
+        <defs>
+          <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#6ee7b7" />
+            <stop offset="100%" stopColor="#16a34a" />
+          </linearGradient>
+          <filter id="dotShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#16a34a" floodOpacity="0.18" />
+          </filter>
+        </defs>
+        {/* Grid lines */}
+        {[0, 0.25, 0.5, 0.75, 1].map((p, i) => (
+          <line key={i} x1="40" x2="320" y1={30 + 110 * p} y2={30 + 110 * p} stroke="#bbf7d0" strokeWidth="1" />
+        ))}
+        {/* Y-axis labels */}
+        {[1.0, 1.25, 1.5, 1.75, 2.0].map((v, i) => (
+          <text key={i} x="32" y={140 - ((v-minROI)/(maxROI-minROI))*110} fontSize="11" fill="#166534" textAnchor="end">{v.toFixed(2)}</text>
+        ))}
+        {/* Smooth curve */}
+        <path d={getSmoothPath(animatedVals)} fill="none" stroke="url(#lineGradient)" strokeWidth="4" style={{ transition: 'all 0.8s cubic-bezier(.4,2,.3,1)' }} />
+        {/* Dots and value labels */}
+        {roiTrendData.map((val, i) => (
+          <g key={i}>
+            <circle cx={50 + i*40} cy={140 - ((animatedVals[i]-minROI)/(maxROI-minROI))*110} r="8" fill="#16a34a" filter="url(#dotShadow)" />
+            <rect x={50 + i*40 - 14} y={128 - ((animatedVals[i]-minROI)/(maxROI-minROI))*110} width="28" height="18" rx="6" fill="#fff" opacity="0.85" />
+            <text x={50 + i*40} y={142 - ((animatedVals[i]-minROI)/(maxROI-minROI))*110} fontSize="12" textAnchor="middle" fill="#166534" fontWeight="bold">{val.toFixed(2)}</text>
+          </g>
+        ))}
+        {/* Day labels */}
+        {days.map((d, i) => (
+          <text key={d} x={64 + i*40} y={155} fontSize="12" textAnchor="middle" fill="#166534">{d}</text>
+        ))}
+      </svg>
+      <div className="text-xs text-gray-500 w-full text-left mt-2">ROI trend over the last 7 days</div>
     </div>
   );
 } 
