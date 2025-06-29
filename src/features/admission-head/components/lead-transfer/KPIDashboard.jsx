@@ -33,12 +33,14 @@ const KPIDashboard = () => {
   ];
 
   const counselorPerformance = [
-    { name: 'Megha Sharma', conversionRate: 65, avgResponseTime: '2.5 hrs' },
-    { name: 'Abdullah Al-Mansour', conversionRate: 58, avgResponseTime: '3.2 hrs' },
-    { name: 'Priya Patel', conversionRate: 45, avgResponseTime: '4.1 hrs' },
-    { name: 'Michael Thompson', conversionRate: 62, avgResponseTime: '2.8 hrs' },
-    { name: 'Rahul Verma', conversionRate: 52, avgResponseTime: '3.5 hrs' },
-    { name: 'Amit Sharma', conversionRate: 48, avgResponseTime: '3.9 hrs' }
+    { name: 'Noura Al-Zahra', conversionRate: 45, avgResponseTime: '4.1 hrs' },
+    { name: 'Khalid Al-Sayed', conversionRate: 52, avgResponseTime: '3.5 hrs' },
+    { name: 'Aisha Al-Hassan', conversionRate: 65, avgResponseTime: '2.5 hrs' },
+    { name: 'Omar Al-Mutairi', conversionRate: 58, avgResponseTime: '3.2 hrs' },
+    { name: 'Fatima Al-Rashid', conversionRate: 45, avgResponseTime: '4.1 hrs' },
+    { name: 'Yousef Al-Harbi', conversionRate: 62, avgResponseTime: '2.8 hrs' },
+    { name: 'Maha Al-Shehri', conversionRate: 52, avgResponseTime: '3.5 hrs' },
+    { name: 'Sami Al-Shammari', conversionRate: 48, avgResponseTime: '3.9 hrs' }
   ];
 
   return (

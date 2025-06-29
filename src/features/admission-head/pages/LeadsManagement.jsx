@@ -103,7 +103,7 @@ const demoLeads = [
     contact: {
       email: "carlos.martinez@email.com",
       phone: "+1 234-567-8902",
-      country: "Mexico"
+      country: "Saudi Arabia"
     },
     timeline: [
       { type: "Inquiry", date: "2024-03-09", notes: "Met at education fair" },
@@ -243,7 +243,7 @@ const demoLeads = [
     contact: {
       email: "liam.patel@email.com",
       phone: "+1 234-567-8906",
-      country: "India"
+      country: "Saudi Arabia"
     },
     timeline: [
       { type: "Inquiry", date: "2024-03-06", notes: "Walk-in inquiry" },

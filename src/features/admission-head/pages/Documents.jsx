@@ -3,7 +3,7 @@ import { FiFileText, FiCheckCircle, FiXCircle, FiUpload, FiDownload, FiSearch, F
 
 // Mock data
 const mockApplicants = [
-  { id: 'A001', name: 'Aarav Sharma', dept: 'Engineering', status: 'Confirmed' },
+  { id: 'A001', name: 'Abdullah Al-Rashid', dept: 'Engineering', status: 'Confirmed' },
   { id: 'A002', name: 'Sara Khan', dept: 'Business', status: 'Pending' },
   { id: 'A003', name: 'Carlos Martinez', dept: 'Engineering', status: 'Rejected' },
 ];

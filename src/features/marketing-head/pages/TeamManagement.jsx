@@ -43,9 +43,9 @@ export default function TeamManagement() {
                   <div>
                     <label className="block text-sm font-medium mb-2">Team Member</label>
                     <Select>
-                      <option>John Doe</option>
-                      <option>Jane Smith</option>
-                      <option>Mike Johnson</option>
+                      <option>Abdullah Al-Rashid</option>
+                      <option>Noura Al-Zahra</option>
+                      <option>Khalid Al-Sayed</option>
                     </Select>
                   </div>
                   <Button className="w-full">Assign Region</Button>
@@ -54,9 +54,9 @@ export default function TeamManagement() {
                   <h3 className="font-medium">Current Assignments</h3>
                   <div className="space-y-2">
                     {[
-                      { region: 'North Region', member: 'John Doe', leads: 45 },
-                      { region: 'South Region', member: 'Jane Smith', leads: 38 },
-                      { region: 'East Region', member: 'Mike Johnson', leads: 32 },
+                      { region: 'North Region', member: 'Abdullah Al-Rashid', leads: 45 },
+                      { region: 'South Region', member: 'Noura Al-Zahra', leads: 38 },
+                      { region: 'East Region', member: 'Khalid Al-Sayed', leads: 32 },
                     ].map((assignment, index) => (
                       <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                         <div>
@@ -97,9 +97,9 @@ export default function TeamManagement() {
                   <div>
                     <label className="block text-sm font-medium mb-2">Team Member</label>
                     <Select>
-                      <option>John Doe</option>
-                      <option>Jane Smith</option>
-                      <option>Mike Johnson</option>
+                      <option>Abdullah Al-Rashid</option>
+                      <option>Noura Al-Zahra</option>
+                      <option>Khalid Al-Sayed</option>
                     </Select>
                   </div>
                   <Button className="w-full">Assign Lead Source</Button>
@@ -108,9 +108,9 @@ export default function TeamManagement() {
                   <h3 className="font-medium">Current Assignments</h3>
                   <div className="space-y-2">
                     {[
-                      { source: 'Social Media', member: 'John Doe', leads: 120 },
-                      { source: 'Email Marketing', member: 'Jane Smith', leads: 85 },
-                      { source: 'Direct Referrals', member: 'Mike Johnson', leads: 65 },
+                      { source: 'Social Media', member: 'Abdullah Al-Rashid', leads: 120 },
+                      { source: 'Email Marketing', member: 'Noura Al-Zahra', leads: 85 },
+                      { source: 'Direct Referrals', member: 'Khalid Al-Sayed', leads: 65 },
                     ].map((assignment, index) => (
                       <div key={index} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                         <div>
@@ -141,20 +141,20 @@ export default function TeamManagement() {
                 {[
                   {
                     team: 'Team A',
-                    manager: 'John Doe',
-                    members: ['Alice Smith', 'Bob Johnson', 'Carol White'],
+                    manager: 'Abdullah Al-Rashid',
+                    members: ['Aisha Al-Hassan', 'Omar Al-Mutairi', 'Fatima Al-Rashid'],
                     totalLeads: 450,
                   },
                   {
                     team: 'Team B',
-                    manager: 'Jane Smith',
-                    members: ['David Brown', 'Eve Davis', 'Frank Miller'],
+                    manager: 'Noura Al-Zahra',
+                    members: ['Layla Al-Mansour', 'Yousef Al-Harbi', 'Maha Al-Shehri'],
                     totalLeads: 380,
                   },
                   {
                     team: 'Team C',
-                    manager: 'Mike Johnson',
-                    members: ['Grace Lee', 'Henry Wilson', 'Ivy Taylor'],
+                    manager: 'Khalid Al-Sayed',
+                    members: ['Sami Al-Shammari', 'Hana Al-Qahtani', 'Ahmed Al-Dossary'],
                     totalLeads: 320,
                   },
                 ].map((team, index) => (

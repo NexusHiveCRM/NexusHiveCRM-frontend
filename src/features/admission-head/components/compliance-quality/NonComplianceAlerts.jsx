@@ -16,7 +16,7 @@ const alerts = [
     severity: 'High',
     status: 'Open',
     action: 'Automated verification system in progress',
-    owner: 'Priya Sharma',
+    owner: 'Noura Al-Zahra',
     dueDate: '2024-08-15'
   },
   {
@@ -26,7 +26,7 @@ const alerts = [
     severity: 'Medium',
     status: 'Resolved',
     action: 'Updated policy and staff training completed',
-    owner: 'Neha Gupta',
+    owner: 'Khalid Al-Sayed',
     dueDate: '2024-07-20'
   },
   {
@@ -36,7 +36,7 @@ const alerts = [
     severity: 'Critical',
     status: 'Open',
     action: 'Enhanced encryption and access controls',
-    owner: 'Suresh Verma',
+    owner: 'Aisha Al-Hassan',
     dueDate: '2024-08-30'
   },
   {
@@ -46,7 +46,7 @@ const alerts = [
     severity: 'Low',
     status: 'Resolved',
     action: 'Training sessions scheduled',
-    owner: 'Rajesh Kumar',
+    owner: 'Omar Al-Mutairi',
     dueDate: '2024-07-10'
   }
 ];

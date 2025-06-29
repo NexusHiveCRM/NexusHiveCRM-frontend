@@ -17,7 +17,7 @@ const feedbacks = [
     feedback: 'The document upload process was confusing.',
     status: 'Addressed',
     action: 'Updated help text on upload page',
-    owner: 'Priya Sharma',
+    owner: 'Noura Al-Zahra',
     improvementDate: '2024-07-12'
   },
   {
@@ -27,7 +27,7 @@ const feedbacks = [
     feedback: 'Need more training on new policy changes.',
     status: 'In Progress',
     action: 'Scheduled policy training session',
-    owner: 'Neha Gupta',
+    owner: 'Khalid Al-Sayed',
     improvementDate: null
   },
   {
@@ -47,7 +47,7 @@ const feedbacks = [
     feedback: 'Policy document not updated on website.',
     status: 'Addressed',
     action: 'Uploaded latest policy document',
-    owner: 'Suresh Verma',
+    owner: 'Aisha Al-Hassan',
     improvementDate: '2024-07-02'
   }
 ];

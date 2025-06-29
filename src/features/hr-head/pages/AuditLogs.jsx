@@ -13,7 +13,7 @@ const AuditLogs = () => {
     {
       id: 1,
       action: 'Salary Update',
-      user: 'John Smith',
+      user: 'Abdullah Al-Rashid',
       department: 'Engineering',
       timestamp: '2024-03-15 14:30:00',
       details: 'Updated salary for employee ID: EMP001',
@@ -22,7 +22,7 @@ const AuditLogs = () => {
     {
       id: 2,
       action: 'Document Access',
-      user: 'Sarah Johnson',
+      user: 'Noura Al-Zahra',
       department: 'HR',
       timestamp: '2024-03-15 13:45:00',
       details: 'Accessed employee records for department: Marketing',
@@ -31,7 +31,7 @@ const AuditLogs = () => {
     {
       id: 3,
       action: 'Policy Update',
-      user: 'Michael Brown',
+      user: 'Khalid Al-Sayed',
       department: 'HR',
       timestamp: '2024-03-15 11:20:00',
       details: 'Updated company policy: Remote Work Guidelines',

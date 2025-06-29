@@ -3,16 +3,14 @@ import { FiMail, FiMessageCircle, FiPhone, FiUsers, FiUser, FiCheckCircle, FiXCi
 
 // Mock data for communications
 const mockRecipients = [
-  { name: 'Aarav Sharma', role: 'Student' },
-  { name: 'Sara Khan', role: 'Parent' },
-  { name: 'EduWorld', role: 'Agent' },
-  { name: 'Priya Singh', role: 'Team' },
+  { name: 'Abdullah Al-Rashid', role: 'Student' },
+  { name: 'Layla Al-Mansour', role: 'Parent' },
+  { name: 'Noura Al-Zahra', role: 'Team' },
 ];
 const mockOutgoing = [
-  { id: 1, recipient: mockRecipients[0], type: 'Email', subject: 'Application Received', preview: 'Dear Aarav, your application...', date: '2024-06-10', time: '10:00', sentBy: 'User', status: 'Delivered' },
-  { id: 2, recipient: mockRecipients[1], type: 'SMS', subject: 'Parent Counseling Reminder', preview: 'Dear Parent, your session...', date: '2024-06-10', time: '11:00', sentBy: 'Bot', status: 'Opened' },
-  { id: 3, recipient: mockRecipients[2], type: 'WhatsApp', subject: 'Agent Meeting', preview: 'Hi, please confirm...', date: '2024-06-09', time: '15:00', sentBy: 'User', status: 'Failed' },
-  { id: 4, recipient: mockRecipients[3], type: 'Chatbot', subject: 'Team Sync', preview: 'Team, please join...', date: '2024-06-08', time: '14:00', sentBy: 'Bot', status: 'Replied' },
+  { id: 1, recipient: mockRecipients[0], type: 'Email', subject: 'Application Received', preview: 'Dear Abdullah, your application...', date: '2024-06-10', time: '10:00', sentBy: 'User', status: 'Delivered' },
+  { id: 2, recipient: mockRecipients[1], type: 'SMS', subject: 'Document Verification', preview: 'Dear Layla, please submit...', date: '2024-06-09', time: '14:30', sentBy: 'System', status: 'Sent' },
+  { id: 3, recipient: mockRecipients[2], type: 'WhatsApp', subject: 'Interview Schedule', preview: 'Hi Noura, your interview is...', date: '2024-06-08', time: '16:45', sentBy: 'User', status: 'Read' },
 ];
 const mockIncoming = [
   { id: 1, sender: mockRecipients[0], type: 'Email', subject: 'Re: Application', preview: 'Thank you for the update...', date: '2024-06-10', time: '10:30', status: 'Needs Follow-up', tags: ['Scholarship Query'] },
@@ -24,12 +22,12 @@ const mockTemplates = [
   { id: 2, name: 'Interview Invitation', type: 'SMS', content: 'Dear {Name}, your interview is scheduled on {Date}.', lang: 'EN', approved: false },
 ];
 const mockNotes = [
-  { id: 1, candidate: 'Aarav Sharma', note: 'VIP applicant, flag for director review.', tags: ['VIP', 'Flagged'], private: false },
-  { id: 2, candidate: 'Sara Khan', note: 'Needs financial aid counseling.', tags: ['Important'], private: true },
+  { id: 1, candidate: 'Abdullah Al-Rashid', note: 'VIP applicant, flag for director review.', tags: ['VIP', 'Flagged'], private: false },
+  { id: 2, candidate: 'Layla Al-Mansour', note: 'Parent concerned about accommodation.', tags: ['Parent', 'Accommodation'], private: true },
 ];
 const mockCalls = [
-  { id: 1, caller: 'Aarav Sharma', type: 'Incoming', duration: '3:20', notes: 'Discussed scholarship.', aiSummary: 'Asked about scholarship eligibility.', date: '2024-06-10', status: 'Completed' },
-  { id: 2, caller: 'Sara Khan', type: 'Outgoing', duration: '2:10', notes: 'Parent query on deadline.', aiSummary: 'Concerned about application deadline.', date: '2024-06-09', status: 'Missed' },
+  { id: 1, caller: 'Abdullah Al-Rashid', type: 'Incoming', duration: '3:20', notes: 'Discussed scholarship.', aiSummary: 'Asked about scholarship eligibility.', date: '2024-06-10', status: 'Completed' },
+  { id: 2, caller: 'Layla Al-Mansour', type: 'Outgoing', duration: '5:15', notes: 'Follow-up on application.', aiSummary: 'Confirmed document submission.', date: '2024-06-09', status: 'Completed' },
 ];
 const mockChannels = [
   { name: 'Email', icon: <FiMail />, enabled: true },
@@ -130,7 +128,7 @@ export default function Communication() {
                   <td className="px-4 py-2">{m.subject} <span className="text-xs text-gray-400">{m.preview}</span></td>
                   <td className="px-4 py-2">{m.date} {m.time}</td>
                   <td className="px-4 py-2">{m.sentBy}</td>
-                  <td className="px-4 py-2"><span className={`px-2 py-1 rounded-full text-xs font-semibold ${m.status === 'Delivered' ? 'bg-green-100 text-green-700' : m.status === 'Opened' ? 'bg-blue-100 text-blue-700' : m.status === 'Failed' ? 'bg-red-100 text-red-700' : m.status === 'Replied' ? 'bg-yellow-100 text-yellow-700' : ''}`}>{m.status}</span></td>
+                  <td className="px-4 py-2"><span className={`px-2 py-1 rounded-full text-xs font-semibold ${m.status === 'Delivered' ? 'bg-green-100 text-green-700' : m.status === 'Sent' ? 'bg-blue-100 text-blue-700' : m.status === 'Read' ? 'bg-yellow-100 text-yellow-700' : ''}`}>{m.status}</span></td>
                   <td className="px-4 py-2">
                     <button className="text-blue-600 hover:underline font-semibold transition-colors mr-2">Resend</button>
                     <button className="text-indigo-600 hover:underline font-semibold transition-colors mr-2">View Full</button>

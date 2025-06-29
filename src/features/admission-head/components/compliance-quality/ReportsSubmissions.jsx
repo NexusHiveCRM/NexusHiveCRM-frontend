@@ -11,23 +11,23 @@ import {
 const reports = [
   {
     id: 'REP001',
-    title: 'Quarterly Compliance Report',
-    type: 'Compliance',
+    title: 'Monthly Admission Report',
+    type: 'Monthly',
     status: 'Submitted',
     dueDate: '2024-06-30',
     submittedDate: '2024-06-28',
-    owner: 'Neha Gupta',
-    doc: 'Q2_Compliance_Report.pdf'
+    owner: 'Noura Al-Zahra',
+    approvedBy: 'Dr. Abdullah Al-Rashid'
   },
   {
     id: 'REP002',
-    title: 'Annual Audit Report',
-    type: 'Audit',
+    title: 'Quarterly Compliance Report',
+    type: 'Quarterly',
     status: 'Pending',
-    dueDate: '2024-08-15',
+    dueDate: '2024-07-15',
     submittedDate: null,
-    owner: 'Priya Sharma',
-    doc: null
+    owner: 'Khalid Al-Sayed',
+    approvedBy: null
   },
   {
     id: 'REP003',
@@ -36,7 +36,7 @@ const reports = [
     status: 'Submitted',
     dueDate: '2024-07-10',
     submittedDate: '2024-07-05',
-    owner: 'Suresh Verma',
+    owner: 'Aisha Al-Hassan',
     doc: 'Policy_Compliance_Check.pdf'
   },
   {
@@ -46,7 +46,7 @@ const reports = [
     status: 'Pending',
     dueDate: '2024-07-20',
     submittedDate: null,
-    owner: 'Rajesh Kumar',
+    owner: 'Omar Al-Mutairi',
     doc: null
   }
 ];

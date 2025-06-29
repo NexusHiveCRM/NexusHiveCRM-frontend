@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
 import { motion } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, Legend, AreaChart, Area, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
 import { directorFeatures } from './directorFeatures';
+import DirectorAnalyticsReports from '../features/director/components/DirectorAnalyticsReports';
+import DirectorDepartments from '../features/director/components/DirectorDepartments';
+import DirectorApprovalCenter from '../features/director/components/DirectorApprovalCenter';
+import DirectorStrategicPlanning from '../features/director/components/DirectorStrategicPlanning';
+import DirectorAuditCompliance from '../features/director/components/DirectorAuditCompliance';
+import DirectorMeetingsCalendar from '../features/director/components/DirectorMeetingsCalendar';
+import DirectorUserManagement from '../features/director/components/DirectorUserManagement';
+import DirectorCommunicationHub from './DirectorCommunicationHub';
 
 const features = [
   { label: "Dashboard", icon: "📊", route: "/rbac/director", description: "University Performance Overview, KPI Summary, Alerts & Notices" },
@@ -417,7 +424,7 @@ export default function DirectorDashboard() {
           <li>Top program: B.Tech CSE</li>
         </ul>
       );
-      insight = <div className="text-xs text-blue-600 dark:text-blue-300 mb-2">Admissions are up 5% compared to last month. Most applications from Maharashtra and Delhi.</div>;
+      insight = <div className="text-xs text-blue-600 dark:text-blue-300 mb-2">Admissions are up 5% compared to last month. Most applications from Riyadh and Jeddah.</div>;
     } else if (kpi.label.includes('Finance')) {
       extraDetails = (
         <ul className="text-sm mb-2 list-disc ml-5">
@@ -608,136 +615,255 @@ export default function DirectorDashboard() {
       );
     } else if (chartId === 'leadConversion') {
       content = (
-        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6">
-          <h3 className="text-lg font-bold mb-2 text-blue-700 dark:text-blue-300">Lead Conversion Forecast</h3>
-          <ResponsiveContainer width="100%" height="90%">
-            <LineChart data={leadConversionData} margin={{ top: 20, right: 40, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis tickFormatter={v => `${v}%`} />
-              <Tooltip formatter={v => `${v}%`} />
-              <Legend />
-              <Line type="monotone" dataKey="Rate" stroke="#6366f1" strokeWidth={3} dot={{ r: 6 }} activeDot={{ r: 10 }} />
-            </LineChart>
-          </ResponsiveContainer>
+        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 gap-4 items-stretch min-h-[260px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-1 min-w-[140px] flex items-center justify-center cursor-pointer group" onClick={() => setModalChart('leadConversion')} title="Click to enlarge">
+            <ResponsiveContainer width="100%" height={140}>
+              <LineChart data={leadConversionData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Line type="monotone" dataKey="Rate" stroke="#6366f1" strokeWidth={2.5} dot={{ r: 4 }} />
+              </LineChart>
+            </ResponsiveContainer>
+            <span className="hidden group-hover:block absolute text-xs text-blue-500 bg-white dark:bg-gray-900 px-2 py-1 rounded shadow top-2 left-2">Click to enlarge</span>
+          </div>
+          <div className="flex-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-blue-700 dark:text-blue-300">Lead Conversion</span>
+                <span className="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900 text-xs text-blue-700 dark:text-blue-200 font-semibold">AI</span>
+              </div>
+              <div className="text-sm text-gray-700 dark:text-gray-200 mb-1">
+                <span className="font-bold text-green-600 dark:text-green-400">1,320</span> next semester intake expected <span className="text-xs">(+8%)</span>.<br />
+                Highest growth: <span className="font-semibold">Engineering, Business</span>.
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Confidence: <span className="font-bold text-green-500">92%</span> | Model: v2.1</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Key Drivers: <span className="font-medium">Marketing Spend, Placement Rate, Fee Waivers</span></div>
+              <div className="text-xs text-blue-600 dark:text-blue-300 mb-1">What-if: +10% marketing budget → +3% admissions</div>
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 mt-2">
+              <span>Last updated: 2h ago</span>
+              <span className="italic">Powered by NexusAI</span>
+            </div>
+          </div>
         </div>
       );
     } else if (chartId === 'applicationFee') {
       content = (
-        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6">
-          <h3 className="text-lg font-bold mb-2 text-green-700 dark:text-green-300">Application Fee Revenue Forecast</h3>
-          <ResponsiveContainer width="100%" height="90%">
-            <BarChart data={applicationFeeData} margin={{ top: 20, right: 40, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis tickFormatter={v => `$${v.toLocaleString()}`} />
-              <Tooltip formatter={v => `$${v.toLocaleString()}`} />
-              <Bar dataKey="Revenue" fill="#22c55e" radius={[8, 8, 0, 0]} />
-              <Bar dataKey="Waivers" fill="#ef4444" radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 gap-4 items-stretch min-h-[260px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-1 min-w-[140px] flex items-center justify-center cursor-pointer group" onClick={() => setModalChart('applicationFee')} title="Click to enlarge">
+            <ResponsiveContainer width="100%" height={140}>
+              <BarChart data={applicationFeeData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis tickFormatter={v => `$${v.toLocaleString()}`} />
+                <Tooltip formatter={v => `$${v.toLocaleString()}`} />
+                <Bar dataKey="Revenue" fill="#22c55e" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="Waivers" fill="#ef4444" radius={[8, 8, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+            <span className="hidden group-hover:block absolute text-xs text-green-500 bg-white dark:bg-gray-900 px-2 py-1 rounded shadow top-2 left-2">Click to enlarge</span>
+          </div>
+          <div className="flex-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-green-700 dark:text-green-300">Application Fee Revenue</span>
+                <span className="px-2 py-0.5 rounded bg-green-100 dark:bg-green-900 text-xs text-green-700 dark:text-green-200 font-semibold">AI</span>
+              </div>
+              <div className="text-sm text-gray-700 dark:text-gray-200 mb-1">
+                Expected revenue: <span className="font-bold text-blue-600 dark:text-blue-400">$180,000</span> (+5%).<br />
+                Waivers impact: <span className="font-semibold">10% of revenue</span>.
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Confidence: <span className="font-bold text-green-500">89%</span> | Model: v2.1</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Key Drivers: <span className="font-medium">Applications, Fee Structure, Waivers</span></div>
+              <div className="text-xs text-green-600 dark:text-green-300 mb-1">What-if: +15% fee waivers → -$25k revenue</div>
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 mt-2">
+              <span>Last updated: 2h ago</span>
+              <span className="italic">Powered by NexusAI</span>
+            </div>
+          </div>
         </div>
       );
     } else if (chartId === 'deptRevenue') {
       content = (
-        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6">
-          <h3 className="text-lg font-bold mb-2 text-indigo-700 dark:text-indigo-300">Department Revenue Breakdown</h3>
-          <ResponsiveContainer width="100%" height="90%">
-            <BarChart data={deptRevenueData} margin={{ top: 20, right: 40, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="dept" />
-              <YAxis tickFormatter={v => `$${v.toLocaleString()}`} />
-              <Tooltip formatter={v => `$${v.toLocaleString()}`} />
-              <Bar dataKey="Revenue" fill="#6366f1" radius={[8, 8, 0, 0]} />
-              <Bar dataKey="Projected" fill="#22c55e" radius={[8, 8, 0, 0]} fillOpacity={0.7} />
-            </BarChart>
-          </ResponsiveContainer>
+        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 gap-4 items-stretch min-h-[260px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-1 min-w-[140px] flex items-center justify-center cursor-pointer group" onClick={() => setModalChart('deptRevenue')} title="Click to enlarge">
+            <ResponsiveContainer width="100%" height={140}>
+              <BarChart data={deptRevenueData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="dept" />
+                <YAxis tickFormatter={v => `$${v.toLocaleString()}`} />
+                <Tooltip formatter={v => `$${v.toLocaleString()}`} />
+                <Bar dataKey="Revenue" fill="#6366f1" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="Projected" fill="#22c55e" radius={[8, 8, 0, 0]} fillOpacity={0.7} />
+              </BarChart>
+            </ResponsiveContainer>
+            <span className="hidden group-hover:block absolute text-xs text-indigo-500 bg-white dark:bg-gray-900 px-2 py-1 rounded shadow top-2 left-2">Click to enlarge</span>
+          </div>
+          <div className="flex-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-indigo-700 dark:text-indigo-300">Department Revenue</span>
+                <span className="px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900 text-xs text-indigo-700 dark:text-indigo-200 font-semibold">AI</span>
+              </div>
+              <div className="text-sm text-gray-700 dark:text-gray-200 mb-1">
+                Total projected: <span className="font-bold text-green-600 dark:text-green-400">$17.05M</span> (+10%).<br />
+                Underperforming: <span className="font-semibold">Law, Arts</span>.
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Confidence: <span className="font-bold text-green-500">92%</span> | Model: v2.1</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Key Drivers: <span className="font-medium">Enrollment, Tuition, Grants</span></div>
+              <div className="text-xs text-indigo-600 dark:text-indigo-300 mb-1">What-if: +20% scholarships → -$1.2M revenue</div>
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 mt-2">
+              <span>Last updated: 3h ago</span>
+              <span className="italic">Powered by NexusAI</span>
+            </div>
+          </div>
         </div>
       );
     } else if (chartId === 'subjectProfit') {
       content = (
-        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6">
-          <h3 className="text-lg font-bold mb-2 text-green-700 dark:text-green-300">Subject Profitability Analysis</h3>
-          <ResponsiveContainer width="100%" height="90%">
-            <BarChart data={subjectProfitData} margin={{ top: 20, right: 40, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="subject" />
-              <YAxis tickFormatter={v => `$${v.toLocaleString()}`} />
-              <Tooltip formatter={v => `$${v.toLocaleString()}`} />
-              <Bar dataKey="Profit" fill="#22c55e" radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 gap-4 items-stretch min-h-[260px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-1 min-w-[140px] flex items-center justify-center cursor-pointer group" onClick={() => setModalChart('subjectProfit')} title="Click to enlarge">
+            <ResponsiveContainer width="100%" height={140}>
+              <BarChart data={subjectProfitData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="subject" />
+                <YAxis tickFormatter={v => `$${v.toLocaleString()}`} />
+                <Tooltip formatter={v => `$${v.toLocaleString()}`} />
+                <Bar dataKey="Profit" fill="#22c55e" radius={[8, 8, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+            <span className="hidden group-hover:block absolute text-xs text-green-500 bg-white dark:bg-gray-900 px-2 py-1 rounded shadow top-2 left-2">Click to enlarge</span>
+          </div>
+          <div className="flex-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-green-700 dark:text-green-300">Subject Profitability</span>
+                <span className="px-2 py-0.5 rounded bg-green-100 dark:bg-green-900 text-xs text-green-700 dark:text-green-200 font-semibold">AI</span>
+              </div>
+              <div className="text-sm text-gray-700 dark:text-gray-200 mb-1">
+                Visualizes profit margins for each subject.<br />
+                Instantly spot most/least profitable subjects.
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Confidence: <span className="font-bold text-green-500">94%</span> | Model: v2.1</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Key Drivers: <span className="font-medium">Enrollment, Tuition, Operating Costs</span></div>
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 mt-2">
+              <span>Interactive Bar Chart</span>
+              <span className="italic">Powered by NexusAI</span>
+            </div>
+          </div>
         </div>
       );
     } else if (chartId === 'demographics') {
       content = (
-        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6">
-          <h3 className="text-lg font-bold mb-2 text-blue-700 dark:text-blue-300">Student Demographics Analysis</h3>
-          <div className="grid grid-cols-2 gap-6">
+        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 gap-4 items-stretch min-h-[260px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-1 min-w-[140px] flex items-center justify-center cursor-pointer group" onClick={() => setModalChart('demographics')} title="Click to enlarge">
+            <ResponsiveContainer width="100%" height={140}>
+              <PieChart>
+                <Pie data={studentDemographicsData.regions} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={40} label>
+                  <Cell fill="#6366f1" />
+                  <Cell fill="#22c55e" />
+                  <Cell fill="#f59e42" />
+                  <Cell fill="#ef4444" />
+                </Pie>
+                <Tooltip formatter={v => `${v}%`} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="flex-1 flex flex-col justify-between">
             <div>
-              <h4 className="text-base font-semibold mb-2">Geographic Distribution</h4>
-              <ResponsiveContainer width="100%" height={200}>
-                <PieChart>
-                  <Pie data={studentDemographicsData.regions} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
-                    <Cell fill="#6366f1" />
-                    <Cell fill="#22c55e" />
-                    <Cell fill="#f59e42" />
-                    <Cell fill="#ef4444" />
-                  </Pie>
-                  <Tooltip formatter={v => `${v}%`} />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-blue-700 dark:text-blue-300">Student Demographics</span>
+                <span className="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900 text-xs text-blue-700 dark:text-blue-200 font-semibold">AI</span>
+              </div>
+              <div className="text-sm text-gray-700 dark:text-gray-200 mb-1">
+                Top region: <span className="font-bold text-green-600 dark:text-green-400">North (35%)</span>.<br />
+                Age group: <span className="font-semibold">18-20 (45%)</span>.
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Confidence: <span className="font-bold text-green-500">96%</span> | Model: v2.1</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Key Drivers: <span className="font-medium">Region, Age, Gender, Education</span></div>
+              <div className="text-xs text-blue-600 dark:text-blue-300 mb-1">What-if: Target East region → +15% applications</div>
             </div>
-            <div>
-              <h4 className="text-base font-semibold mb-2">Age Distribution</h4>
-              <ResponsiveContainer width="100%" height={200}>
-                <PieChart>
-                  <Pie data={studentDemographicsData.ageGroups} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
-                    <Cell fill="#6366f1" />
-                    <Cell fill="#22c55e" />
-                    <Cell fill="#f59e42" />
-                    <Cell fill="#ef4444" />
-                  </Pie>
-                  <Tooltip formatter={v => `${v}%`} />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
+            <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 mt-2">
+              <span>Last updated: 1h ago</span>
+              <span className="italic">Powered by NexusAI</span>
             </div>
           </div>
         </div>
       );
     } else if (chartId === 'deptRevenueRadar') {
       content = (
-        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6">
-          <h3 className="text-lg font-bold mb-2 text-indigo-700 dark:text-indigo-300">Department Revenue Radar</h3>
-          <ResponsiveContainer width="100%" height="90%">
-            <RadarChart cx="50%" cy="50%" outerRadius={120} data={deptRevenueData.map(d => ({ dept: d.dept, Revenue: d.Revenue, Projected: d.Projected }))}>
-              <PolarGrid />
-              <PolarAngleAxis dataKey="dept" />
-              <PolarRadiusAxis angle={30} />
-              <Radar name="Current" dataKey="Revenue" stroke="#6366f1" fill="#6366f1" fillOpacity={0.5} />
-              <Radar name="Projected" dataKey="Projected" stroke="#22c55e" fill="#22c55e" fillOpacity={0.3} />
-              <Legend />
-              <Tooltip />
-            </RadarChart>
-          </ResponsiveContainer>
+        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 gap-4 items-stretch min-h-[260px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-1 min-w-[140px] flex items-center justify-center cursor-pointer group" onClick={() => setModalChart('deptRevenueRadar')} title="Click to enlarge">
+            <ResponsiveContainer width="100%" height={140}>
+              <RadarChart cx="50%" cy="50%" outerRadius={50} data={deptRevenueData.map(d => ({ dept: d.dept, Revenue: d.Revenue, Projected: d.Projected }))}>
+                <PolarGrid />
+                <PolarAngleAxis dataKey="dept" />
+                <PolarRadiusAxis angle={30} />
+                <Radar name="Current" dataKey="Revenue" stroke="#6366f1" fill="#6366f1" fillOpacity={0.5} />
+                <Radar name="Projected" dataKey="Projected" stroke="#22c55e" fill="#22c55e" fillOpacity={0.3} />
+                <Legend />
+                <Tooltip />
+              </RadarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="flex-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-indigo-700 dark:text-indigo-300">Department Revenue (Radar)</span>
+                <span className="px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900 text-xs text-indigo-700 dark:text-indigo-200 font-semibold">AI</span>
+              </div>
+              <div className="text-sm text-gray-700 dark:text-gray-200 mb-1">
+                Visualizes current vs projected revenue for each department.<br />
+                Instantly spot outliers and growth areas.
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Confidence: <span className="font-bold text-green-500">92%</span> | Model: v2.1</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Key Drivers: <span className="font-medium">Enrollment, Tuition, Grants</span></div>
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 mt-2">
+              <span>Interactive Radar</span>
+              <span className="italic">Powered by NexusAI</span>
+            </div>
+          </div>
         </div>
       );
     } else if (chartId === 'subjectProfitRadar') {
       content = (
-        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6">
-          <h3 className="text-lg font-bold mb-2 text-green-700 dark:text-green-300">Subject Profitability Radar</h3>
-          <ResponsiveContainer width="100%" height="90%">
-            <RadarChart cx="50%" cy="50%" outerRadius={120} data={subjectProfitData.map(s => ({ subject: s.subject, Profit: s.Profit }))}>
-              <PolarGrid />
-              <PolarAngleAxis dataKey="subject" />
-              <PolarRadiusAxis angle={30} />
-              <Radar name="Profit" dataKey="Profit" stroke="#22c55e" fill="#22c55e" fillOpacity={0.5} />
-              <Legend />
-              <Tooltip />
-            </RadarChart>
-          </ResponsiveContainer>
+        <div className="w-[90vw] max-w-3xl h-[60vh] bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-4 gap-4 items-stretch min-h-[260px] border border-gray-100 dark:border-gray-800">
+          <div className="flex-1 min-w-[140px] flex items-center justify-center cursor-pointer group" onClick={() => setModalChart('subjectProfitRadar')} title="Click to enlarge">
+            <ResponsiveContainer width="100%" height={140}>
+              <RadarChart cx="50%" cy="50%" outerRadius={50} data={subjectProfitData.map(s => ({ subject: s.subject, Profit: s.Profit }))}>
+                <PolarGrid />
+                <PolarAngleAxis dataKey="subject" />
+                <PolarRadiusAxis angle={30} />
+                <Radar name="Profit" dataKey="Profit" stroke="#22c55e" fill="#22c55e" fillOpacity={0.5} />
+                <Legend />
+                <Tooltip />
+              </RadarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="flex-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-green-700 dark:text-green-300">Subject Profitability (Radar)</span>
+                <span className="px-2 py-0.5 rounded bg-green-100 dark:bg-green-900 text-xs text-green-700 dark:text-green-200 font-semibold">AI</span>
+              </div>
+              <div className="text-sm text-gray-700 dark:text-gray-200 mb-1">
+                Visualizes profit margins for each subject.<br />
+                Instantly spot most/least profitable subjects.
+              </div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Confidence: <span className="font-bold text-green-500">94%</span> | Model: v2.1</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Key Drivers: <span className="font-medium">Enrollment, Tuition, Operating Costs</span></div>
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 mt-2">
+              <span>Interactive Radar</span>
+              <span className="italic">Powered by NexusAI</span>
+            </div>
+          </div>
         </div>
       );
     }
@@ -761,9 +887,6 @@ export default function DirectorDashboard() {
 
   return (
     <div className="flex min-h-screen bg-[#F6F7FA] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
-      <div className="sticky top-0 h-screen z-30">
-        <Sidebar features={directorFeatures} userLabel={user?.displayName || user?.role || "Director"} />
-      </div>
       <main className="flex-1 p-6 md:p-10 flex flex-col gap-8 overflow-x-auto">
         {/* Slim, Colorful Summary Cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

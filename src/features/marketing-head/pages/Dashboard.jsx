@@ -20,10 +20,10 @@ const campaignChannels = [
   { name: 'Events', cpl: 40, cpa: 180, roi: 2.2, conversions: 30 },
 ];
 const geoData = [
-  { region: 'Delhi', leads: 200, conversions: 50 },
-  { region: 'Mumbai', leads: 180, conversions: 40 },
-  { region: 'Bangalore', leads: 150, conversions: 35 },
-  { region: 'Chennai', leads: 120, conversions: 30 },
+  { region: 'Riyadh', leads: 200, conversions: 50 },
+  { region: 'Jeddah', leads: 180, conversions: 40 },
+  { region: 'Dammam', leads: 150, conversions: 35 },
+  { region: 'Mecca', leads: 120, conversions: 30 },
 ];
 const demographicData = [
   { group: '18-22', value: 300 },
@@ -80,12 +80,12 @@ const kpis = [
   { label: 'Followers', value: '26.5K', icon: '👥', color: 'bg-yellow-100 text-yellow-700', trend: '+1.2K' },
 ];
 const recentActivity = [
-  { action: 'New lead added', time: '2 hours ago', user: 'John Doe' },
-  { action: 'Campaign launched', time: '5 hours ago', user: 'Jane Smith' },
-  { action: 'Report generated', time: '1 day ago', user: 'Mike Johnson' },
-  { action: 'Budget request approved', time: '2 days ago', user: 'Sarah Lee' },
+  { action: 'New lead added', time: '2 hours ago', user: 'Abdullah Al-Rashid' },
+  { action: 'Campaign launched', time: '5 hours ago', user: 'Noura Al-Zahra' },
+  { action: 'Report generated', time: '1 day ago', user: 'Khalid Al-Sayed' },
+  { action: 'Budget request approved', time: '2 days ago', user: 'Aisha Al-Hassan' },
 ];
-const user = { displayName: 'Rohit Sharma', avatar: 'https://randomuser.me/api/portraits/men/32.jpg', role: 'Marketing Head' };
+const user = { displayName: 'Omar Al-Mutairi', avatar: 'https://randomuser.me/api/portraits/men/32.jpg', role: 'Marketing Head' };
 
 export default function Dashboard() {
   const [search, setSearch] = useState('');
@@ -256,7 +256,7 @@ export default function Dashboard() {
           <Card className="p-4">
             <CardTitle className="mb-2">Location-wise Conversions</CardTitle>
             <BarChart data={geoData} categories={['leads', 'conversions']} />
-            <div className="mt-2 text-xs text-pink-600 animate-bounce">AI: Bangalore is an untapped region with high potential</div>
+            <div className="mt-2 text-xs text-pink-600 animate-bounce">AI: Dammam is an untapped region with high potential</div>
           </Card>
           <Card className="p-4">
             <CardTitle className="mb-2">Demographics</CardTitle>

@@ -6,11 +6,11 @@ import { FiUser, FiMail, FiPhone, FiClock, FiTrendingUp, FiAlertCircle } from 'r
 const teamMembers = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    role: 'Senior Admission Officer',
-    avatar: 'SJ',
-    email: 'sarah.johnson@example.com',
-    phone: '+1 234-567-8901',
+    name: 'Noura Al-Zahra',
+    role: 'Senior Counselor',
+    avatar: 'NA',
+    email: 'noura.zahra@example.com',
+    phone: '+966 50 123 4567',
     workload: {
       total: 45,
       active: 32,
@@ -23,18 +23,18 @@ const teamMembers = [
       satisfaction: '4.8/5'
     },
     recentActivity: [
-      { type: 'call', lead: 'John Smith', time: '2h ago' },
-      { type: 'email', lead: 'Emma Wilson', time: '3h ago' },
-      { type: 'meeting', lead: 'Michael Brown', time: '5h ago' }
+      { type: 'call', lead: 'Abdullah Al-Rashid', time: '2h ago' },
+      { type: 'email', lead: 'Layla Al-Mansour', time: '3h ago' },
+      { type: 'meeting', lead: 'Khalid Al-Sayed', time: '5h ago' }
     ]
   },
   {
     id: 2,
-    name: 'Michael Chen',
+    name: 'Khalid Al-Sayed',
     role: 'Admission Officer',
-    avatar: 'MC',
-    email: 'michael.chen@example.com',
-    phone: '+1 234-567-8902',
+    avatar: 'KA',
+    email: 'khalid.sayed@example.com',
+    phone: '+966 50 234 5678',
     workload: {
       total: 38,
       active: 25,
@@ -47,9 +47,9 @@ const teamMembers = [
       satisfaction: '4.6/5'
     },
     recentActivity: [
-      { type: 'email', lead: 'David Lee', time: '1h ago' },
-      { type: 'call', lead: 'Sophia Kim', time: '4h ago' },
-      { type: 'meeting', lead: 'James Wilson', time: '6h ago' }
+      { type: 'email', lead: 'Omar Al-Mutairi', time: '1h ago' },
+      { type: 'call', lead: 'Aisha Al-Hassan', time: '4h ago' },
+      { type: 'meeting', lead: 'Fatima Al-Rashid', time: '6h ago' }
     ]
   },
   // Add more team members as needed

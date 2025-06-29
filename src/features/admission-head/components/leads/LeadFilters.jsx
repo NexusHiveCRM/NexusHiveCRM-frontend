@@ -54,7 +54,7 @@ const filterCategories = [
     label: 'Admission Officer',
     type: 'multiSelect',
     options: [
-      'Sarah Johnson',
+      'Noura Al-Zahra',
       'Michael Chen',
       'Emma Wilson',
       'David Brown',

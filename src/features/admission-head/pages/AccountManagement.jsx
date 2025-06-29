@@ -1,6 +1,6 @@
 import React from "react";
-import Workspace from "../components/Workspace";
+import AdmissionHeadWorkspace from "../components/AdmissionHeadWorkspace";
 
 export default function AccountManagement() {
-  return <Workspace />;
+  return <AdmissionHeadWorkspace />;
 } 

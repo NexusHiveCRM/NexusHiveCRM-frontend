@@ -3,26 +3,31 @@ import { FiUpload, FiDownload, FiFileText, FiSettings, FiMail, FiUsers, FiMapPin
 
 // Mock data for demo
 const mockLogs = [
-  { id: 1, user: 'Priya Singh', action: 'Edited applicant', module: 'Applicants', date: '2024-06-10', details: 'Updated phone number' },
-  { id: 2, user: 'Amit Patel', action: 'Deleted document', module: 'Documents', date: '2024-06-09', details: 'Removed duplicate ID proof' },
-  { id: 3, user: 'Riya Mehra', action: 'Updated payment', module: 'Payments', date: '2024-06-08', details: 'Marked as paid' },
+  { id: 1, user: 'Noura Al-Zahra', action: 'Edited applicant', module: 'Applicants', date: '2024-06-10', details: 'Updated phone number' },
+  { id: 2, user: 'Khalid Al-Sayed', action: 'Created lead', module: 'Leads', date: '2024-06-09', details: 'New lead from website' },
+  { id: 3, user: 'Layla Al-Mansour', action: 'Updated status', module: 'Applications', date: '2024-06-08', details: 'Status changed to approved' },
+  { id: 4, user: 'Omar Al-Mutairi', action: 'Generated report', module: 'Reports', date: '2024-06-07', details: 'Monthly enrollment report' },
+  { id: 5, user: 'Aisha Al-Hassan', action: 'Sent email', module: 'Communication', date: '2024-06-06', details: 'Welcome email sent' },
 ];
 const mockTasks = [
-  { id: 1, task: 'Follow-up with Aarav Sharma', assigned: 'Priya Singh', deadline: '2024-06-12', priority: 'High', status: 'Pending' },
-  { id: 2, task: 'Review payment for Sara Khan', assigned: 'Amit Patel', deadline: '2024-06-11', priority: 'Medium', status: 'In Progress' },
+  { id: 1, task: 'Follow-up with Abdullah Al-Rashid', assigned: 'Noura Al-Zahra', deadline: '2024-06-12', priority: 'High', status: 'Pending' },
+  { id: 2, task: 'Review applications', assigned: 'Khalid Al-Sayed', deadline: '2024-06-11', priority: 'Medium', status: 'In Progress' },
+  { id: 3, task: 'Update website content', assigned: 'Layla Al-Mansour', deadline: '2024-06-10', priority: 'Low', status: 'Completed' },
+  { id: 4, task: 'Prepare presentation', assigned: 'Omar Al-Mutairi', deadline: '2024-06-09', priority: 'High', status: 'Pending' },
+  { id: 5, task: 'Contact references', assigned: 'Aisha Al-Hassan', deadline: '2024-06-08', priority: 'Medium', status: 'Completed' },
 ];
 const mockTemplates = [
   { id: 1, name: 'Welcome Email', type: 'Email', content: 'Dear {Name}, welcome to our program!', fields: ['Name', 'Program'] },
   { id: 2, name: 'Payment Reminder', type: 'SMS', content: 'Dear {Name}, your payment for {Program} is due.', fields: ['Name', 'Program'] },
 ];
 const mockGeo = [
-  { region: 'Delhi', count: 120 },
-  { region: 'Mumbai', count: 80 },
-  { region: 'Bangalore', count: 60 },
+  { region: 'Riyadh', count: 120 },
+  { region: 'Jeddah', count: 80 },
+  { region: 'Dammam', count: 60 },
 ];
 const mockDuplicates = [
-  { id: 'A001', name: 'Aarav Sharma', email: 'aarav@email.com', match: 'Email' },
-  { id: 'A002', name: 'Arav Sharma', email: 'aarav@email.com', match: 'Name (fuzzy)' },
+  { id: 'A001', name: 'Abdullah Al-Rashid', email: 'abdullah@email.com', match: 'Email' },
+  { id: 'A002', name: 'Abdullah Al-Rashid', email: 'abdullah@email.com', match: 'Name (fuzzy)' },
 ];
 const mockApiStatus = [
   { name: 'Payment Gateway', status: 'Active', lastSync: '2024-06-10', errors: 0 },

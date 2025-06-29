@@ -15,10 +15,10 @@ const TransferHistory = () => {
   const transferHistory = [
     {
       id: 1,
-      leadName: "Rajesh Kumar",
+      leadName: "Abdullah Al-Rashid",
       applicationId: "APP001",
-      fromCounselor: "Amit Sharma",
-      toCounselor: "Megha Sharma",
+      fromCounselor: "Noura Al-Zahra",
+      toCounselor: "Khalid Al-Sayed",
       date: "2024-03-15",
       time: "14:30",
       reason: "Better match for technical course counseling",
@@ -29,8 +29,8 @@ const TransferHistory = () => {
       id: 2,
       leadName: "Mohammed Al-Saud",
       applicationId: "APP002",
-      fromCounselor: "Priya Patel",
-      toCounselor: "Abdullah Al-Mansour",
+      fromCounselor: "Khalid Al-Sayed",
+      toCounselor: "Aisha Al-Hassan",
       date: "2024-03-14",
       time: "11:15",
       reason: "Regional expertise required",
@@ -39,10 +39,10 @@ const TransferHistory = () => {
     },
     {
       id: 3,
-      leadName: "Sarah Johnson",
+      leadName: "Layla Al-Mansour",
       applicationId: "APP003",
-      fromCounselor: "Rahul Verma",
-      toCounselor: "Michael Thompson",
+      fromCounselor: "Aisha Al-Hassan",
+      toCounselor: "Omar Al-Mutairi",
       date: "2024-03-16",
       time: "09:45",
       reason: "Language preference match",
@@ -53,8 +53,8 @@ const TransferHistory = () => {
       id: 4,
       leadName: "Fatima Al-Rashid",
       applicationId: "APP004",
-      fromCounselor: "Megha Sharma",
-      toCounselor: "Abdullah Al-Mansour",
+      fromCounselor: "Omar Al-Mutairi",
+      toCounselor: "Noura Al-Zahra",
       date: "2024-03-13",
       time: "16:20",
       reason: "Cultural background match",
@@ -63,10 +63,10 @@ const TransferHistory = () => {
     },
     {
       id: 5,
-      leadName: "Arjun Singh",
+      leadName: "Yousef Al-Harbi",
       applicationId: "APP005",
-      fromCounselor: "Amit Sharma",
-      toCounselor: "Priya Patel",
+      fromCounselor: "Noura Al-Zahra",
+      toCounselor: "Khalid Al-Sayed",
       date: "2024-03-15",
       time: "13:10",
       reason: "Workload balancing",
@@ -76,12 +76,12 @@ const TransferHistory = () => {
   ];
 
   const counselors = [
-    'Amit Sharma',
-    'Megha Sharma',
-    'Priya Patel',
-    'Abdullah Al-Mansour',
-    'Michael Thompson',
-    'Rahul Verma'
+    'Noura Al-Zahra',
+    'Khalid Al-Sayed',
+    'Aisha Al-Hassan',
+    'Omar Al-Mutairi',
+    'Fatima Al-Rashid',
+    'Yousef Al-Harbi'
   ];
 
   const handleExport = () => {

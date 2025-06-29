@@ -41,7 +41,7 @@ const complianceMetrics = {
 // Mock data for regulatory bodies
 const regulatoryBodies = [
   {
-    name: 'UGC',
+    name: 'NCAAA',
     status: 'Compliant',
     lastAudit: '2024-06-15',
     nextAudit: '2024-12-15',
@@ -49,7 +49,7 @@ const regulatoryBodies = [
     met: 25
   },
   {
-    name: 'AICTE',
+    name: 'NCAAA',
     status: 'Compliant',
     lastAudit: '2024-05-20',
     nextAudit: '2024-11-20',
@@ -57,7 +57,7 @@ const regulatoryBodies = [
     met: 30
   },
   {
-    name: 'NAAC',
+    name: 'MoE',
     status: 'In Progress',
     lastAudit: '2024-03-10',
     nextAudit: '2024-09-10',
@@ -79,6 +79,14 @@ const regulatoryBodies = [
     nextAudit: '2024-12-01',
     requirements: 15,
     met: 15
+  },
+  {
+    name: 'ETEC',
+    status: 'Compliant',
+    lastAudit: '2024-06-01',
+    nextAudit: '2024-12-01',
+    requirements: 15,
+    met: 15
   }
 ];
 
@@ -89,24 +97,24 @@ const pendingVerifications = [
     type: 'Income Certificate',
     status: 'Expired',
     daysLeft: -5,
-    student: 'John Doe',
-    department: 'Engineering'
+    student: 'Abdullah Al-Rashid',
+    department: 'Computer Science'
   },
   {
     id: 'ADM3422',
     type: 'Transfer Certificate',
     status: 'Missing',
     daysLeft: 0,
-    student: 'Jane Smith',
-    department: 'Business'
+    student: 'Noura Al-Zahra',
+    department: 'Business Administration'
   },
   {
     id: 'ADM3423',
     type: 'Caste Certificate',
     status: 'Pending',
     daysLeft: 2,
-    student: 'Mike Johnson',
-    department: 'Arts'
+    student: 'Khalid Al-Sayed',
+    department: 'Islamic Studies'
   }
 ];
 

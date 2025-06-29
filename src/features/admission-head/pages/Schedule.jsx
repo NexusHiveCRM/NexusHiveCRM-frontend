@@ -12,21 +12,21 @@ const mockTypes = [
   { label: 'Walk-In', color: 'bg-gray-100 text-gray-700', icon: <FiUserCheck /> },
 ];
 const mockStaff = [
-  { name: 'Priya Singh', avatar: 'https://randomuser.me/api/portraits/women/8.jpg', color: 'bg-blue-200' },
-  { name: 'Amit Patel', avatar: 'https://randomuser.me/api/portraits/men/9.jpg', color: 'bg-green-200' },
-  { name: 'Riya Mehra', avatar: 'https://randomuser.me/api/portraits/women/10.jpg', color: 'bg-purple-200' },
-  { name: 'Rahul Jain', avatar: 'https://randomuser.me/api/portraits/men/11.jpg', color: 'bg-pink-200' },
+  { name: 'Noura Al-Zahra', avatar: 'https://randomuser.me/api/portraits/women/8.jpg', color: 'bg-blue-200' },
+  { name: 'Khalid Al-Sayed', avatar: 'https://randomuser.me/api/portraits/men/11.jpg', color: 'bg-pink-200' },
+  { name: 'Aisha Al-Hassan', avatar: 'https://randomuser.me/api/portraits/women/10.jpg', color: 'bg-purple-200' },
+  { name: 'Omar Al-Mutairi', avatar: 'https://randomuser.me/api/portraits/men/9.jpg', color: 'bg-green-200' },
 ];
 const today = new Date();
 function addDays(date, days) { const d = new Date(date); d.setDate(d.getDate() + days); return d; }
 const mockAppointments = [
-  { id: 1, title: 'Interview: John Doe', type: 'Student Interview', staff: mockStaff[0], date: today, time: '10:00 AM', status: 'Confirmed', mode: 'Online', applicant: 'John Doe', color: 'bg-blue-100 text-blue-700' },
-  { id: 2, title: 'Parent Counseling: Sara Khan', type: 'Parent Counseling', staff: mockStaff[1], date: addDays(today, 1), time: '2:00 PM', status: 'Pending', mode: 'Offline', applicant: 'Sara Khan', color: 'bg-green-100 text-green-700' },
+  { id: 1, title: 'Interview: Abdullah Al-Rashid', type: 'Student Interview', staff: mockStaff[0], date: today, time: '10:00 AM', status: 'Confirmed', mode: 'Online', applicant: 'Abdullah Al-Rashid', color: 'bg-blue-100 text-blue-700' },
+  { id: 2, title: 'Parent Counseling: Layla Al-Mansour', type: 'Parent Counseling', staff: mockStaff[1], date: addDays(today, 1), time: '2:00 PM', status: 'Pending', mode: 'Offline', applicant: 'Layla Al-Mansour', color: 'bg-green-100 text-green-700' },
   { id: 3, title: 'Agent Meeting: EduWorld', type: 'Agent Meeting', staff: mockStaff[2], date: addDays(today, 2), time: '4:00 PM', status: 'Confirmed', mode: 'Online', applicant: 'EduWorld', color: 'bg-purple-100 text-purple-700' },
   { id: 4, title: 'Outreach: St. Xavier School', type: 'High School Outreach', staff: mockStaff[3], date: addDays(today, 3), time: '11:00 AM', status: 'Confirmed', mode: 'Offline', applicant: 'St. Xavier School', color: 'bg-pink-100 text-pink-700' },
-  { id: 5, title: 'Campus Visit: Aryan Sharma', type: 'Campus Visit', staff: mockStaff[0], date: addDays(today, 4), time: '9:00 AM', status: 'Pending', mode: 'Offline', applicant: 'Aryan Sharma', color: 'bg-yellow-100 text-yellow-700' },
+  { id: 5, title: 'Campus Visit: Omar Al-Mutairi', type: 'Campus Visit', staff: mockStaff[0], date: addDays(today, 4), time: '9:00 AM', status: 'Pending', mode: 'Offline', applicant: 'Omar Al-Mutairi', color: 'bg-yellow-100 text-yellow-700' },
   { id: 6, title: 'Team Sync', type: 'Team Sync', staff: mockStaff[1], date: addDays(today, 5), time: '3:00 PM', status: 'Confirmed', mode: 'Offline', applicant: '', color: 'bg-indigo-100 text-indigo-700' },
-  { id: 7, title: 'Walk-In: Priya Verma', type: 'Walk-In', staff: mockStaff[2], date: addDays(today, 6), time: '1:00 PM', status: 'Pending', mode: 'Offline', applicant: 'Priya Verma', color: 'bg-gray-100 text-gray-700' },
+  { id: 7, title: 'Walk-In: Fatima Al-Rashid', type: 'Walk-In', staff: mockStaff[2], date: addDays(today, 6), time: '1:00 PM', status: 'Pending', mode: 'Offline', applicant: 'Fatima Al-Rashid', color: 'bg-gray-100 text-gray-700' },
 ];
 
 function formatDate(date) {

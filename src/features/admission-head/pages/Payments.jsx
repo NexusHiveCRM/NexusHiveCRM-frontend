@@ -3,9 +3,9 @@ import { FiCreditCard, FiDollarSign, FiClock, FiCheckCircle, FiXCircle, FiRefres
 
 // Mock data
 const mockApplicants = [
-  { id: 'A001', name: 'Aarav Sharma', dept: 'Engineering', program: 'B.Tech', nationality: 'Indian' },
-  { id: 'A002', name: 'Sara Khan', dept: 'Business', program: 'MBA', nationality: 'Indian' },
-  { id: 'A003', name: 'Carlos Martinez', dept: 'Engineering', program: 'M.Tech', nationality: 'International' },
+  { id: 'A001', name: 'Abdullah Al-Rashid', dept: 'Engineering', program: 'B.Tech', nationality: 'Saudi' },
+  { id: 'A002', name: 'Layla Al-Mansour', dept: 'Business', program: 'MBA', nationality: 'Saudi' },
+  { id: 'A003', name: 'Omar Al-Mutairi', dept: 'Engineering', program: 'M.Tech', nationality: 'Saudi' },
 ];
 const mockInvoices = [
   { id: 'INV001', applicant: mockApplicants[0], type: 'Application Fee', amount: 1500, status: 'Paid', date: '2024-06-10', due: '2024-06-15', mode: 'Online', notes: '', discount: 0 },
