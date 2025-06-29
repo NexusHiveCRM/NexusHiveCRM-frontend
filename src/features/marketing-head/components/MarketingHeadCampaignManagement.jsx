@@ -87,7 +87,7 @@ const channelPerformance = [
   },
 ];
 
-export default function CampaignManagement() {
+export default function MarketingHeadCampaignManagement() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
   const [selectedCampaign, setSelectedCampaign] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -105,6 +105,8 @@ export default function CampaignManagement() {
     startDate: '',
     endDate: '',
   });
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
 
   const handleCampaignClick = (campaign) => {
     setSelectedCampaign(campaign);

@@ -60,7 +60,11 @@ const academicCompliances = [
   { id: 3, name: "Omar Al Zahrani", compliance: "Faculty Training", status: "In Progress", date: "2024-04-12" },
 ];
 
-export default function ResourceManagement() {
+export default function MarketingHeadResourceManagement() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
+
   // State for modals, filters, etc. can be added as needed
   return (
     <div className="flex flex-col gap-10 animate-fade-in">

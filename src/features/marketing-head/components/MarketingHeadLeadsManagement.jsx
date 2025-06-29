@@ -343,8 +343,10 @@ export function CommunicationModal({
   );
 }
 
-export default function LeadsManagement() {
+export default function MarketingHeadLeadsManagement() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
   const [leadsList, setLeadsList] = useState(leads);
   const [selectedLead, setSelectedLead] = useState(null);
   const [showModal, setShowModal] = useState(false);

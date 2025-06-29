@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Sidebar from "./Sidebar";
-import { directorFeatures } from './directorFeatures';
+import { directorFeatures } from '../../../components/directorFeatures';
 
 const groups = ["All", "Deans", "HoDs", "Faculty", "Students", "Parents", "Admin Units"];
 const stakeholders = ["Deans/HoDs", "Faculty", "Students", "Parents", "Admin Units"];
@@ -36,15 +36,19 @@ const integrations = [
   { name: "SMS Gateway / Email APIs", desc: "Broader reach beyond app users" },
 ];
 
-export default function CommunicationHub() {
+export default function DirectorCommunicationHub() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
   const [selectedGroup, setSelectedGroup] = useState("All");
   const [stakeTab, setStakeTab] = useState(stakeholders[0]);
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
+  const [selectedDepartment, setSelectedDepartment] = useState('all');
+  const [selectedTimeframe, setSelectedTimeframe] = useState('week');
 
   return (
     <div className="flex min-h-screen bg-[#F6F7FA] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
       <div className="sticky top-0 h-screen z-30">
-        <Sidebar features={directorFeatures} userLabel={user?.displayName || user?.role || "Director"} />
+        <Sidebar features={directorFeatures} userLabel={user?.displayName || user?.role || "Director"} expanded={expanded} setExpanded={setExpanded} />
       </div>
       <main className="flex-1 p-4 md:p-6 flex flex-col gap-8 overflow-x-auto">
         {/* Header */}

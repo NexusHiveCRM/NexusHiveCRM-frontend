@@ -104,7 +104,10 @@ const commLogs = [
   { id: 3, name: "Saudi Arabia", channel: "SMS", outcome: "Delivered", date: "2025-06-08" },
 ];
 
-export default function CommunicationHub() {
+export default function MarketingHeadCommunicationHub() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
   const [selectedChannel, setSelectedChannel] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [newMessage, setNewMessage] = useState('');

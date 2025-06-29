@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Demo data for risks
@@ -67,7 +67,13 @@ const riskMetrics = [
   }
 ];
 
-export default function RiskManagement() {
+export default function DirectorRiskManagement() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
+  const [selectedRisk, setSelectedRisk] = useState(null);
+  const [showRiskModal, setShowRiskModal] = useState(false);
+
   return (
     <div className="flex flex-col gap-8">
       {/* Header Section */}

@@ -113,7 +113,10 @@ const trainingReports = [
   { id: 2, week: "2024-W14", completed: 6, participation: 80, skillImprovement: 8, feedback: 4.2 },
 ];
 
-export default function TrainingDevelopment() {
+export default function MarketingHeadTrainingDevelopment() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
   const [selectedProgram, setSelectedProgram] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [filter, setFilter] = useState("All");

@@ -70,8 +70,10 @@ const engagementColors = {
   Low: 'bg-red-100 text-red-700',
 };
 
-export default function LeadsApplicants() {
-  const [activeTab, setActiveTab] = useState('Leads');
+export default function AdmissionHeadLeadsApplicants() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('leads');
   const [selectedLead, setSelectedLead] = useState(null);
   const [filters, setFilters] = useState({ program: '', geo: '', officer: '', status: '', source: '', date: '' });
   const [search, setSearch] = useState('');

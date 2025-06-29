@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Sidebar from "../../../components/Sidebar";
 import { directorFeatures } from '../../../components/directorFeatures';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -84,16 +83,13 @@ const trends = [
   { label: "International Collaborations", values: [2, 3, 4, 6, 8], years: ["2020","2021","2022","2023","2024"] },
 ];
 
-export default function StrategicPlanning() {
+export default function DirectorStrategicPlanning() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
   const [selectedDept, setSelectedDept] = useState("All Departments");
   const [selectedYear, setSelectedYear] = useState("2024");
 
   return (
     <div className="flex min-h-screen bg-[#F6F7FA] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
-      <div className="sticky top-0 h-screen z-30">
-        <Sidebar features={directorFeatures} userLabel={user?.displayName || user?.role || "Director"} />
-      </div>
       <main className="flex-1 p-4 md:p-6 flex flex-col gap-8 overflow-x-auto">
         {/* Filters */}
         <div className="flex flex-wrap gap-4 items-center mb-2">

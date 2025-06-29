@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Sidebar from "../../../components/Sidebar";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line, Legend, AreaChart, Area,
@@ -110,7 +109,7 @@ const departments = [
 
 const COLORS = ["#6366f1", "#22c55e", "#f59e42", "#eab308", "#a3a3a3"];
 
-export default function Departments() {
+export default function DirectorDepartments() {
   const [selectedDepartment, setSelectedDepartment] = useState("All");
   const [viewMode, setViewMode] = useState("overview");
   const [compareMode, setCompareMode] = useState(false);
@@ -422,9 +421,6 @@ export default function Departments() {
 
   return (
     <div className="flex min-h-screen bg-[#F6F7FA] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
-      <div className="sticky top-0 h-screen z-30">
-        <Sidebar features={directorFeatures} userLabel={user?.displayName || user?.role || "Director"} />
-      </div>
       <main className="flex-1 p-4 md:p-6 flex flex-col gap-4 overflow-x-auto">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

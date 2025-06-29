@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { directorFeatures } from "./directorFeatures";
+import { Outlet } from "react-router-dom";
 
-export default function DirectorLayout({ children }) {
+export default function DirectorLayout() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
   const [expanded, setExpanded] = useState(false);
 
@@ -19,7 +20,7 @@ export default function DirectorLayout({ children }) {
       </div>
       {/* Main content */}
       <main className="flex-1 p-6 space-y-8 overflow-y-auto transition-all duration-300">
-        {children}
+        <Outlet />
       </main>
     </div>
   );

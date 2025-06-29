@@ -51,7 +51,10 @@ const qualityMetrics = [
   { category: "Team Training", score: 96, issues: 1 },
 ];
 
-export default function ComplianceQuality() {
+export default function MarketingHeadComplianceQuality() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
   const [selectedCheck, setSelectedCheck] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [filter, setFilter] = useState("All");

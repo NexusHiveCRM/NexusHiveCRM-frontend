@@ -91,7 +91,10 @@ const alerts = [
   { type: "System Notice", message: "New admission policy update from Director", severity: "info" },
 ];
 
-export default function Dashboard() {
+export default function AdmissionHeadDashboard() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
   const [selectedDepartment, setSelectedDepartment] = useState("all");
   const [timeRange, setTimeRange] = useState("current");
 

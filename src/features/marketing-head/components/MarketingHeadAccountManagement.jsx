@@ -82,7 +82,9 @@ const accountMetrics = [
   },
 ];
 
-const AccountManagement = () => {
+const MarketingHeadAccountManagement = () => {
+  const [activeTab, setActiveTab] = useState('profile');
+  const [showModal, setShowModal] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filter, setFilter] = useState('All');
@@ -319,4 +321,4 @@ const AccountManagement = () => {
   );
 };
 
-export default AccountManagement; 
+export default MarketingHeadAccountManagement; 

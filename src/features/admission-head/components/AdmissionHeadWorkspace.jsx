@@ -1,6 +1,6 @@
 import React from "react";
 
-const Workspace = () => {
+const AdmissionHeadWorkspace = () => {
   return (
     <div className="min-h-screen bg-[#F6F7FA] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
       <main className="flex-1 p-4 md:p-6 flex flex-col gap-8 overflow-x-auto">
@@ -133,4 +133,4 @@ const Workspace = () => {
   );
 };
 
-export default Workspace; 
+export default AdmissionHeadWorkspace; 

@@ -50,10 +50,12 @@ const performanceMetrics = [
   { metric: "Social Engagement", target: 5000, achieved: 4800 },
 ];
 
-export default function TeamManagement() {
+export default function MarketingHeadTeamManagement() {
   const user = JSON.parse(localStorage.getItem('rbac_current_user'));
   const [selectedMember, setSelectedMember] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
 
   const handleMemberClick = (member) => {
     setSelectedMember(member);

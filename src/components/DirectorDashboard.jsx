@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
 import { motion } from "framer-motion";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, Legend, AreaChart, Area, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
 import { directorFeatures } from './directorFeatures';
+import DirectorAnalyticsReports from '../features/director/components/DirectorAnalyticsReports';
+import DirectorDepartments from '../features/director/components/DirectorDepartments';
+import DirectorApprovalCenter from '../features/director/components/DirectorApprovalCenter';
+import DirectorStrategicPlanning from '../features/director/components/DirectorStrategicPlanning';
+import DirectorAuditCompliance from '../features/director/components/DirectorAuditCompliance';
+import DirectorMeetingsCalendar from '../features/director/components/DirectorMeetingsCalendar';
+import DirectorUserManagement from '../features/director/components/DirectorUserManagement';
+import DirectorCommunicationHub from './DirectorCommunicationHub';
 
 const features = [
   { label: "Dashboard", icon: "📊", route: "/rbac/director", description: "University Performance Overview, KPI Summary, Alerts & Notices" },
@@ -761,9 +768,6 @@ export default function DirectorDashboard() {
 
   return (
     <div className="flex min-h-screen bg-[#F6F7FA] dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800">
-      <div className="sticky top-0 h-screen z-30">
-        <Sidebar features={directorFeatures} userLabel={user?.displayName || user?.role || "Director"} />
-      </div>
       <main className="flex-1 p-6 md:p-10 flex flex-col gap-8 overflow-x-auto">
         {/* Slim, Colorful Summary Cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

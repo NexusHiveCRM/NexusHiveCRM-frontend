@@ -81,7 +81,10 @@ const SUBCATEGORY_MAP = {
 };
 const PRIORITY_OPTIONS = ["Low", "Medium", "High", "Urgent"];
 
-export default function Support() {
+export default function AdmissionHeadSupport() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeFaq, setActiveFaq] = useState(null);
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [activeTab, setActiveTab] = useState('tickets');

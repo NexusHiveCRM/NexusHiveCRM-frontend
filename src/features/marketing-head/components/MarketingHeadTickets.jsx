@@ -115,7 +115,7 @@ const ticketMetrics = [
   },
 ];
 
-const Tickets = () => {
+const MarketingHeadTickets = () => {
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filter, setFilter] = useState('All');
@@ -397,4 +397,4 @@ const Tickets = () => {
   );
 };
 
-export default Tickets; 
+export default MarketingHeadTickets; 

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function Workspace() {
+export default function MarketingHeadWorkspace() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
   return (
     <main className="flex-1 p-4 md:p-6 flex flex-col gap-8 overflow-x-auto">
       <header>

@@ -63,7 +63,11 @@ const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const maxLeads = 200;
 const minROI = 1.0, maxROI = 2.0;
 
-export default function ReportingAnalytics() {
+export default function MarketingHeadReportingAnalytics() {
+  const user = JSON.parse(localStorage.getItem('rbac_current_user'));
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
+
   return (
     <div className="flex flex-col gap-10 animate-fade-in">
       {/* Header */}
