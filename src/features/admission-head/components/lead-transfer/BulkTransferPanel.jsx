@@ -12,13 +12,13 @@ const BulkTransferPanel = ({ selectedLeads, setSelectedLeads }) => {
   const [showAISuggestions, setShowAISuggestions] = useState(false);
   const [aiSuggestions, setAiSuggestions] = useState([
     {
-      counselor: 'Megha Sharma',
+      counselor: 'Khalid Al-Sayed',
       matchScore: 85,
       reason: 'Best performance with North-East region leads',
       leadsCount: 8
     },
     {
-      counselor: 'Rahul Kumar',
+      counselor: 'Yousef Al-Harbi',
       matchScore: 75,
       reason: 'High conversion rate with technical courses',
       leadsCount: 5
@@ -29,18 +29,31 @@ const BulkTransferPanel = ({ selectedLeads, setSelectedLeads }) => {
   const leads = [
     {
       id: 1,
-      name: "John Doe",
+      name: "Abdullah Al-Rashid",
       applicationId: "APP001",
       program: "B.Tech Computer Science",
-      currentOwner: "Rahul Sharma"
+      currentOwner: "Noura Al-Zahra"
     },
-    // Add more mock data
+    {
+      id: 2,
+      name: "Layla Al-Mansour",
+      applicationId: "APP002",
+      program: "MBA",
+      currentOwner: "Khalid Al-Sayed"
+    },
+    {
+      id: 3,
+      name: "Omar Al-Mutairi",
+      applicationId: "APP003",
+      program: "B.Tech Mechanical",
+      currentOwner: "Aisha Al-Hassan"
+    }
   ];
 
   const counselors = [
-    { id: 1, name: "Megha Sharma", activeLeads: 15 },
-    { id: 2, name: "Rahul Kumar", activeLeads: 20 },
-    { id: 3, name: "Priya Patel", activeLeads: 12 }
+    { id: 1, name: "Noura Al-Zahra", activeLeads: 15 },
+    { id: 2, name: "Khalid Al-Sayed", activeLeads: 20 },
+    { id: 3, name: "Aisha Al-Hassan", activeLeads: 12 }
   ];
 
   const handleTransfer = () => {

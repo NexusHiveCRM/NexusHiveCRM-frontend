@@ -3,6 +3,7 @@ import React from "react";
 import LandingPage from "./components/LandingPage";
 import CookiePolicy from "./components/CookiePolicy";
 import LoginPage from "./components/LoginPage";
+import UniversityInfo from "./components/UniversityInfo";
 import SuperAdminDashboard from "./components/SuperAdminDashboard";
 import RBACUsers from "./components/RBACUsers";
 import RBACTeams from "./components/RBACTeams";
@@ -105,6 +106,7 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/university-info" element={<UniversityInfo />} />
         <Route path="/rbac" element={<SuperAdminDashboard />} />
         <Route path="/rbac/users" element={<RBACUsers />} />
         <Route path="/rbac/teams" element={<RBACTeams />} />

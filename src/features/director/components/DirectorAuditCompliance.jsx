@@ -9,9 +9,9 @@ const auditLogs = [
 ];
 const complianceStatus = [
   { area: "NCAAA", status: "Compliant", lastAudit: "2023-12-01" },
-  { area: "NBA", status: "Pending", lastAudit: "2022-11-15" },
-  { area: "AICTE", status: "Compliant", lastAudit: "2023-01-20" },
-  { area: "ETEC", status: "Compliant", lastAudit: "2022-09-10" },
+  { area: "ETEC", status: "Pending", lastAudit: "2022-11-15" },
+  { area: "MoE", status: "Compliant", lastAudit: "2023-01-20" },
+  { area: "SCFHS", status: "Compliant", lastAudit: "2022-09-10" },
 ];
 const riskAnalytics = [
   { risk: "Data Breach", level: "Low", mitigation: "2FA, Encryption" },

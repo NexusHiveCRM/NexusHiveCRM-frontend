@@ -11,7 +11,7 @@ const trainingPrograms = [
     status: "Active",
     participants: 25,
     completion: 80,
-    instructor: "John Doe",
+    instructor: "Abdullah Al-Rashid",
     startDate: "2024-04-01",
     endDate: "応24-05-31",
     modules: [
@@ -30,7 +30,7 @@ const trainingPrograms = [
     status: "Upcoming",
     participants: 15,
     completion: 0,
-    instructor: "Jane Smith",
+    instructor: "Noura Al-Zahra",
     startDate: "2024-05-15",
     endDate: "2024-05-16",
     modules: [
@@ -48,7 +48,7 @@ const trainingPrograms = [
     status: "Completed",
     participants: 20,
     completion: 100,
-    instructor: "Mike Johnson",
+    instructor: "Khalid Al-Sayed",
     startDate: "2024-01-01",
     endDate: "2024-03-31",
     modules: [
@@ -63,10 +63,9 @@ const trainingPrograms = [
 
 // Demo data for team progress
 const teamProgress = [
-  { name: "John Doe", completed: 8, inProgress: 2, upcoming: 1 },
-  { name: "Jane Smith", completed: 6, inProgress: 3, upcoming: 2 },
-  { name: "Mike Johnson", completed: 7, inProgress: 2, upcoming: 1 },
-  { name: "Sarah Wilson", completed: 5, inProgress: 4, upcoming: 1 },
+  { name: "Abdullah Al-Rashid", completed: 8, inProgress: 2, upcoming: 1 },
+  { name: "Noura Al-Zahra", completed: 6, inProgress: 3, upcoming: 2 },
+  { name: "Khalid Al-Sayed", completed: 7, inProgress: 2, upcoming: 1 },
 ];
 
 // Demo data for each module

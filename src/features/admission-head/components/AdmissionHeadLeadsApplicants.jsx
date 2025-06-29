@@ -23,40 +23,40 @@ const tabs = [
 // Mock leads data
 const mockLeads = [
   {
-    id: 1,
-    name: 'Aarav Sharma',
-    program: 'B.Tech Computer Science',
-    source: 'Web',
-    status: 'Inquiry',
-    officer: 'Priya Singh',
+    id: 'A001',
+    name: 'Abdullah Al-Rashid',
+    program: 'MBA',
+    source: 'Website',
+    status: 'New',
+    officer: 'Noura Al-Zahra',
     engagement: 'High',
     history: ['Inquiry', 'Contacted'],
     tags: ['Scholarship Interested'],
-    contact: { email: 'aarav@email.com', phone: '+91-9000000001' },
-    geo: { country: 'India', state: 'Maharashtra', city: 'Mumbai' },
+    contact: { email: 'abdullah@email.com', phone: '+966 50 123 4567' },
+    geo: { country: 'Saudi Arabia', state: 'Riyadh', city: 'Riyadh' },
     timeline: [
-      { type: 'Inquiry', date: '2024-05-01' },
-      { type: 'Contacted', date: '2024-05-02' },
+      { type: 'Inquiry', date: '2024-06-10' },
+      { type: 'Contacted', date: '2024-06-09' },
     ],
     docs: [],
     notes: 'Very interested in AI specialization.',
   },
   {
-    id: 2,
-    name: 'Sara Khan',
-    program: 'MBA',
+    id: 'A002',
+    name: 'Layla Al-Mansour',
+    program: 'B.Tech',
     source: 'Referral',
-    status: 'Application Started',
-    officer: 'Amit Patel',
+    status: 'Contacted',
+    officer: 'Khalid Al-Sayed',
     engagement: 'Medium',
     history: ['Inquiry', 'Contacted', 'Application Started'],
     tags: ['Sports Quota'],
-    contact: { email: 'sara@email.com', phone: '+91-9000000002' },
-    geo: { country: 'India', state: 'Delhi', city: 'Delhi' },
+    contact: { email: 'layla@email.com', phone: '+966 50 234 5678' },
+    geo: { country: 'Saudi Arabia', state: 'Riyadh', city: 'Riyadh' },
     timeline: [
-      { type: 'Inquiry', date: '2024-05-03' },
-      { type: 'Contacted', date: '2024-05-04' },
-      { type: 'Application Started', date: '2024-05-05' },
+      { type: 'Inquiry', date: '2024-06-09' },
+      { type: 'Contacted', date: '2024-06-08' },
+      { type: 'Application Started', date: '2024-06-07' },
     ],
     docs: ['Resume.pdf'],
     notes: '',
@@ -126,13 +126,12 @@ export default function AdmissionHeadLeadsApplicants() {
         </select>
         <select className="px-2 py-1 rounded border border-gray-200 dark:border-gray-700 text-sm" onChange={e => setFilters(f => ({ ...f, geo: e.target.value }))}>
           <option value="">State</option>
-          <option value="Maharashtra">Maharashtra</option>
-          <option value="Delhi">Delhi</option>
+          <option value="Riyadh">Riyadh</option>
         </select>
         <select className="px-2 py-1 rounded border border-gray-200 dark:border-gray-700 text-sm" onChange={e => setFilters(f => ({ ...f, officer: e.target.value }))}>
           <option value="">Officer</option>
-          <option value="Priya Singh">Priya Singh</option>
-          <option value="Amit Patel">Amit Patel</option>
+          <option value="Noura Al-Zahra">Noura Al-Zahra</option>
+          <option value="Khalid Al-Sayed">Khalid Al-Sayed</option>
         </select>
         <select className="px-2 py-1 rounded border border-gray-200 dark:border-gray-700 text-sm" onChange={e => setFilters(f => ({ ...f, status: e.target.value }))}>
           <option value="">Status</option>
@@ -140,7 +139,7 @@ export default function AdmissionHeadLeadsApplicants() {
         </select>
         <select className="px-2 py-1 rounded border border-gray-200 dark:border-gray-700 text-sm" onChange={e => setFilters(f => ({ ...f, source: e.target.value }))}>
           <option value="">Source</option>
-          <option value="Web">Web</option>
+          <option value="Website">Website</option>
           <option value="Referral">Referral</option>
         </select>
         <input type="date" className="px-2 py-1 rounded border border-gray-200 dark:border-gray-700 text-sm" onChange={e => setFilters(f => ({ ...f, date: e.target.value }))} />

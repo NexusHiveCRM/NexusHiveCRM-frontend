@@ -21,7 +21,7 @@ const LinkedApplications = () => {
   const applications = [
     {
       id: 'APP001',
-      studentName: 'Rajesh Kumar',
+      studentName: 'Abdullah Al-Rashid',
       course: 'B.Tech Computer Science',
       department: 'Computer Science',
       college: 'Engineering',

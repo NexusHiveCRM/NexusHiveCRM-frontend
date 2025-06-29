@@ -15,7 +15,7 @@ const initialFeedback = [
   {
     id: 1,
     sessionTitle: "CRM Masterclass",
-    trainer: "Dr. Sarah Johnson",
+    trainer: "Dr. Noura Al-Zahra",
     date: "2024-07-15",
     participants: 15,
     averageRating: 4.7,

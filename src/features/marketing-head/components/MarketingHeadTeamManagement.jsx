@@ -6,9 +6,9 @@ import { FiInfo, FiExternalLink, FiUserCheck, FiUsers, FiSettings, FiClipboard, 
 const teamMembers = [
   {
     id: 1,
-    name: "John Doe",
-    role: "Senior Marketing Executive",
-    email: "john.doe@example.com",
+    name: "Abdullah Al-Rashid",
+    role: "Campaign Manager",
+    email: "abdullah.alrashid@mbsc.edu.sa",
     phone: "+1 234 567 890",
     performance: 92,
     status: "Active",
@@ -18,9 +18,9 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Jane Smith",
+    name: "Noura Al-Zahra",
     role: "Content Strategist",
-    email: "jane.smith@example.com",
+    email: "noura.alzahra@mbsc.edu.sa",
     phone: "+1 234 567 891",
     performance: 88,
     status: "Active",
@@ -30,9 +30,9 @@ const teamMembers = [
   },
   {
     id: 3,
-    name: "Mike Johnson",
-    role: "Social Media Manager",
-    email: "mike.johnson@example.com",
+    name: "Khalid Al-Sayed",
+    role: "Digital Marketer",
+    email: "khalid.alsayed@mbsc.edu.sa",
     phone: "+1 234 567 892",
     performance: 85,
     status: "On Leave",
@@ -138,18 +138,18 @@ export default function MarketingHeadTeamManagement() {
           <div>
             <h3 className="font-medium mb-1">By Role</h3>
             <ul className="space-y-1 text-sm">
-              <li>Campaign Managers: John Doe</li>
-              <li>Digital Marketers: Mike Johnson</li>
-              <li>Content Strategists: Jane Smith</li>
+              <li>Campaign Managers: Abdullah Al-Rashid</li>
+              <li>Digital Marketers: Khalid Al-Sayed</li>
+              <li>Content Strategists: Noura Al-Zahra</li>
               <li>Admission Counselors: (none)</li>
             </ul>
           </div>
           <div>
             <h3 className="font-medium mb-1">Reporting Hierarchy</h3>
             <ul className="space-y-1 text-sm">
-              <li>John Doe (Supervisor) → Mike Johnson, Jane Smith</li>
+              <li>Abdullah Al-Rashid (Supervisor) → Khalid Al-Sayed, Noura Al-Zahra</li>
             </ul>
-            <div className="mt-2 text-xs text-blue-600 animate-bounce">AI: Suggests moving Jane Smith to Digital for better workload balance</div>
+            <div className="mt-2 text-xs text-blue-600 animate-bounce">AI: Suggests moving Noura Al-Zahra to Digital for better workload balance</div>
           </div>
         </div>
       </section>
@@ -165,9 +165,9 @@ export default function MarketingHeadTeamManagement() {
             </tr>
           </thead>
           <tbody>
-            <tr><td>John Doe</td><td>Campaign Manager</td><td>All</td><td><button className="text-blue-600">Edit</button></td></tr>
-            <tr><td>Jane Smith</td><td>Content Strategist</td><td>Content, Campaigns</td><td><button className="text-blue-600">Edit</button></td></tr>
-            <tr><td>Mike Johnson</td><td>Digital Marketer</td><td>Campaigns</td><td><button className="text-blue-600">Edit</button></td></tr>
+            <tr><td>Abdullah Al-Rashid</td><td>Campaign Manager</td><td>All</td><td><button className="text-blue-600">Edit</button></td></tr>
+            <tr><td>Noura Al-Zahra</td><td>Content Strategist</td><td>Content, Campaigns</td><td><button className="text-blue-600">Edit</button></td></tr>
+            <tr><td>Khalid Al-Sayed</td><td>Digital Marketer</td><td>Campaigns</td><td><button className="text-blue-600">Edit</button></td></tr>
           </tbody>
         </table>
         <div className="mt-2 text-xs text-purple-600">AI: Suggests permission template for new role</div>
@@ -180,12 +180,12 @@ export default function MarketingHeadTeamManagement() {
         <table className="w-full text-sm mt-2">
           <thead><tr><th>Task</th><th>Assigned To</th><th>Status</th><th>Progress</th><th>Deadline</th><th>Actions</th></tr></thead>
           <tbody>
-            <tr><td>Launch Q2 Campaign</td><td>John Doe</td><td>In Progress</td><td>70%</td><td>2024-07-10</td><td><button className="text-blue-600">Edit</button></td></tr>
-            <tr><td>Write Blog Series</td><td>Jane Smith</td><td>Pending</td><td>0%</td><td>2024-07-12</td><td><button className="text-blue-600">Edit</button></td></tr>
-            <tr><td>Social Media Audit</td><td>Mike Johnson</td><td>Completed</td><td>100%</td><td>2024-06-30</td><td><button className="text-blue-600">Edit</button></td></tr>
+            <tr><td>Launch Q2 Campaign</td><td>Abdullah Al-Rashid</td><td>In Progress</td><td>70%</td><td>2024-07-10</td><td><button className="text-blue-600">Edit</button></td></tr>
+            <tr><td>Write Blog Series</td><td>Noura Al-Zahra</td><td>Pending</td><td>0%</td><td>2024-07-12</td><td><button className="text-blue-600">Edit</button></td></tr>
+            <tr><td>Social Media Audit</td><td>Khalid Al-Sayed</td><td>Completed</td><td>100%</td><td>2024-06-30</td><td><button className="text-blue-600">Edit</button></td></tr>
           </tbody>
         </table>
-        <div className="mt-2 text-xs text-green-600 animate-bounce">AI: Assigns "Write Blog Series" to Jane Smith based on skill and availability</div>
+        <div className="mt-2 text-xs text-green-600 animate-bounce">AI: Assigns "Write Blog Series" to Noura Al-Zahra based on skill and availability</div>
       </section>
 
       {/* 4. Performance Dashboard */}
@@ -196,19 +196,19 @@ export default function MarketingHeadTeamManagement() {
           <div>
             <h3 className="font-medium mb-1">KPIs</h3>
             <ul className="space-y-1 text-sm">
-              <li>Leads Handled: John Doe (120), Jane Smith (90), Mike Johnson (80)</li>
-              <li>Conversions: John Doe (30), Jane Smith (25), Mike Johnson (20)</li>
-              <li>Campaign ROI: John Doe (3.2x), Jane Smith (2.8x), Mike Johnson (2.5x)</li>
+              <li>Leads Handled: Abdullah Al-Rashid (120), Noura Al-Zahra (90), Khalid Al-Sayed (80)</li>
+              <li>Conversions: Abdullah Al-Rashid (30), Noura Al-Zahra (25), Khalid Al-Sayed (20)</li>
+              <li>Campaign ROI: Abdullah Al-Rashid (3.2x), Noura Al-Zahra (2.8x), Khalid Al-Sayed (2.5x)</li>
             </ul>
           </div>
           <div>
             <h3 className="font-medium mb-1">Leaderboard</h3>
             <ol className="list-decimal ml-4 text-sm">
-              <li>John Doe (Score: 92)</li>
-              <li>Jane Smith (Score: 88)</li>
-              <li>Mike Johnson (Score: 85)</li>
+              <li>Abdullah Al-Rashid (Score: 92)</li>
+              <li>Noura Al-Zahra (Score: 88)</li>
+              <li>Khalid Al-Sayed (Score: 85)</li>
             </ol>
-            <div className="mt-2 text-xs text-pink-600 animate-bounce">AI: Predicts Mike Johnson at risk of burnout</div>
+            <div className="mt-2 text-xs text-pink-600 animate-bounce">AI: Predicts Khalid Al-Sayed at risk of burnout</div>
           </div>
         </div>
       </section>
@@ -218,11 +218,11 @@ export default function MarketingHeadTeamManagement() {
         <div className="flex items-center gap-2 mb-2"><FiBookOpen className="text-yellow-500" /><h2 className="text-lg font-semibold">Training & Development Tracker</h2><span className="ml-2 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded animate-pulse">AI Recommendations</span></div>
         {/* Demo: Training attendance, badges, feedback */}
         <ul className="space-y-1 text-sm">
-          <li>John Doe: Attended "Digital Marketing Bootcamp" <span className="ml-2 text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Certified</span></li>
-          <li>Jane Smith: Attended "Content Strategy Seminar" <span className="ml-2 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">In Progress</span></li>
-          <li>Mike Johnson: Not attended recent training</li>
+          <li>Abdullah Al-Rashid: Attended "Digital Marketing Bootcamp" <span className="ml-2 text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Certified</span></li>
+          <li>Noura Al-Zahra: Attended "Content Strategy Seminar" <span className="ml-2 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">In Progress</span></li>
+          <li>Khalid Al-Sayed: Not attended recent training</li>
         </ul>
-        <div className="mt-2 text-xs text-yellow-600 animate-bounce">AI: Recommends "Social Media Analytics" for Mike Johnson</div>
+        <div className="mt-2 text-xs text-yellow-600 animate-bounce">AI: Recommends "Social Media Analytics" for Khalid Al-Sayed</div>
       </section>
 
       {/* 6. Communication Center */}
@@ -234,7 +234,7 @@ export default function MarketingHeadTeamManagement() {
           <li>Reminder: "Submit weekly report by Friday"</li>
           <li>Brief: "SOP for Event Coordination uploaded"</li>
         </ul>
-        <div className="mt-2 text-xs text-blue-600 animate-bounce">AI: Top 3 updates for John Doe: Campaign Launch, Report Reminder, SOP Upload</div>
+        <div className="mt-2 text-xs text-blue-600 animate-bounce">AI: Top 3 updates for Abdullah Al-Rashid: Campaign Launch, Report Reminder, SOP Upload</div>
       </section>
 
       {/* 7. Issue Escalation Panel */}
@@ -242,10 +242,10 @@ export default function MarketingHeadTeamManagement() {
         <div className="flex items-center gap-2 mb-2"><FiAlertCircle className="text-red-500" /><h2 className="text-lg font-semibold">Issue Escalation Panel</h2><span className="ml-2 text-xs bg-red-100 text-red-700 px-2 py-1 rounded animate-pulse">AI Prioritization</span></div>
         {/* Demo: Issue list, status, escalation */}
         <ul className="space-y-1 text-sm">
-          <li>Mike Johnson: "Cannot access campaign analytics" <span className="ml-2 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Pending</span></li>
-          <li>Jane Smith: "Need approval for blog series" <span className="ml-2 text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Resolved</span></li>
+          <li>Khalid Al-Sayed: "Cannot access campaign analytics" <span className="ml-2 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">Pending</span></li>
+          <li>Noura Al-Zahra: "Need approval for blog series" <span className="ml-2 text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Resolved</span></li>
         </ul>
-        <div className="mt-2 text-xs text-red-600 animate-bounce">AI: Prioritizes Mike Johnson's issue as urgent</div>
+        <div className="mt-2 text-xs text-red-600 animate-bounce">AI: Prioritizes Khalid Al-Sayed's issue as urgent</div>
       </section>
 
       {/* 8. Attendance & Availability */}
@@ -253,9 +253,9 @@ export default function MarketingHeadTeamManagement() {
         <div className="flex items-center gap-2 mb-2"><FiCalendar className="text-green-500" /><h2 className="text-lg font-semibold">Attendance & Availability</h2><span className="ml-2 text-xs bg-green-100 text-green-700 px-2 py-1 rounded animate-pulse">AI Forecast</span></div>
         {/* Demo: Check-ins, leaves, roster */}
         <ul className="space-y-1 text-sm">
-          <li>John Doe: Present</li>
-          <li>Jane Smith: On Leave (July 8-10)</li>
-          <li>Mike Johnson: Present</li>
+          <li>Abdullah Al-Rashid: Present</li>
+          <li>Noura Al-Zahra: On Leave (July 8-10)</li>
+          <li>Khalid Al-Sayed: Present</li>
         </ul>
         <div className="mt-2 text-xs text-green-600 animate-bounce">AI: Predicts resource gap on July 8-10</div>
       </section>
@@ -265,11 +265,11 @@ export default function MarketingHeadTeamManagement() {
         <div className="flex items-center gap-2 mb-2"><FiTarget className="text-purple-500" /><h2 className="text-lg font-semibold">Goal Planning & Reviews</h2><span className="ml-2 text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded animate-pulse">AI Goal Setting</span></div>
         {/* Demo: Goals, reviews, feedback */}
         <ul className="space-y-1 text-sm">
-          <li>John Doe: July Goal - 40 conversions</li>
-          <li>Jane Smith: July Goal - 10 blog posts</li>
-          <li>Mike Johnson: July Goal - 20 social campaigns</li>
+          <li>Abdullah Al-Rashid: July Goal - 40 conversions</li>
+          <li>Noura Al-Zahra: July Goal - 10 blog posts</li>
+          <li>Khalid Al-Sayed: July Goal - 20 social campaigns</li>
         </ul>
-        <div className="mt-2 text-xs text-purple-600 animate-bounce">AI: Suggests higher goal for John Doe based on past performance</div>
+        <div className="mt-2 text-xs text-purple-600 animate-bounce">AI: Suggests higher goal for Abdullah Al-Rashid based on past performance</div>
       </section>
 
       {showModal && <Modal member={selectedMember} onClose={() => setShowModal(false)} />}

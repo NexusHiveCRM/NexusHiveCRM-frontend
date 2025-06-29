@@ -17,7 +17,7 @@ const initialSessions = [
     date: "2024-07-26",
     time: "11:00 AM",
     type: "Soft Skills",
-    trainer: "Dr. Sarah Johnson",
+    trainer: "Dr. Noura Al-Zahra",
     mandatory: true,
     attendees: ["All New Counselors"],
     format: "Virtual",

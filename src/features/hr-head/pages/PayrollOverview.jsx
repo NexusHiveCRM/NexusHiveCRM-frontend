@@ -37,7 +37,7 @@ const PayrollOverview = () => {
   const recentPayments = [
     {
       id: 1,
-      employee: 'John Doe',
+      employee: 'Abdullah Al-Rashid',
       department: 'Engineering',
       amount: '$8,500',
       status: 'Completed',
@@ -45,7 +45,7 @@ const PayrollOverview = () => {
     },
     {
       id: 2,
-      employee: 'Jane Smith',
+      employee: 'Noura Al-Zahra',
       department: 'Marketing',
       amount: '$7,200',
       status: 'Pending',

@@ -6,39 +6,39 @@ import * as XLSX from 'xlsx';
 
 // Demo data for leads
 const leads = [
-  { id: 1, name: "Sarah Wilson", email: "sarah.wilson@example.com", phone: "+966 50 123 4567", source: "Website", status: "New", assignedTo: "John Doe", lastContact: "2024-04-10", notes: "Interested in MBA program" },
-  { id: 2, name: "David Brown", email: "david.brown@example.com", phone: "+966 50 234 5678", source: "Social Media", status: "Opportunities", assignedTo: "Jane Smith", lastContact: "2024-04-09", notes: "Requested program brochure" },
-  { id: 3, name: "Emily Davis", email: "emily.davis@example.com", phone: "+966 50 345 6789", source: "Referral", status: "Interview Schedule", assignedTo: "Mike Johnson", lastContact: "2024-04-08", notes: "Scheduled campus visit" },
+  { id: 1, name: "Noura Al-Zahra", email: "noura.zahra@example.com", phone: "+966 50 123 4567", source: "Website", status: "New", assignedTo: "Abdullah Al-Rashid", lastContact: "2024-04-10", notes: "Interested in MBA program" },
+  { id: 2, name: "Khalid Al-Sayed", email: "khalid.sayed@example.com", phone: "+966 50 234 5678", source: "Social Media", status: "Opportunities", assignedTo: "Aisha Al-Hassan", lastContact: "2024-04-09", notes: "Requested program brochure" },
+  { id: 3, name: "Layla Al-Mansour", email: "layla.mansour@example.com", phone: "+966 50 345 6789", source: "Referral", status: "Interview Schedule", assignedTo: "Omar Al-Mutairi", lastContact: "2024-04-08", notes: "Scheduled campus visit" },
   { id: 4, name: "Mohammed Al-Saud", email: "mohammed.alsaud@example.com", phone: "+966 50 456 7890", source: "Events", status: "New", assignedTo: "Fatima Al-Rashid", lastContact: "2024-04-07", notes: "Requested scholarship info" },
-  { id: 5, name: "Fatima Al-Rashid", email: "fatima.rashid@example.com", phone: "+966 50 567 8901", source: "Website", status: "Opportunities", assignedTo: "Sarah Wilson", lastContact: "2024-04-06", notes: "Interested in engineering" },
-  { id: 6, name: "Omar Al-Farouq", email: "omar.farouq@example.com", phone: "+966 50 678 9012", source: "Referral", status: "Interview Schedule", assignedTo: "David Brown", lastContact: "2024-04-05", notes: "Looking for MBA program" },
-  { id: 7, name: "Layla Hassan", email: "layla.hassan@example.com", phone: "+966 50 789 0123", source: "Social Media", status: "Approved", assignedTo: "Emily Davis", lastContact: "2024-04-04", notes: "Completed application" },
+  { id: 5, name: "Fatima Al-Rashid", email: "fatima.rashid@example.com", phone: "+966 50 567 8901", source: "Website", status: "Opportunities", assignedTo: "Noura Al-Zahra", lastContact: "2024-04-06", notes: "Interested in engineering" },
+  { id: 6, name: "Omar Al-Farouq", email: "omar.farouq@example.com", phone: "+966 50 678 9012", source: "Referral", status: "Interview Schedule", assignedTo: "Khalid Al-Sayed", lastContact: "2024-04-05", notes: "Looking for MBA program" },
+  { id: 7, name: "Layla Hassan", email: "layla.hassan@example.com", phone: "+966 50 789 0123", source: "Social Media", status: "Approved", assignedTo: "Layla Al-Mansour", lastContact: "2024-04-04", notes: "Completed application" },
   { id: 8, name: "Abdullah Al-Mansour", email: "abdullah.mansour@example.com", phone: "+966 50 890 1234", source: "Events", status: "New", assignedTo: "Mohammed Al-Saud", lastContact: "2024-04-03", notes: "Interested in business program" },
   { id: 9, name: "Noura Al-Qahtani", email: "noura.qahtani@example.com", phone: "+966 50 901 2345", source: "Website", status: "Opportunities", assignedTo: "Fatima Al-Rashid", lastContact: "2024-04-02", notes: "Requested campus tour" },
   { id: 10, name: "Yousef Al-Harbi", email: "yousef.harbi@example.com", phone: "+966 50 012 3456", source: "Referral", status: "Interview Schedule", assignedTo: "Omar Al-Farouq", lastContact: "2024-04-01", notes: "Interested in IT program" },
   { id: 11, name: "Maha Al-Shehri", email: "maha.shehri@example.com", phone: "+966 50 123 4568", source: "Social Media", status: "Approved", assignedTo: "Layla Hassan", lastContact: "2024-03-31", notes: "Completed registration" },
   { id: 12, name: "Khalid Al-Zahrani", email: "khalid.zahrani@example.com", phone: "+966 50 234 5679", source: "Events", status: "Accounts", assignedTo: "Noura Al-Qahtani", lastContact: "2024-03-30", notes: "Requested program details" },
   // Additional sample leads
-  { id: 13, name: "Aisha Al-Mutairi", email: "aisha.mutairi@example.com", phone: "+966 50 345 6780", source: "Website", status: "New", assignedTo: "Sarah Wilson", lastContact: "2024-03-29", notes: "Interested in design program" },
-  { id: 14, name: "Hassan Al-Qahtani", email: "hassan.qahtani@example.com", phone: "+966 50 456 7891", source: "Referral", status: "Opportunities", assignedTo: "David Brown", lastContact: "2024-03-28", notes: "Requested fee structure" },
-  { id: 15, name: "Mona Al-Sabah", email: "mona.sabah@example.com", phone: "+966 50 567 8902", source: "Events", status: "Interview Schedule", assignedTo: "Mike Johnson", lastContact: "2024-03-27", notes: "Scheduled interview for MBA" },
-  { id: 16, name: "Salman Al-Fahad", email: "salman.fahad@example.com", phone: "+966 50 678 9013", source: "Social Media", status: "Approved", assignedTo: "Jane Smith", lastContact: "2024-03-26", notes: "Approved for scholarship" },
+  { id: 13, name: "Aisha Al-Mutairi", email: "aisha.mutairi@example.com", phone: "+966 50 345 6780", source: "Website", status: "New", assignedTo: "Noura Al-Zahra", lastContact: "2024-03-29", notes: "Interested in design program" },
+  { id: 14, name: "Hassan Al-Qahtani", email: "hassan.qahtani@example.com", phone: "+966 50 456 7891", source: "Referral", status: "Opportunities", assignedTo: "Khalid Al-Sayed", lastContact: "2024-03-28", notes: "Requested fee structure" },
+  { id: 15, name: "Mona Al-Sabah", email: "mona.sabah@example.com", phone: "+966 50 567 8902", source: "Events", status: "Interview Schedule", assignedTo: "Omar Al-Mutairi", lastContact: "2024-03-27", notes: "Scheduled interview for MBA" },
+  { id: 16, name: "Salman Al-Fahad", email: "salman.fahad@example.com", phone: "+966 50 678 9013", source: "Social Media", status: "Approved", assignedTo: "Aisha Al-Hassan", lastContact: "2024-03-26", notes: "Approved for scholarship" },
   { id: 17, name: "Rania Al-Harbi", email: "rania.harbi@example.com", phone: "+966 50 789 0124", source: "Website", status: "Accounts", assignedTo: "Fatima Al-Rashid", lastContact: "2024-03-25", notes: "Account created" },
   { id: 18, name: "Fahad Al-Otaibi", email: "fahad.otaibi@example.com", phone: "+966 50 890 1235", source: "Referral", status: "New", assignedTo: "Omar Al-Farouq", lastContact: "2024-03-24", notes: "Interested in IT program" },
-  { id: 19, name: "Nawal Al-Suwailem", email: "nawal.suwailem@example.com", phone: "+966 50 901 2346", source: "Events", status: "Opportunities", assignedTo: "Sarah Wilson", lastContact: "2024-03-23", notes: "Requested program brochure" },
-  { id: 20, name: "Majed Al-Dosari", email: "majed.dosari@example.com", phone: "+966 50 012 3457", source: "Website", status: "Interview Schedule", assignedTo: "Jane Smith", lastContact: "2024-03-22", notes: "Interview scheduled for engineering" },
-  { id: 21, name: "Lina Al-Saleh", email: "lina.saleh@example.com", phone: "+966 50 123 4569", source: "Social Media", status: "Approved", assignedTo: "Mike Johnson", lastContact: "2024-03-21", notes: "Approved for business program" },
+  { id: 19, name: "Nawal Al-Suwailem", email: "nawal.suwailem@example.com", phone: "+966 50 901 2346", source: "Events", status: "Opportunities", assignedTo: "Noura Al-Zahra", lastContact: "2024-03-23", notes: "Requested program brochure" },
+  { id: 20, name: "Majed Al-Dosari", email: "majed.dosari@example.com", phone: "+966 50 012 3457", source: "Website", status: "Interview Schedule", assignedTo: "Aisha Al-Hassan", lastContact: "2024-03-22", notes: "Interview scheduled for engineering" },
+  { id: 21, name: "Lina Al-Saleh", email: "lina.saleh@example.com", phone: "+966 50 123 4569", source: "Social Media", status: "Approved", assignedTo: "Omar Al-Mutairi", lastContact: "2024-03-21", notes: "Approved for business program" },
   { id: 22, name: "Tariq Al-Mansour", email: "tariq.mansour@example.com", phone: "+966 50 234 5680", source: "Referral", status: "Accounts", assignedTo: "Fatima Al-Rashid", lastContact: "2024-03-20", notes: "Account setup complete" },
-  { id: 23, name: "Sami Al-Shammari", email: "sami.shammari@example.com", phone: "+966 50 345 6781", source: "Events", status: "New", assignedTo: "John Doe", lastContact: "2024-03-19", notes: "Interested in MBA program" },
-  { id: 24, name: "Dina Al-Rashid", email: "dina.rashid@example.com", phone: "+966 50 456 7892", source: "Website", status: "Opportunities", assignedTo: "Jane Smith", lastContact: "2024-03-18", notes: "Requested program details" },
-  { id: 25, name: "Yara Al-Saif", email: "yara.saif@example.com", phone: "+966 50 567 8903", source: "Referral", status: "Interview Schedule", assignedTo: "Mike Johnson", lastContact: "2024-03-17", notes: "Scheduled interview for IT" },
-  { id: 26, name: "Bader Al-Farhan", email: "bader.farhan@example.com", phone: "+966 50 678 9014", source: "Events", status: "Approved", assignedTo: "Emily Davis", lastContact: "2024-03-16", notes: "Approved for engineering" },
+  { id: 23, name: "Sami Al-Shammari", email: "sami.shammari@example.com", phone: "+966 50 345 6781", source: "Events", status: "New", assignedTo: "Abdullah Al-Rashid", lastContact: "2024-03-19", notes: "Interested in MBA program" },
+  { id: 24, name: "Dina Al-Rashid", email: "dina.rashid@example.com", phone: "+966 50 456 7892", source: "Website", status: "Opportunities", assignedTo: "Aisha Al-Hassan", lastContact: "2024-03-18", notes: "Requested program details" },
+  { id: 25, name: "Yara Al-Saif", email: "yara.saif@example.com", phone: "+966 50 567 8903", source: "Referral", status: "Interview Schedule", assignedTo: "Omar Al-Mutairi", lastContact: "2024-03-17", notes: "Scheduled interview for IT" },
+  { id: 26, name: "Bader Al-Farhan", email: "bader.farhan@example.com", phone: "+966 50 678 9014", source: "Events", status: "Approved", assignedTo: "Layla Al-Mansour", lastContact: "2024-03-16", notes: "Approved for engineering" },
   { id: 27, name: "Huda Al-Mutlaq", email: "huda.mutlaq@example.com", phone: "+966 50 789 0125", source: "Website", status: "Accounts", assignedTo: "Omar Al-Farouq", lastContact: "2024-03-15", notes: "Account created for MBA" },
-  { id: 28, name: "Inactive Lead", email: "inactive.lead@example.com", phone: "+966 50 999 9999", source: "Website", status: "Inactive", assignedTo: "John Doe", lastContact: "2024-04-02", notes: "This lead is inactive." },
+  { id: 28, name: "Inactive Lead", email: "inactive.lead@example.com", phone: "+966 50 999 9999", source: "Website", status: "Inactive", assignedTo: "Abdullah Al-Rashid", lastContact: "2024-04-02", notes: "This lead is inactive." },
   { id: 29, name: "Ahmed Al-Mutairi", email: "ahmed.mutairi@example.com", phone: "+966 50 888 8888", source: "Referral", status: "Inactive", assignedTo: "Fatima Al-Rashid", lastContact: "2024-03-10", notes: "No response after initial contact." },
-  { id: 30, name: "Sara Al-Qahtani", email: "sara.qahtani@example.com", phone: "+966 50 777 7777", source: "Social Media", status: "Inactive", assignedTo: "Jane Smith", lastContact: "2024-03-05", notes: "Lead marked inactive by counselor." },
-  { id: 31, name: "Mohammed Al-Fahad", email: "mohammed.fahad@example.com", phone: "+966 50 666 6666", source: "Events", status: "Inactive", assignedTo: "Mike Johnson", lastContact: "2024-02-28", notes: "Unreachable after event." },
-  { id: 32, name: "Laila Al-Sabah", email: "laila.sabah@example.com", phone: "+966 50 555 5555", source: "Website", status: "Inactive", assignedTo: "Emily Davis", lastContact: "2024-02-20", notes: "Requested to be removed from list." },
+  { id: 30, name: "Sara Al-Qahtani", email: "sara.qahtani@example.com", phone: "+966 50 777 7777", source: "Social Media", status: "Inactive", assignedTo: "Aisha Al-Hassan", lastContact: "2024-03-05", notes: "Lead marked inactive by counselor." },
+  { id: 31, name: "Mohammed Al-Fahad", email: "mohammed.fahad@example.com", phone: "+966 50 666 6666", source: "Events", status: "Inactive", assignedTo: "Omar Al-Mutairi", lastContact: "2024-02-28", notes: "Unreachable after event." },
+  { id: 32, name: "Laila Al-Sabah", email: "laila.sabah@example.com", phone: "+966 50 555 5555", source: "Website", status: "Inactive", assignedTo: "Layla Al-Mansour", lastContact: "2024-02-20", notes: "Requested to be removed from list." },
 ];
 
 // Demo data for lead sources
@@ -80,24 +80,24 @@ const nurturingCampaigns = [
 ];
 
 const communicationHistory = [
-  { id: 1, lead: "Sarah Wilson", type: "Email", date: "2024-04-15", status: "Sent", response: "Positive" },
-  { id: 2, lead: "David Brown", type: "Call", date: "2024-04-14", status: "Completed", response: "Neutral" },
-  { id: 3, lead: "Emily Davis", type: "WhatsApp", date: "2024-04-13", status: "Delivered", response: "Positive" },
-  { id: 4, lead: "John Smith", type: "Email", date: "2024-04-12", status: "Opened", response: "Pending" },
+  { id: 1, lead: "Noura Al-Zahra", type: "Email", date: "2024-04-15", status: "Sent", response: "Positive" },
+  { id: 2, lead: "Khalid Al-Sayed", type: "Call", date: "2024-04-14", status: "Completed", response: "Neutral" },
+  { id: 3, lead: "Layla Al-Mansour", type: "WhatsApp", date: "2024-04-13", status: "Delivered", response: "Positive" },
+  { id: 4, lead: "Abdullah Al-Rashid", type: "Email", date: "2024-04-12", status: "Opened", response: "Pending" },
 ];
 
 const counselorPerformance = [
-  { id: 1, name: "John Doe", assigned: 45, converted: 12, conversion: "27%", avgResponse: "2h" },
-  { id: 2, name: "Jane Smith", assigned: 38, converted: 15, conversion: "39%", avgResponse: "1.5h" },
-  { id: 3, name: "Mike Johnson", assigned: 42, converted: 18, conversion: "43%", avgResponse: "1h" },
-  { id: 4, name: "Lisa Brown", assigned: 35, converted: 14, conversion: "40%", avgResponse: "2.5h" },
+  { id: 1, name: "Abdullah Al-Rashid", assigned: 45, converted: 12, conversion: "27%", avgResponse: "2h" },
+  { id: 2, name: "Aisha Al-Hassan", assigned: 38, converted: 15, conversion: "39%", avgResponse: "1.5h" },
+  { id: 3, name: "Omar Al-Mutairi", assigned: 42, converted: 18, conversion: "43%", avgResponse: "1h" },
+  { id: 4, name: "Fatima Al-Rashid", assigned: 35, converted: 14, conversion: "40%", avgResponse: "2.5h" },
 ];
 
 const leadScores = [
-  { id: 1, lead: "Sarah Wilson", score: 85, factors: ["High Engagement", "Complete Profile"], trend: "Up" },
-  { id: 2, lead: "David Brown", score: 72, factors: ["Medium Engagement", "Partial Profile"], trend: "Stable" },
-  { id: 3, lead: "Emily Davis", score: 90, factors: ["High Engagement", "Complete Profile", "Quick Response"], trend: "Up" },
-  { id: 4, lead: "John Smith", score: 65, factors: ["Low Engagement", "Incomplete Profile"], trend: "Down" },
+  { id: 1, lead: "Noura Al-Zahra", score: 85, factors: ["High Engagement", "Complete Profile"], trend: "Up" },
+  { id: 2, lead: "Khalid Al-Sayed", score: 72, factors: ["Medium Engagement", "Partial Profile"], trend: "Stable" },
+  { id: 3, lead: "Layla Al-Mansour", score: 90, factors: ["High Engagement", "Complete Profile", "Quick Response"], trend: "Up" },
+  { id: 4, lead: "Abdullah Al-Rashid", score: 65, factors: ["Low Engagement", "Incomplete Profile"], trend: "Down" },
 ];
 
 const analyticsData = [
@@ -108,10 +108,10 @@ const analyticsData = [
 ];
 
 const documents = [
-  { id: 1, lead: "Sarah Wilson", type: "Application Form", status: "Completed", date: "2024-04-15" },
-  { id: 2, lead: "David Brown", type: "Transcript", status: "Pending", date: "2024-04-14" },
-  { id: 3, lead: "Emily Davis", type: "Recommendation", status: "Completed", date: "2024-04-13" },
-  { id: 4, lead: "John Smith", type: "Test Scores", status: "Incomplete", date: "2024-04-12" },
+  { id: 1, lead: "Noura Al-Zahra", type: "Application Form", status: "Completed", date: "2024-04-15" },
+  { id: 2, lead: "Khalid Al-Sayed", type: "Transcript", status: "Pending", date: "2024-04-14" },
+  { id: 3, lead: "Layla Al-Mansour", type: "Recommendation", status: "Completed", date: "2024-04-13" },
+  { id: 4, lead: "Abdullah Al-Rashid", type: "Test Scores", status: "Incomplete", date: "2024-04-12" },
 ];
 
 // Additional detailed metrics data

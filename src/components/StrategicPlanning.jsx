@@ -182,9 +182,9 @@ export default function StrategicPlanning() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>BSc AI</td><td>Proposal</td><td>Dr. Chen</td></tr>
-                  <tr><td>MBA FinTech</td><td>Review</td><td>Dr. Rao</td></tr>
-                  <tr><td>BTech EEE</td><td>Ongoing</td><td>Dr. Singh</td></tr>
+                  <tr><td>BSc AI</td><td>Proposal</td><td>Dr. Noura Al-Zahra</td></tr>
+                  <tr><td>MBA FinTech</td><td>Review</td><td>Dr. Abdullah Al-Rashid</td></tr>
+                  <tr><td>BSc EEE</td><td>Ongoing</td><td>Dr. Khalid Al-Sayed</td></tr>
                 </tbody>
               </table>
             </div>
@@ -193,7 +193,7 @@ export default function StrategicPlanning() {
               <ul className="text-xs list-disc ml-4">
                 <li>BSc CS: Review in 2025</li>
                 <li>MBA: Review in 2026</li>
-                <li>BTech EEE: Review in 2027</li>
+                <li>BSc EEE: Review in 2027</li>
               </ul>
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function StrategicPlanning() {
             <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
               <h3 className="font-semibold mb-2">Grant Strategy Board</h3>
               <div className="text-xs">ETEC: $200K (2025)</div>
-              <div className="text-xs">AICTE: $150K (2026)</div>
+              <div className="text-xs">NCAAA: $150K (2026)</div>
               <div className="text-xs">CSR: $100K (2027)</div>
             </div>
           </div>

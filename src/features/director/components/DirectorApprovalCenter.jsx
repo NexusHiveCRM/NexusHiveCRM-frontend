@@ -11,7 +11,7 @@ const approvalRequests = [
     type: "New Course Proposal",
     title: "Introduction to Quantum Computing",
     department: "Computer Science",
-    requestedBy: "Dr. Sarah Johnson",
+    requestedBy: "Dr. Noura Al-Zahra",
     amount: 0,
     status: "Pending",
     priority: "High",
@@ -19,7 +19,7 @@ const approvalRequests = [
     description: "Proposal for a new undergraduate course in Quantum Computing",
     attachments: ["Course_Proposal.pdf", "Syllabus_Draft.pdf"],
     comments: [
-      { user: "Dr. Sarah Johnson", text: "Course aligned with industry demands", date: "2024-03-15" },
+      { user: "Dr. Noura Al-Zahra", text: "Course aligned with industry demands", date: "2024-03-15" },
       { user: "Academic Committee", text: "Under review", date: "2024-03-16" }
     ]
   },
@@ -29,7 +29,7 @@ const approvalRequests = [
     type: "Curriculum Revision",
     title: "AI Specialization Update",
     department: "Computer Science",
-    requestedBy: "Dr. Michael Chen",
+    requestedBy: "Dr. Khalid Al-Sayed",
     amount: 0,
     status: "Pending",
     priority: "Medium",
@@ -37,7 +37,7 @@ const approvalRequests = [
     description: "Update to AI specialization curriculum to include latest advancements",
     attachments: ["Curriculum_Changes.pdf", "Industry_Feedback.pdf"],
     comments: [
-      { user: "Dr. Michael Chen", text: "Updated based on industry requirements", date: "2024-03-14" }
+      { user: "Dr. Khalid Al-Sayed", text: "Updated based on industry requirements", date: "2024-03-14" }
     ]
   },
   // Faculty & HR Approvals
@@ -47,7 +47,7 @@ const approvalRequests = [
     type: "Faculty Hiring",
     title: "Senior Professor - Data Science",
     department: "Computer Science",
-    requestedBy: "Dr. Emily Brown",
+    requestedBy: "Dr. Layla Al-Mansour",
     amount: 150000,
     status: "Pending",
     priority: "High",
@@ -65,7 +65,7 @@ const approvalRequests = [
     type: "Research Grant",
     title: "AI Research Project Funding",
     department: "Computer Science",
-    requestedBy: "Dr. Robert Williams",
+    requestedBy: "Dr. Abdullah Al-Rashid",
     amount: 250000,
     status: "Pending",
     priority: "High",
@@ -83,7 +83,7 @@ const approvalRequests = [
     type: "Event Approval",
     title: "Tech Symposium 2024",
     department: "Computer Science",
-    requestedBy: "Dr. Lisa Anderson",
+    requestedBy: "Dr. Aisha Al-Hassan",
     amount: 50000,
     status: "Pending",
     priority: "Medium",
@@ -101,7 +101,7 @@ const approvalRequests = [
     type: "Accreditation Documentation",
     title: "ETEC Annual Report Submission",
     department: "Quality Assurance",
-    requestedBy: "Dr. James Wilson",
+    requestedBy: "Dr. Omar Al-Mutairi",
     amount: 0,
     status: "Pending",
     priority: "High",

@@ -20,7 +20,7 @@ const assessments = [
     score: 92,
     findings: 2,
     recommendations: 1,
-    lead: 'Priya Sharma',
+    lead: 'Noura Al-Zahra',
     report: 'QA001_Report.pdf'
   },
   {
@@ -32,7 +32,7 @@ const assessments = [
     score: 78,
     findings: 4,
     recommendations: 3,
-    lead: 'Rajesh Kumar',
+    lead: 'Khalid Al-Sayed',
     report: null
   },
   {
@@ -44,7 +44,7 @@ const assessments = [
     score: null,
     findings: null,
     recommendations: null,
-    lead: 'Neha Gupta',
+    lead: 'Aisha Al-Hassan',
     report: null
   },
   {
@@ -56,7 +56,7 @@ const assessments = [
     score: 88,
     findings: 1,
     recommendations: 0,
-    lead: 'Amit Patel',
+    lead: 'Omar Al-Mutairi',
     report: 'QA004_Report.pdf'
   }
 ];

@@ -15,14 +15,14 @@ import {
 const initialTrainers = [
   {
     id: 1,
-    name: "Dr. Sarah Johnson",
+    name: "Dr. Noura Al-Zahra",
     role: "Senior Trainer",
     expertise: ["CRM", "Policy", "Document Verification"],
     rating: 4.8,
     sessions: 45,
     availability: "Full-time",
     contact: {
-      email: "sarah.johnson@example.com",
+      email: "noura.zahra@example.com",
       phone: "+1 (555) 123-4567"
     },
     upcomingSessions: [

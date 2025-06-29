@@ -218,9 +218,9 @@ const BulkActions = ({ selectedLeads, onClearSelection }) => {
                 onChange={(e) => handleAssign(e.target.value)}
               >
                 <option value="">Select an officer</option>
-                <option value="1">Sarah Johnson</option>
-                <option value="2">Michael Chen</option>
-                <option value="3">Emily Davis</option>
+                <option value="1">Noura Al-Zahra</option>
+                <option value="2">Khalid Al-Sayed</option>
+                <option value="3">Layla Al-Mansour</option>
               </select>
             </div>
             <div className="flex justify-end">

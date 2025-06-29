@@ -86,9 +86,9 @@ const SUBCATEGORY_MAP = {
 const PRIORITY_OPTIONS = ["Low", "Medium", "High", "Urgent"];
 
 const DEMO_USER = {
-  name: "Rohit Sharma",
-  role: "Marketing Head",
-  email: "rohit.sharma@univ.edu",
+  name: "Khalid Al-Sayed",
+  role: "Digital Marketing Specialist",
+  email: "khalid.alsayed@mbsc.edu.sa",
   phone: "+1-234-567-8901",
 };
 
@@ -107,7 +107,7 @@ const DEMO_TICKETS = [
     expectedResolution: "2024-07-01",
     comments: [
       { user: "IT Support", text: "We are looking into this.", date: "2024-06-30" },
-      { user: "Rohit Sharma", text: "Please resolve ASAP.", date: "2024-06-30" },
+      { user: "Khalid Al-Sayed", text: "Please resolve ASAP.", date: "2024-06-30" },
     ],
     feedback: null,
   },

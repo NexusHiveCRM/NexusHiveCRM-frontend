@@ -13,10 +13,10 @@ const risks = [
     id: 'RISK001',
     title: 'Document Verification Delay',
     category: 'Operational',
-    severity: 'High',
+    severity: 'Medium',
     status: 'Active',
-    mitigation: 'Automated verification system in progress',
-    owner: 'Priya Sharma',
+    mitigation: 'Automated verification system',
+    owner: 'Noura Al-Zahra',
     dueDate: '2024-08-15'
   },
   {
@@ -26,17 +26,17 @@ const risks = [
     severity: 'Medium',
     status: 'Mitigated',
     mitigation: 'Updated policy and staff training completed',
-    owner: 'Neha Gupta',
+    owner: 'Aisha Al-Hassan',
     dueDate: '2024-07-20'
   },
   {
     id: 'RISK003',
     title: 'Data Privacy Breach',
-    category: 'Security',
-    severity: 'Critical',
-    status: 'Active',
-    mitigation: 'Enhanced encryption and access controls',
-    owner: 'Suresh Verma',
+    category: 'Compliance',
+    severity: 'High',
+    status: 'Mitigated',
+    mitigation: 'Enhanced security protocols',
+    owner: 'Khalid Al-Sayed',
     dueDate: '2024-08-30'
   },
   {
@@ -46,7 +46,7 @@ const risks = [
     severity: 'Low',
     status: 'Mitigated',
     mitigation: 'Training sessions scheduled',
-    owner: 'Rajesh Kumar',
+    owner: 'Omar Al-Mutairi',
     dueDate: '2024-07-10'
   }
 ];

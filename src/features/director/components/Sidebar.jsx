@@ -43,19 +43,19 @@ export default function Sidebar({ features, userLabel, expanded, setExpanded }) 
     >
       {/* Fixed Logo at Top */}
       <div className="flex items-center justify-center py-6 px-2">
-        <img
-          src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-Logo.png"
-          alt="Logo"
-          className={`transition-all duration-300 ${expanded ? 'w-12 h-12' : 'w-10 h-10'} block dark:hidden`}
-        />
-        <img
-          src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/NexusHiveCRM/NexusHive-darktheme-logo.png"
-          alt="Logo Dark"
-          className={`transition-all duration-300 ${expanded ? 'w-12 h-12' : 'w-10 h-10'} hidden dark:block`}
-        />
-        {expanded && (
-          <span className="ml-3 text-2xl font-bold tracking-wide">{userLabel}</span>
-        )}
+        <button
+          onClick={() => navigate('/university-info')}
+          className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+        >
+          <img
+            src="https://lms-frontend-resources.s3.ap-south-1.amazonaws.com/college1/collage1.png"
+            alt="MBSC Logo"
+            className={`transition-all duration-300 ${expanded ? 'w-12 h-12' : 'w-10 h-10'}`}
+          />
+          {expanded && (
+            <span className="ml-3 text-2xl font-bold tracking-wide">{userLabel}</span>
+          )}
+        </button>
       </div>
 
       {/* Scrollable Navigation */}

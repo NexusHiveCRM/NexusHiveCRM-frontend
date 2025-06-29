@@ -10,64 +10,57 @@ const LeadOverviewPanel = ({ filters, setFilters }) => {
   const leads = [
     {
       id: 1,
-      name: "Rajesh Kumar",
-      applicationId: "APP001",
-      program: "B.Tech Computer Science",
-      status: "Follow-up",
-      lastInteraction: "2024-03-15",
-      source: "Website",
-      assignedTo: "Amit Sharma"
+      name: "Abdullah Al-Rashid",
+      email: "abdullah.rashid@example.com",
+      phone: "+966 50 123 4567",
+      program: "MBA",
+      status: "Active",
+      assignedTo: "Noura Al-Zahra",
+      lastContact: "2024-03-15",
+      notes: "Interested in full-time program"
     },
     {
       id: 2,
       name: "Mohammed Al-Saud",
-      applicationId: "APP002",
-      program: "MBA",
-      status: "Hot",
-      lastInteraction: "2024-03-14",
-      source: "Walk-in",
-      assignedTo: "Priya Patel"
+      email: "mohammed.alsaud@example.com",
+      phone: "+966 50 234 5678",
+      program: "B.Tech Computer Science",
+      status: "Pending",
+      assignedTo: "Khalid Al-Sayed",
+      lastContact: "2024-03-10",
+      notes: "Waiting for document verification"
     },
     {
       id: 3,
-      name: "Sarah Johnson",
-      applicationId: "APP003",
-      program: "B.Tech Mechanical",
-      status: "New",
-      lastInteraction: "2024-03-16",
-      source: "Campaign",
-      assignedTo: "Rahul Verma"
+      name: "Layla Al-Mansour",
+      email: "layla.mansour@example.com",
+      phone: "+966 50 345 6789",
+      program: "MBA",
+      status: "Active",
+      assignedTo: "Aisha Al-Hassan",
+      lastContact: "2024-03-12",
+      notes: "Scheduled for interview"
     },
     {
       id: 4,
       name: "Fatima Al-Rashid",
-      applicationId: "APP004",
-      program: "B.Tech Civil",
-      status: "Follow-up",
-      lastInteraction: "2024-03-13",
-      source: "Website",
-      assignedTo: "Megha Sharma"
-    },
-    {
-      id: 5,
-      name: "Arjun Singh",
-      applicationId: "APP005",
-      program: "MBA",
-      status: "Hot",
-      lastInteraction: "2024-03-15",
-      source: "Referral",
-      assignedTo: "Amit Sharma"
+      email: "fatima.rashid@example.com",
+      phone: "+966 50 456 7890",
+      program: "B.Tech Mechanical",
+      status: "Inactive",
+      assignedTo: "Omar Al-Mutairi",
+      lastContact: "2024-03-08",
+      notes: "No response after initial contact"
     }
   ];
 
   const leadStages = ['New', 'Follow-up', 'Hot', 'Cold'];
   const counselors = [
-    'Amit Sharma',
-    'Priya Patel',
-    'Rahul Verma',
-    'Megha Sharma',
-    'Abdullah Al-Mansour',
-    'Michael Thompson'
+    'Noura Al-Zahra',
+    'Khalid Al-Sayed',
+    'Aisha Al-Hassan',
+    'Omar Al-Mutairi',
+    'Fatima Al-Rashid'
   ];
   const sources = ['Website', 'Walk-in', 'Campaign', 'Referral'];
 
@@ -193,7 +186,7 @@ const LeadOverviewPanel = ({ filters, setFilters }) => {
                 <tr key={lead.id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900 dark:text-white">{lead.name}</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">{lead.applicationId}</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">{lead.email} | {lead.phone}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                     {lead.program}
@@ -208,10 +201,10 @@ const LeadOverviewPanel = ({ filters, setFilters }) => {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                    {lead.lastInteraction}
+                    {lead.lastContact}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                    {lead.source}
+                    {lead.notes}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                     {lead.assignedTo}

@@ -13,43 +13,55 @@ const ConflictResolutionPanel = () => {
   const conflicts = [
     {
       id: 1,
-      leadName: "Rajesh Kumar",
+      leadName: "Abdullah Al-Rashid",
       applicationId: "APP001",
       program: "B.Tech Computer Science",
-      currentOwners: ["Amit Sharma", "Megha Sharma"],
+      currentOwners: ["Noura Al-Zahra", "Khalid Al-Sayed"],
       lastInteraction: "2024-03-15",
       daysSinceLastInteraction: 5,
-      conflictType: "duplicate_ownership"
+      conflictType: "Duplicate Entry",
+      currentOwner: "Noura Al-Zahra",
+      conflictingOwner: "Khalid Al-Sayed",
+      conflictDate: "2024-06-10",
+      resolution: "Pending"
     },
     {
       id: 2,
       leadName: "Mohammed Al-Saud",
       applicationId: "APP002",
       program: "MBA",
-      currentOwner: "Priya Patel",
+      currentOwner: "Noura Al-Zahra",
       lastInteraction: "2024-03-10",
       daysSinceLastInteraction: 10,
-      conflictType: "inactive_lead"
+      conflictType: "Territory Overlap",
+      conflictingOwner: "Layla Al-Mansour",
+      conflictDate: "2024-06-09",
+      resolution: "Resolved"
     },
     {
       id: 3,
-      leadName: "Sarah Johnson",
+      leadName: "Layla Al-Mansour",
       applicationId: "APP003",
       program: "B.Tech Mechanical",
-      currentOwners: ["Michael Thompson", "Rahul Verma"],
+      currentOwners: ["Noura Al-Zahra", "Khalid Al-Sayed"],
       lastInteraction: "2024-03-12",
       daysSinceLastInteraction: 8,
-      conflictType: "duplicate_ownership"
+      conflictType: "Multiple Assignments",
+      conflictDate: "2024-06-08",
+      resolution: "Pending"
     },
     {
       id: 4,
       leadName: "Fatima Al-Rashid",
       applicationId: "APP004",
       program: "B.Tech Civil",
-      currentOwner: "Abdullah Al-Mansour",
+      currentOwner: "Aisha Al-Hassan",
       lastInteraction: "2024-03-08",
       daysSinceLastInteraction: 12,
-      conflictType: "inactive_lead"
+      conflictType: "Duplicate Entry",
+      conflictingOwner: "Omar Al-Mutairi",
+      conflictDate: "2024-06-07",
+      resolution: "Resolved"
     }
   ];
 
@@ -81,7 +93,7 @@ const ConflictResolutionPanel = () => {
                 <div className="flex-1">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      {conflict.conflictType === 'duplicate_ownership' ? (
+                      {conflict.conflictType === 'Duplicate Entry' ? (
                         <FiUser className="h-5 w-5 text-yellow-400" />
                       ) : (
                         <FiClock className="h-5 w-5 text-red-400" />
@@ -98,9 +110,9 @@ const ConflictResolutionPanel = () => {
                   </div>
 
                   <div className="mt-2">
-                    {conflict.conflictType === 'duplicate_ownership' ? (
+                    {conflict.conflictType === 'Duplicate Entry' ? (
                       <div className="text-sm text-gray-500 dark:text-gray-400">
-                        Multiple owners: {conflict.currentOwners.join(', ')}
+                        Conflicting owners: {conflict.conflictingOwner}
                       </div>
                     ) : (
                       <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -121,7 +133,7 @@ const ConflictResolutionPanel = () => {
                           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         >
                           <option value="">Select action...</option>
-                          {conflict.conflictType === 'duplicate_ownership' ? (
+                          {conflict.conflictType === 'Duplicate Entry' ? (
                             <>
                               <option value="assign_primary">Assign Primary Owner</option>
                               <option value="split_responsibility">Split Responsibility</option>
